@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Alternative implements Iterable<Feedback>{
+public class Alternative{
 	String description;
 	ArrayList<Feedback> feedback = new ArrayList<>();
 	ArrayList<Approval> approvals = new ArrayList<>();;
@@ -55,10 +55,5 @@ public class Alternative implements Iterable<Feedback>{
 	//getters and setters for the disapprovals
 	public ArrayList<Disapprovals> getDisapprovals(){return disapprovals;}
 	public void setDisapprovals(ArrayList<Disapprovals> disapprovals) {this.disapprovals = disapprovals;}
-	
-	@Override
-	public Iterator<Feedback> iterator(){
-		return feedback.iterator();
-	}
 
 }
