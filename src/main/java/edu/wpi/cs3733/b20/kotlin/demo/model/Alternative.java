@@ -10,27 +10,32 @@ public class Alternative implements Iterable<Feedback>{
 	ArrayList<Approval> approvals = new ArrayList<>();;
 	ArrayList<Disapproval> disapprovals = new ArrayList<>();
 	
+	
 	public Alternative(String description) {
 		this.description = description;
-		
 	}
 	
+	//add Feedback to an alternative
 	public void addFeedback(Feedback f) {
 		feedback.add(f);
 	}
 	
+	//add approval to an alternative
 	public void addApproval(Approval a) {
 		approvals.add(a);
 	}
 	
+	//remove an approval to an alternative
 	public void removeApproval(Approval a) {
 		approvals.remove(a);
 	}
 	
+	//add disapproval to an alternative
 	public void addDisapproval(Disapproval d) {
 		disapprovals.add(d);
 	}
 	
+	//remove a disapproval from an alternative
 	public void removeDisapproval(Disapproval d) {
 		disapprovals.remove(d);
 	}
