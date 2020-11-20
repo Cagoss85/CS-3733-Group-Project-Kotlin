@@ -17,6 +17,7 @@ public class Choice {
 		this.maxUsers = maxUsers;
 		this.timeCreated = System.currentTimeMillis();
 		}
+	checkUserPassword(User user, )
 	
 
 }
