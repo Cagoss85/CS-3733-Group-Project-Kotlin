@@ -30,25 +30,26 @@ public class UsersDAO {
 			
 			//if user is already in database
 			while(resultSet.next()) {
-				User foundUser = generateUser(resultSet);
+				//User foundUser = generateUser(resultSet);
 				resultSet.close();
 				return false;
 			}
 			
 			if(user.isHasPassword()) {   //user has password to insert into table
-				ps = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username, hasPassword) values (?,?,?);");
-				ps.setString(1, user.getChoiceUUID());
-				ps.setString(2, user.getUsername());
-				ps.setBoolean(3, false);
-				ps.executeUpdate();
+				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username, hasPassword) values (?,?,?);");
+				ps2.setString(1, user.getChoiceUUID());
+				ps2.setString(2, user.getUsername());
+				ps2.setBoolean(3, false);
+				ps2.executeUpdate();
 			} else {    //user doesn't have password
-				ps = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username, hasPassword, password) values (?,?,?,?);");
-				ps.setString(1, user.getChoiceUUID());
-				ps.setString(2, user.getUsername());
-				ps.setBoolean(3, true);
-				ps.setString(4, user.getPassword());
-				ps.executeUpdate();
+				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username, hasPassword, password) values (?,?,?,?);");
+				ps2.setString(1, user.getChoiceUUID());
+				ps2.setString(2, user.getUsername());
+				ps2.setBoolean(3, true);
+				ps2.setString(4, user.getPassword());
+				ps2.executeUpdate();
 			}
+			
 			
 			return true;
 			
@@ -56,6 +57,16 @@ public class UsersDAO {
 			throw new Exception("Failed to insert user: " + e.getMessage());
 		}
 	}
+	
+	public User getUser(String choiceUUID, String username) throws Exception{
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed in getting user: " + e.getMessage());
+		}
+	}
+	
 	
 	private User generateUser(ResultSet resultSet) throws Exception{
 		String choiceUUID = resultSet.getString("choiceUUID");
@@ -70,5 +81,6 @@ public class UsersDAO {
 		}
 		
 	}
+	
 
 }
