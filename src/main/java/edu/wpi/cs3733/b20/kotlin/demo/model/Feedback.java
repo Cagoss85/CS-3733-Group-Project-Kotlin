@@ -6,9 +6,10 @@ public class Feedback {
 	long timestamp;
 	String text;
 	
-	public Feedback (User user, long timestamp, String text) {
+	//UML said to input time but that seems wrong
+	public Feedback (User user, String text) {
 		this.user = user;
-		this.timestamp = timestamp;
+		this.timestamp = System.currentTimeMillis();
 		this.text = text;
 	}
 	
