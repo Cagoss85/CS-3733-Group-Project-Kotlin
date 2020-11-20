@@ -5,10 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Alternative{
-	String description;
-	ArrayList<Feedback> feedback = new ArrayList<>();
-	ArrayList<Approval> approvals = new ArrayList<>();;
-	ArrayList<Disapproval> disapprovals = new ArrayList<>();
+	public String description;
+	public ArrayList<Feedback> feedback = new ArrayList<>();
+	public ArrayList<Approval> approvals = new ArrayList<>();;
+	public ArrayList<Disapproval> disapprovals = new ArrayList<>();
 	
 	
 	public Alternative(String description) {
