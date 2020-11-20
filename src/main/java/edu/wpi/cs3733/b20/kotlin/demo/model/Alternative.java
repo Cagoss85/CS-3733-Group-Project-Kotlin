@@ -7,8 +7,8 @@ import java.util.List;
 public class Alternative{
 	public String description;
 	public ArrayList<Feedback> feedback = new ArrayList<>();
-	public ArrayList<Approval> approvals = new ArrayList<>();;
-	public ArrayList<Disapproval> disapprovals = new ArrayList<>();
+	public ArrayList<Approvals> approvals = new ArrayList<>();;
+	public ArrayList<Disapprovals> disapprovals = new ArrayList<>();
 	
 	
 	public Alternative(String description) {
@@ -21,22 +21,22 @@ public class Alternative{
 	}
 	
 	//add approval to an alternative
-	public void addApproval(Approval a) {
+	public void addApproval(Approvals a) {
 		approvals.add(a);
 	}
 	
 	//remove an approval to an alternative
-	public void removeApproval(Approval a) {
+	public void removeApproval(Approvals a) {
 		approvals.remove(a);
 	}
 	
 	//add disapproval to an alternative
-	public void addDisapproval(Disapproval d) {
+	public void addDisapproval(Disapprovals d) {
 		disapprovals.add(d);
 	}
 	
 	//remove a disapproval from an alternative
-	public void removeDisapproval(Disapproval d) {
+	public void removeDisapproval(Disapprovals d) {
 		disapprovals.remove(d);
 	}
 	
@@ -50,7 +50,7 @@ public class Alternative{
 	
 	//getters and setters for the approvals
 	public ArrayList<Approvals> getApprovals() {return approvals;}
-	public void setApprovals(ArrayList<Approval> approvals) {this.approvals = approvals;}
+	public void setApprovals(ArrayList<Approvals> approvals) {this.approvals = approvals;}
 	
 	//getters and setters for the disapprovals
 	public ArrayList<Disapprovals> getDisapprovals(){return disapprovals;}
