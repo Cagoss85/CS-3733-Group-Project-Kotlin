@@ -6,4 +6,8 @@ public class Approvals {
 	public Approvals (User user) {
 		this.user = user;
 	}
+	
+	public User getApproval() {
+		return this.user;
+	}
 }

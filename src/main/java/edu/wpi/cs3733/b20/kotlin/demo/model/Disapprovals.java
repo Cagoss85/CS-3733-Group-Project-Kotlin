@@ -6,4 +6,10 @@ public class Disapprovals {
 	public Disapprovals (User user) {
 		this.user = user;
 	}
+	
+	public User getDisapproval() {
+		return this.user;
+	}
+	
+
 }
