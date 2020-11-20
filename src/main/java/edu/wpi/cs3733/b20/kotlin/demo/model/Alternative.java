@@ -15,6 +15,10 @@ public class Alternative implements Iterable<Feedback>{
 		
 	}
 	
+	public void addFeedback(Feedback f) {
+		feedback.add(f);
+	}
+	
 	public void addApproval(Approval a) {
 		approvals.add(a);
 	}
