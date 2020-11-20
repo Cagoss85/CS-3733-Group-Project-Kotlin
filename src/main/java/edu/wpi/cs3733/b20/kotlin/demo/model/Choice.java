@@ -10,6 +10,7 @@ public class Choice {
 	int maxUsers;
 	String description;
 	long timeCreated;
+	ArrayList<User> users = new ArrayList<User>();
 	
 	Choice(String uuid,ArrayList<Alternative> alternatives, int maxUsers, String description){
 		this.uuid = uuid;
@@ -17,7 +18,13 @@ public class Choice {
 		this.maxUsers = maxUsers;
 		this.timeCreated = System.currentTimeMillis();
 		}
-	checkUserPassword(User user, )
+	boolean checkUserPassword(User user, String password) {
+		 return (user.getPassword().contentEquals(password));
+	}
+	boolean addUser(User user) {
+		return users.add(user);
+		
+	}
 	
 
 }
