@@ -60,6 +60,19 @@ public class UsersDAO {
 	
 	public User getUser(String choiceUUID, String username) throws Exception{
 		try {
+			User user = null;
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE choiceUUID=? AND username=?;");
+			ps.setString(1, choiceUUID);
+			ps.setString(2, username);
+			ResultSet resultSet = ps.executeQuery();
+			
+			while(resultSet.next()) {
+				user = generateUser(resultSet);
+			}
+			resultSet.close();
+			ps.close();
+			
+			return user;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
