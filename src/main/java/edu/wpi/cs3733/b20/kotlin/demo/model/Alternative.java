@@ -49,12 +49,12 @@ public class Alternative{
 	public void setFeedback(ArrayList<Feedback> feedback) {this.feedback = feedback;}
 	
 	//getters and setters for the approvals
-	public ArrayList<Approvals> getApprovals() {return approvals;}
+	public ArrayList<Approval> getApprovals() {return approvals;}
 	public void setApprovals(ArrayList<Approval> approvals) {this.approvals = approvals;}
 	
 	//getters and setters for the disapprovals
-	public ArrayList<Disapprovals> getDisapprovals(){return disapprovals;}
-	public void setDisapprovals(ArrayList<Disapprovals> disapprovals) {this.disapprovals = disapprovals;}
+	public ArrayList<Disapproval> getDisapprovals(){return disapprovals;}
+	public void setDisapprovals(ArrayList<Disapproval> disapprovals) {this.disapprovals = disapprovals;}
 
 
 }

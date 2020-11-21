@@ -15,10 +15,12 @@ public class Choice {
 		this.alternatives = alternatives;
 		this.maxUsers = maxUsers;
 		this.timeCreated = System.currentTimeMillis();
-		}
+	}
+	
 	boolean checkUserPassword(User user, String password) {
 		 return (user.getPassword().contentEquals(password));
 	}
+	
 	boolean addUser(User user) {
 		return users.add(user);
 		
