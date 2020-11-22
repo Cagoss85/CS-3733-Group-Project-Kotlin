@@ -1,0 +1,3 @@
+function processAuthenticateReponse(response){
+	//TODO
+}

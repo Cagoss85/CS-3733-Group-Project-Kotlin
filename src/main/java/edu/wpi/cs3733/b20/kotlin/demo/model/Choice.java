@@ -10,7 +10,7 @@ public class Choice {
 	long timeCreated;
 	ArrayList<User> users = new ArrayList<User>();
 	
-	Choice(String uuid,ArrayList<Alternative> alternatives, int maxUsers, String description){
+	public Choice(String uuid,ArrayList<Alternative> alternatives, int maxUsers, String description){
 		this.uuid = uuid;
 		this.alternatives = alternatives;
 		this.maxUsers = maxUsers;
