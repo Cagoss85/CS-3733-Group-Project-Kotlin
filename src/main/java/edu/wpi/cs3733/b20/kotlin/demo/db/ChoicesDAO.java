@@ -21,7 +21,7 @@ public class ChoicesDAO {
 	
 	public boolean addChoice(Choice choice) throws Exception{
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName1 + " (choiceUUID, description, maxUsers, timeCreated) values (?,?,?,?)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO" + tblName1 + "(choiceUUID, description, maxUsers, timeCreated) values (?,?,?,?);");
 			ps.setString(1, choice.getUuid());
 			ps.setString(2, choice.getDescription());
 			ps.setInt(3, choice.getMaxUsers());
@@ -33,7 +33,7 @@ public class ChoicesDAO {
 //			PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " +tblName2 + " (altID, choiceUUID, description) values (?,?,?)");
 			int i = 0;
 			for(Alternative a : choice.getAlternatives()) {
-				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " +tblName2 + " (altID, choiceUUID, description) values (?,?,?)");
+				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " +tblName2 + " (altID, choiceUUID, description) values (?,?,?);");
 				ps2.setInt(1,i);
 				ps2.setString(2, choice.getUuid());
 				ps2.setString(3, a.getDescription());
@@ -46,9 +46,5 @@ public class ChoicesDAO {
 			e.printStackTrace();
 			throw new Exception("Failed to insert choice: " + e.getMessage());
 		}
-		
 	}
-	
-	
-	
 }
