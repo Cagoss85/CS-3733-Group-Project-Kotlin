@@ -11,7 +11,6 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 
-
 paths:
   /choice:
     post:
@@ -52,6 +51,7 @@ paths:
             $ref: "#/definitions/GetChoiceResponse"
         400:
           description: "choice doesn't exist"
+          
   /alternative:
     get:
       operationId: "getAlternative"
@@ -93,6 +93,7 @@ paths:
           description: "user authentication failed, error message specifies"
           schema: 
             $ref: "#/definitions/AuthenticateUserResponse"
+            
   /feedback:
     post: 
       operationId: "leaveFeedback"
@@ -111,6 +112,7 @@ paths:
           description: "Feedback left successfully"
         400:
           description: "error"
+          
     get:
       operationId: "getFeedback"
       produces:
@@ -127,7 +129,8 @@ paths:
           schema:
             $ref: "#/definitions/GetFeedbackResponse"
         400:
-          description: "alternative doesn't exist"         
+          description: "alternative doesn't exist" 
+          
   /approval:  #called both when adding an approval and deleting an approval
     post:
       operationId: "leaveApproval"
@@ -146,6 +149,7 @@ paths:
           description: "Approval left or removed successfully"
         400:
           description: "error"
+          
   /disapproval:  #called both when adding an disapproval and deleting an disapproval
     post:
       operationId: "leaveDisapproval"
@@ -163,7 +167,8 @@ paths:
         200:
           description: "Disapproval left or removed successfully"
         400:
-          description: "error"        
+          description: "error"      
+          
   /complete:
     post:
       operationId: "completeChoice"
@@ -182,6 +187,7 @@ paths:
           description: "Proval left or removed successfully"
         400:
           description: "error"
+          
   /report:
     get:
       operationId: "getReport"
@@ -194,7 +200,6 @@ paths:
             $ref: "#/definitions/GetReportResponse"
         400:
           description: "no choices in the system" 
-  
 
 definitions:
   CreateChoiceRequest:
@@ -254,6 +259,7 @@ definitions:
         $ref: "#/definitions/Alternative"
       hasFinalChoice:
         type: "boolean"
+        
   GetAlternativeResponse:
     type: "object"
     required:
@@ -275,7 +281,8 @@ definitions:
       dissaprovalUserList:
         type: "array"
         items:
-          $ref: "#/definitions/User" 
+          $ref: "#/definitions/User"
+          
   AuthenticateUserResponse:
     type: "object"
     required:
@@ -315,6 +322,7 @@ definitions:
         type: "array"
         items:
           $ref: '#/definitions/Feedback'
+          
   LeaveApprovalRequest:
     type: "object"
     required:
@@ -334,7 +342,8 @@ definitions:
       alternativeNumber:
         type: "integer"
       user:
-        $ref: '#/definitions/User'      
+        $ref: '#/definitions/User'
+        
   CompleteChoiceRequest:
     type: "object"
     required:
@@ -342,6 +351,7 @@ definitions:
     properties:
       alternativeNumber:
         type: "integer"
+        
   GetReportResponse:
     type: "object"
     required:
@@ -392,16 +402,16 @@ definitions:
   User:
     type: "object"
     required:
+    - "choiceUUID"
     - "username"
     - "password"
-    - "hasPassword"
     properties:
+      choiceUUID:
+        type: "string"
       username:
         type: "string"
       password:
         type: "string"
-      hasPassword:
-        type: "boolean"
         
   Choice:
     type: "object"
@@ -419,8 +429,7 @@ definitions:
         type: "number"
       timeCompleted:
         type: "number"
-
-
+  
 # Added by API Auto Mocking Plugin
 host: virtserver.swaggerhub.com
 basePath: /Kotlin/KotlinAPIv1/1.0.0
