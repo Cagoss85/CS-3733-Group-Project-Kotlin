@@ -46,8 +46,24 @@ function handleCreateClick(e){
 		inputTooLong = false;
 	}
 	
+	var alt4NoAlt3;
+	if(form.alt4.value.length > 0 && form.alt3.value.length == 0){
+		alt4NoAlt3 = true;
+		alert("Error: You have given a fourth alternative without a third alternative!")
+	} else{
+		alt4NoAlt3 = false;
+	}
 	
-	if(usersNotANumber==false && descEmpty==false && alt1Empty==false && alt2Empty==false && inputTooLong==false){   //Proceed with constructing JSON output to send to back end
+	var alt5NoAlt3Or4;
+	if(form.alt5.value.length > 0 && (form.alt3.value.length == 0 || form.alt4.value.length == 0)){
+		alt5NoAlt3Or4 = true;
+		alert("Error: You have given a fifth alternative without a third or fourth alternative!")
+	} else{
+		alt5NoAlt3Or4 = false;
+	}
+	
+	if(usersNotANumber==false && descEmpty==false && alt1Empty==false && alt2Empty==false && inputTooLong==false
+	&& alt4NoAlt3 == false && alt5NoAlt3Or4 == false){   //Proceed with constructing JSON output to send to back end
 		
 		data["alternatives"] = [];
 		
@@ -89,7 +105,7 @@ function handleCreateClick(e){
 			if(xhr.readyState == XMLHttpRequest.done){
 				if(xhr.status == 200){
 					console.log ("XHR:" + xhr.responseText);
-					processCreateResponse(xhr.responseText);
+					processCreateChoiceResponse(xhr.responseText);
 				} else{
 					console.log("actual:" + xhr.responseText);
 					var js = JSON.parse(xhr.responseText);
@@ -97,7 +113,7 @@ function handleCreateClick(e){
 					alert (err);
 				}
 			} else{
-				processCreateResponse("N/A");
+				processCreateChoiceResponse("N/A");
 			}
 		}
 	}
