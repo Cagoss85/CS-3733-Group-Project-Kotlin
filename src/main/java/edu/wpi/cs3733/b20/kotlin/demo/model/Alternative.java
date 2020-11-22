@@ -10,6 +10,10 @@ public class Alternative{
 	public ArrayList<Approval> approvals = new ArrayList<>();;
 	public ArrayList<Disapproval> disapprovals = new ArrayList<>();
 	
+	//default constructor to make AWS happy
+	public Alternative() {
+		
+	}
 	
 	public Alternative(String description) {
 		this.description = description;
