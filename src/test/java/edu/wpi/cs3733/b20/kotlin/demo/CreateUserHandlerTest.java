@@ -71,6 +71,6 @@ public class CreateUserHandlerTest extends LambdaTest{
 		AuthenticateUserResponse userResponse3 = userHandler.handleRequest(userReq3, createContext("Adding user 3"));
 		assertEquals(200, userResponse3.statusCode);
 		
-		assertFalse(choiceReq.getUsers(), <GETMAXNUMUSERSFROMDATABASE>);
+		//assertFalse(3, <GETMAXNUMUSERSFROMDATABASE>);
 	}
 }
