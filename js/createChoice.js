@@ -1,5 +1,5 @@
 function processCreateChoiceReponse(response){
-	//TODO
+	console.log("result:" + result);
 }
 
 function handleCreateClick(e){
