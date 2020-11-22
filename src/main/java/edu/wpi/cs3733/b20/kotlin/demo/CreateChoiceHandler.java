@@ -7,8 +7,8 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-import edu.wpi.cs.heineman.demo.db.ConstantsDAO;
-import edu.wpi.cs.heineman.demo.model.Constant;
+
+import edu.wpi.cs3733.b20.kotlin.demo.db.ChoicesDAO;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceResponse;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Alternative;
@@ -18,16 +18,20 @@ import edu.wpi.cs3733.b20.kotlin.demo.model.Choice;
 public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,CreateChoiceResponse>{
 	LambdaLogger logger;
 	
-	boolean createChoice(ArrayList<Alternative> alternatives, int numUsers, String description) {
+	boolean createChoice(ArrayList<Alternative> alternatives, int numUsers, String description, String uuid) {
 		if (logger != null) { logger.log("in createChoice"); }
 		ChoicesDAO dao = new ChoicesDAO();
 		
-		String choiceUUID = UUID.randomUUID().toString();   //generating UUID for this choice
 		
-		Choice choice = new Choice(choiceUUID, alternatives, numUsers, description);
+		Choice choice = new Choice(uuid, alternatives, numUsers, description);
 		
-		return dao.addChoice(choice);
-		
+		try {
+			return dao.addChoice(choice);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	
@@ -35,13 +39,14 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 	public CreateChoiceResponse handleRequest(CreateChoiceRequest req, Context context) {
 		logger = context.getLogger();
 		logger.log(req.toString());
-		
-		CreateChoiceResponse response;
+		String choiceUUID = UUID.randomUUID().toString();   //generating UUID for this choice
+
+		CreateChoiceResponse response = null;
 		try {
-			if(createChoice(, req.users, req.description)) {
-				response = new CreateChoiceResponse();
+			if(createChoice(req.alternatives, req.users, req.description, choiceUUID)) {
+				response = new CreateChoiceResponse(choiceUUID);
 			} else {
-				response = new CreateChoiceResponse();  //specify 400 error
+				response = new CreateChoiceResponse(choiceUUID, "Choice creation failed");  //specify 400 error
 			}
 		} catch (Exception e) {
 			

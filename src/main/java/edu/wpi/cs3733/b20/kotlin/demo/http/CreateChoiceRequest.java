@@ -1,12 +1,13 @@
 package edu.wpi.cs3733.b20.kotlin.demo.http;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.wpi.cs3733.b20.kotlin.demo.model.Alternative;
 
 public class CreateChoiceRequest {
 	
-	public List<Alternative> alternatives;
+	public ArrayList<Alternative> alternatives;
 	public int users;
 	public String description;
 	
@@ -14,7 +15,7 @@ public class CreateChoiceRequest {
 		return alternatives;
 	}
 	
-	public void setAlternatives(List<Alternative> alternatives) {
+	public void setAlternatives(ArrayList<Alternative> alternatives) {
 		this.alternatives = alternatives;
 	}
 	
@@ -38,7 +39,7 @@ public class CreateChoiceRequest {
 		
 	}
 	
-	public CreateChoiceRequest(List<Alternative> alternatives, int users, String description) {
+	public CreateChoiceRequest(ArrayList<Alternative> alternatives, int users, String description) {
 		this.alternatives = alternatives;
 		this.users = users;
 		this.description = description;
