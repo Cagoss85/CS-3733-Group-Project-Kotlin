@@ -8,13 +8,35 @@
 <!-- ADD ADDITIONAL REFERENCES TO JAVASCRIPT FILES ONCE THEY'RE CREATED -->
 </head>
 <body>
-<h1>Welcome! Please create your choice by filling out the form below</h1>
+<h1>Welcome!</h1>
+<h2>Please create your choice by filling out the form below</h2>
 <form name="createChoiceForm" method="post">
-	<h2>Describe this choice:</h2>
-	<label for="choiceDesc">Choice Description</label>
-	<input type="text" id="choiceDesc" name="choiceDesc"><br><br>
+	<h3>Describe this choice</h3>
+	<label for="choiceDesc">Choice Description:</label><br>
+	<textarea id="choiceDesc" name="choiceDesc" rows="4" cols = "50"> </textarea> <br><br>
 	
+	<h3>Create 2-5 Alternatives</h3>
 	
+	<label for="alt1">Alternative 1:</label><br>
+	<textarea id="alt1" name="alt1" rows="3" cols = "50"> </textarea> <br><br>
+	
+	<label for="alt2">Alternative 2:</label><br>
+	<textarea id="alt2" name="alt2" rows="3" cols = "50"> </textarea> <br><br>
+	
+	<label for="alt3">Alternative 3 (optional):</label><br>
+	<textarea id="alt3" name="alt3" rows="3" cols = "50"> </textarea> <br><br>
+	
+	<label for="alt4">Alternative 4 (optional):</label><br>
+	<textarea id="alt4" name="alt4" rows="3" cols = "50"> </textarea> <br><br>
+	
+	<label for="alt5">Alternative 5 (optional):</label><br>
+	<textarea id="alt5" name="alt5" rows="3" cols = "50"> </textarea> <br><br>
+	
+	<h3>How many group members will participate?</h3>
+	<label for="numUsers">Participating Members:</label>
+	<input type="number" name="numUsers" id="numUsers"> <br> <br>
+	
+	<input type="button" id="createChoiceButton" value="Create Choice" onClick="JavaScript:handleCreateClick(this)">
 
 </form>
 </body>
