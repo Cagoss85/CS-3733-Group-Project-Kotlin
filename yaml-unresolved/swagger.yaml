@@ -34,6 +34,7 @@ paths:
           description: "choice creation failed"
           schema: 
             $ref: "#/definitions/CreateChoiceResponse"
+            
     get:
       operationId: "getChoice"
       produces:
@@ -242,8 +243,7 @@ definitions:
     - "alternatives"
     - "users"
     - "description"
-    - "finalChoice"
-    - "hasFinalChoice"
+    - "finalAlternative"
     properties:
       uniqueID:
         type: "string"
@@ -255,10 +255,8 @@ definitions:
         type: "integer"
       description: 
         type: "string"
-      finalChoice:
+      finalAlterntive:
         $ref: "#/definitions/Alternative"
-      hasFinalChoice:
-        type: "boolean"
         
   GetAlternativeResponse:
     type: "object"
