@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 import edu.wpi.cs3733.b20.kotlin.demo.model.User;
 
 public class UsersDAO {
-	
 	java.sql.Connection conn;
-	
 	final String tblName = "users";
 	
 	public UsersDAO() {
@@ -35,7 +33,7 @@ public class UsersDAO {
 				return false;
 			}
 			
-			if(user.isHasPassword()) {   //user has password to insert into table
+			if(user.getPassword() != null) {   //user has password to insert into table
 				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username, hasPassword) values (?,?,?);");
 				ps2.setString(1, user.getChoiceUUID());
 				ps2.setString(2, user.getUsername());
@@ -49,7 +47,6 @@ public class UsersDAO {
 				ps2.setString(4, user.getPassword());
 				ps2.executeUpdate();
 			}
-			
 			return true;
 			
 		} catch (Exception e) {

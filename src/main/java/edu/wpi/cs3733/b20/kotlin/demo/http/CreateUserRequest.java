@@ -1,18 +1,24 @@
 package edu.wpi.cs3733.b20.kotlin.demo.http;
 
 public class CreateUserRequest {
+	public String choiceUUID;
 	public String username;
 	public String password;
-	public boolean hasPassword;
-	
-	public CreateUserRequest(String username, String password, boolean hasPassword) {
+
+	public CreateUserRequest(String choiceUUID, String username, String password) {
+		this.choiceUUID = choiceUUID;
 		this.username = username;
 		this.password = password;
-		this.hasPassword = hasPassword;
 	}
 	
-	public CreateUserRequest(String username, boolean hasPassword) {
+	public CreateUserRequest(String choiceUUID, String username) {
+		this.choiceUUID = choiceUUID;
 		this.username = username;
-		this.hasPassword = hasPassword;
 	}
+
+	public String getPassword() {return password;}
+
+	public String getChoiceUUID() {return choiceUUID;}
+
+	public String getUsername() {return username;}
 }

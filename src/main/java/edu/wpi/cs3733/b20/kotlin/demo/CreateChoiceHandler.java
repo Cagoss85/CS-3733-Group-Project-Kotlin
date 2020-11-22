@@ -49,7 +49,6 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 		} catch (Exception e) {
 			
 		}
-		
 		return response;
 	}
 }
