@@ -50,7 +50,6 @@ public class UsersDAO {
 				ps2.executeUpdate();
 			}
 			
-			
 			return true;
 			
 		} catch (Exception e) {
@@ -80,7 +79,6 @@ public class UsersDAO {
 		}
 	}
 	
-	
 	private User generateUser(ResultSet resultSet) throws Exception{
 		String choiceUUID = resultSet.getString("choiceUUID");
 		String username = resultSet.getString("username");
@@ -92,8 +90,5 @@ public class UsersDAO {
 		} else {
 			return new User(choiceUUID, username);
 		}
-		
 	}
-	
-
 }

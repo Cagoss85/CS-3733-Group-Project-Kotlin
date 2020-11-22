@@ -1,7 +1,6 @@
 package edu.wpi.cs3733.b20.kotlin.demo.model;
 
 public class Disapproval {
-	
 	String choiceUUID;
 	User user;
 	
@@ -10,8 +9,5 @@ public class Disapproval {
 		this.user = user;
 	}
 	
-	public User getDisapproval() {
-		return this.user;
-	}
-	
+	public User getUser() {return this.user;}
 }

@@ -2,7 +2,6 @@ package edu.wpi.cs3733.b20.kotlin.demo.model;
 
 
 public class Feedback {
-	
 	String choiceUUID;
 	User user;
 	long timestamp;
@@ -12,9 +11,7 @@ public class Feedback {
 	public Feedback (String choiceUUID, User user, String text) {
 		this.choiceUUID = choiceUUID;
 		this.user = user;
-		this.timestamp = System.currentTimeMillis();
 		this.text = text;
+		this.timestamp = System.currentTimeMillis();
 	}
-	
-	
 }

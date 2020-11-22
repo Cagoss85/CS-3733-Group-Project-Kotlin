@@ -10,7 +10,5 @@ public class Approval {
 		this.user = user;
 	}
 	
-	public User getApproval() {
-		return this.user;
-	}
+	public User getUser() {return this.user;}
 }

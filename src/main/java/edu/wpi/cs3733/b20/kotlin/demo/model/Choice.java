@@ -24,48 +24,22 @@ public class Choice {
 	
 	boolean addUser(User user) {
 		return users.add(user);
-		
 	}
 
-	public String getUuid() {
-		return uuid;
-	}
+	public String getUuid() {return uuid;}
+	//public void setUuid(String uuid) {this.uuid = uuid;}
 
-	public String getDescription() {
-		return description;
-	}
+	public String getDescription() {return description;}
+	public void setDescription(String description) {this.description = description;}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	public int getMaxUsers() {return maxUsers;}
+	public void setMaxUsers(int maxUsers) {this.maxUsers = maxUsers;}
 
-	public int getMaxUsers() {
-		return maxUsers;
-	}
+	public long getTimeCreated() {return timeCreated;}
+	public void setTimeCreated(long timeCreated) {this.timeCreated = timeCreated;}
 
-	public void setMaxUsers(int maxUsers) {
-		this.maxUsers = maxUsers;
-	}
+	public ArrayList<Alternative> getAlternatives() {return alternatives;}
+	public void setAlternatives(ArrayList<Alternative> alternatives) {this.alternatives = alternatives;}
 
-	public long getTimeCreated() {
-		return timeCreated;
-	}
-
-	public void setTimeCreated(long timeCreated) {
-		this.timeCreated = timeCreated;
-	}
-
-	public ArrayList<Alternative> getAlternatives() {
-		return alternatives;
-	}
-
-	public void setAlternatives(ArrayList<Alternative> alternatives) {
-		this.alternatives = alternatives;
-	}
-
-//	public void setUuid(String uuid) {
-//		this.uuid = uuid;
-//	}
-	
 
 }

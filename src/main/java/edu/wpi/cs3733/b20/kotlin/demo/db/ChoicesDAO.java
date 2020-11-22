@@ -30,7 +30,7 @@ public class ChoicesDAO {
 			ps.executeUpdate();
 			ps.close();
 		
-//			PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " +tblName2 + " (altID, choiceUUID, description) values (?,?,?)");
+			//PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " +tblName2 + " (altID, choiceUUID, description) values (?,?,?)");
 			int i = 0;
 			for(Alternative a : choice.getAlternatives()) {
 				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " +tblName2 + " (altID, choiceUUID, description) values (?,?,?);");
@@ -42,7 +42,7 @@ public class ChoicesDAO {
 				i++;
 			}
 			return true;
-		}catch(Exception e){
+		} catch(Exception e){
 			e.printStackTrace();
 			throw new Exception("Failed to insert choice: " + e.getMessage());
 		}

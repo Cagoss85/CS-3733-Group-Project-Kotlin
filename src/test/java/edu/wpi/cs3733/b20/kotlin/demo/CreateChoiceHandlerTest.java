@@ -52,14 +52,14 @@ public class CreateChoiceHandlerTest extends LambdaTest{
     
     @Test
     public void testShouldBeBad() {
-    	ArrayList<Alternative> professors = new ArrayList<Alternative>();
-    	CreateChoiceRequest req = new CreateChoiceRequest(professors, 3, null);
+    	ArrayList<Alternative> colleges = new ArrayList<Alternative>();
+    	CreateChoiceRequest req = new CreateChoiceRequest(colleges, 9, null);
 
-		Alternative heineman = new Alternative("Heineman");
-		Alternative wong = new Alternative("Wong");
+		Alternative wpi = new Alternative("wpi");
+		Alternative rpi = new Alternative("rpi");
 		
-		professors.add(heineman);
-		professors.add(wong);
+		colleges.add(wpi);
+		colleges.add(rpi);
 		
 		CreateChoiceHandler handler = new CreateChoiceHandler();
 		
@@ -67,6 +67,7 @@ public class CreateChoiceHandlerTest extends LambdaTest{
 
 		assertEquals(400, response.statusCode);
     }
+    
     
     
     

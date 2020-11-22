@@ -20,5 +20,4 @@ public class CreateChoiceResponse {
 	public String toString() {
 		return "Response(" + statusCode + "," + error + "," + uniqueID + ")";
 	}
-
 }

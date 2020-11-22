@@ -1,7 +1,6 @@
 package edu.wpi.cs3733.b20.kotlin.demo.model;
 
 public class User {
-	
 	final String choiceUUID;
 	final String username;
 	final String password;
@@ -21,21 +20,12 @@ public class User {
 		this.hasPassword = false;
 	}
 	
-	public String getChoiceUUID() {
-		return choiceUUID;
-	}
+	public String getChoiceUUID() {return choiceUUID;}
 	
-	public String getUsername() {
-		return username;
-	}
+	public String getUsername() {return username;}
 	
-	public String getPassword() {
-		return password;
-	}
-	
-	public boolean isHasPassword() {
-		return hasPassword;
-	}
+	public String getPassword() {return password;}
+	public boolean isHasPassword() {return hasPassword;}
 	
 	public boolean equals(Object o) {
 		if (o==null) {

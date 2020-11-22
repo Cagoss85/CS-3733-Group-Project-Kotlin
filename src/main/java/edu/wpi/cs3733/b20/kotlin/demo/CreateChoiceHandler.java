@@ -32,7 +32,6 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 		return false;
 	}
 	
-	
 	@Override 
 	public CreateChoiceResponse handleRequest(CreateChoiceRequest req, Context context) {
 		logger = context.getLogger();

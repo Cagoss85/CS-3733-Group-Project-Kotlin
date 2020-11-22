@@ -55,6 +55,4 @@ public class Alternative{
 	//getters and setters for the disapprovals
 	public ArrayList<Disapproval> getDisapprovals(){return disapprovals;}
 	public void setDisapprovals(ArrayList<Disapproval> disapprovals) {this.disapprovals = disapprovals;}
-
-
 }
