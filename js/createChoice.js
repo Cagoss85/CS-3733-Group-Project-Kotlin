@@ -12,6 +12,14 @@ function handleCreateClick(e){
 		alert("Number of users must be a valid integer!");
 	}
 	
+	var descEmpty;
+	if(form.choiceDesc.value.length == 0){
+		descEmpty = true;
+		alert("You must provide a choice description!")
+	} else{
+		descEmpty = false;
+	}
+	
 	var alt1Empty;
 	if(form.alt1.value.length == 0){
 		alt1Empty = true;
@@ -23,13 +31,14 @@ function handleCreateClick(e){
 	var alt2Empty;
 	if(form.alt2.value.length == 0){
 		alt2Empty = true;
+		alert("You must provide a description for alternative 2!")
 	} else{
 		alt2Empty = false;
-		alert("You must provide a description for alternative 2!")
+		
 	}
 	
 	var inputTooLong;
-	if(form.description.value.length > 512 || form.alt1.value.length > 512 || form.alt2.value.length > 512 || form.alt3.value.length > 512
+	if(form.choiceDesc.value.length > 512 || form.alt1.value.length > 512 || form.alt2.value.length > 512 || form.alt3.value.length > 512
 	|| form.alt4.value.length > 512 || form.alt5.value.length > 512){
 		inputTooLong = true;
 		alert("Description fields are limited to 512 characters or less in length");
@@ -37,38 +46,39 @@ function handleCreateClick(e){
 		inputTooLong = false;
 	}
 	
-	if(usersNotANumber==false && alt1Empty==false && alt2Empty==false && inputTooLong==false){   //Proceed with constructing JSON output to send to back end
+	
+	if(usersNotANumber==false && descEmpty==false && alt1Empty==false && alt2Empty==false && inputTooLong==false){   //Proceed with constructing JSON output to send to back end
 		
-		var altArray;
+		data["alternatives"] = [];
+		
 		var alt1 = {"description":form.alt1.value};
-		altArray[1] = alt1;
+		data.alternatives[0] = alt1;
 		var alt2 = {"description":form.alt2.value};
-		altArray[2] = alt2;
+		data.alternatives[1] = alt2;
 		
 		var alt3; var alt4; var alt5;
 		
 		if(form.alt3.value.length > 0){
 			var alt3 = {"description":form.alt3.value};
-			altArray[3] = alt3;
+			data.alternatives[2] = alt3;
 		}
 		if(form.alt4.value.length > 0){
 			var alt4 = {"description":form.alt4.value};
-			altArray[4] = alt4;
+			data.alternatives[3] = alt4;
 		}
 		if(form.alt5.value.length > 0){
 			var alt5 = {"description":form.alt5.value};
-			arrayLength = 5;
-			altArray[5] = alt5;
+			data.alternatives[4] = alt5;
 		}
 		
-		data["alternatives"] = altArray;
+		
 		data["users"] = form.numUsers.value;
-		data["description"] = form.numUsers.value;
+		data["description"] = form.choiceDesc.value;
 		
 		var js = JSON.stringify(data);
 		console.log("JS:" + js);
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", create_url, true);
+		xhr.open("POST", createChoice_url, true);
 
 		// send the collected data as JSON
 		xhr.send(js);
@@ -76,7 +86,7 @@ function handleCreateClick(e){
 		xhr.onloadend = function (){
 			console.log(xhr);
 			console.log(xhr.request);
-			if(xhr.readyState == XMLHTTPRequest.done){
+			if(xhr.readyState == XMLHttpRequest.done){
 				if(xhr.status == 200){
 					console.log ("XHR:" + xhr.responseText);
 					processCreateResponse(xhr.responseText);
