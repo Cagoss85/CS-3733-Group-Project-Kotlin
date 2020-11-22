@@ -6,6 +6,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 
 import edu.wpi.cs3733.b20.kotlin.demo.db.UsersDAO;
 import edu.wpi.cs3733.b20.kotlin.demo.http.AuthenticateUserResponse;
+import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceResponse;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateUserRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.model.User;
 
@@ -52,11 +53,19 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 				if(createUser(req.getChoiceUUID(), req.getUsername(), req.getPassword())) {
 					response = new AuthenticateUserResponse(req.getUsername());
 				}
+				else {
+					System.out.println("Failed");
+					response = new AuthenticateUserResponse(req.getUsername(), "Choice creation failed");  //specify 400 error
+				}
 			}
 			//no password
 			else if(req.getPassword() == null) {
 				if(createUser(req.getChoiceUUID(), req.getUsername())) {
 					response = new AuthenticateUserResponse(req.getUsername());
+				}
+				else {
+					System.out.println("Failed");
+					response = new AuthenticateUserResponse(req.getUsername(), "Choice creation failed");  //specify 400 error
 				}
 			}
 		} catch (Exception e) {}

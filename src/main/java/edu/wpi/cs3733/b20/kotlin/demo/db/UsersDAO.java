@@ -33,18 +33,17 @@ public class UsersDAO {
 				return false;
 			}
 			
-			if(user.getPassword() != null) {   //user has password to insert into table
-				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username, hasPassword) values (?,?,?);");
+			
+			if(user.getPassword() == null) {   //user has no password to insert into table
+				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username) values (?,?);");
 				ps2.setString(1, user.getChoiceUUID());
 				ps2.setString(2, user.getUsername());
-				ps2.setBoolean(3, false);
 				ps2.executeUpdate();
-			} else {    //user doesn't have password
-				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username, hasPassword, password) values (?,?,?,?);");
+			} else {    //user has a password 
+				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username, password) values (?,?,?);");
 				ps2.setString(1, user.getChoiceUUID());
 				ps2.setString(2, user.getUsername());
-				ps2.setBoolean(3, true);
-				ps2.setString(4, user.getPassword());
+				ps2.setString(3, user.getPassword());
 				ps2.executeUpdate();
 			}
 			return true;
@@ -54,6 +53,7 @@ public class UsersDAO {
 		}
 	}
 	
+	/*
 	public User getUser(String choiceUUID, String username) throws Exception{
 		try {
 			User user = null;
@@ -76,16 +76,17 @@ public class UsersDAO {
 		}
 	}
 	
+	
 	private User generateUser(ResultSet resultSet) throws Exception{
 		String choiceUUID = resultSet.getString("choiceUUID");
 		String username = resultSet.getString("username");
-		boolean hasPassword = resultSet.getBoolean("hasPassword");
-		String password = "";
-		if (hasPassword) {
+		String password = " ";
+		if (password == " ") {
 			password = resultSet.getString("password");
 			return new User(choiceUUID, username, password);
 		} else {
 			return new User(choiceUUID, username);
 		}
 	}
+	*/
 }
