@@ -61,7 +61,7 @@ function handleCreateClick(e){
 			altArray[5] = alt5;
 		}
 		
-		data["alternatives"];
+		data["alternatives"] = altArray;
 		data["users"] = form.numUsers.value;
 		data["description"] = form.numUsers.value;
 		

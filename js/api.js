@@ -1,6 +1,6 @@
 // all access driven through BASE. Must end with a SLASH
 
-var base_url = "PLACEHOLDER___CHANGE LATER ONCE API IS DEPLOYED!!!";
+var base_url = "https://56kkh41t7g.execute-api.us-east-2.amazonaws.com/beta/";
 
 var createChoice_url = base_url + "choice";        //POST
 var authenticateUser_url = base_url + "user";      //POST
