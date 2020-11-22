@@ -18,13 +18,12 @@ import edu.wpi.cs3733.b20.kotlin.demo.model.Choice;
 public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,CreateChoiceResponse>{
 	LambdaLogger logger;
 	
-	boolean createChoice(ArrayList<Alternative> alternatives, int numUsers, String description, String uuid) {
+	boolean createChoice(String uuid, ArrayList<Alternative> alternatives, int numUsers, String description) {
 		if (logger != null) { logger.log("in createChoice"); }
+		
 		ChoicesDAO dao = new ChoicesDAO();
-		
-		
 		Choice choice = new Choice(uuid, alternatives, numUsers, description);
-		
+		System.out.println(description);
 		try {
 			return dao.addChoice(choice);
 		} catch (Exception e) {
@@ -43,9 +42,10 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 
 		CreateChoiceResponse response = null;
 		try {
-			if(createChoice(req.alternatives, req.users, req.description, choiceUUID)) {
+			if(createChoice(choiceUUID, req.alternatives, req.users, req.description)) {
 				response = new CreateChoiceResponse(choiceUUID);
 			} else {
+				System.out.println("Failed");
 				response = new CreateChoiceResponse(choiceUUID, "Choice creation failed");  //specify 400 error
 			}
 		} catch (Exception e) {

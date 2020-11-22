@@ -45,10 +45,9 @@ public class CreateChoiceHandlerTest extends LambdaTest{
 		
 		CreateChoiceHandler handler = new CreateChoiceHandler();
 		
-		CreateChoiceResponse response = handler.handleRequest(req, createContext("createChoice"));
+		CreateChoiceResponse response = handler.handleRequest(req, createContext("Handling a choice creation request"));
 
 		assertEquals(200, response.statusCode);
-		
     }
     
     
