@@ -23,7 +23,6 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 		
 		ChoicesDAO dao = new ChoicesDAO();
 		Choice choice = new Choice(uuid, alternatives, numUsers, description);
-		System.out.println(description);
 		try {
 			return dao.addChoice(choice);
 		} catch (Exception e) {

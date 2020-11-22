@@ -29,7 +29,7 @@ public class ChoicesDAO {
 			ps.setTimestamp(4,time);
 			ps.executeUpdate();
 			ps.close();
-			
+		
 //			PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " +tblName2 + " (altID, choiceUUID, description) values (?,?,?)");
 			int i = 0;
 			for(Alternative a : choice.getAlternatives()) {

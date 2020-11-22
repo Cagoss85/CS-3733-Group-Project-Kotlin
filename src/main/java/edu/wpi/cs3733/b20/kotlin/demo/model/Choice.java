@@ -15,6 +15,7 @@ public class Choice {
 		this.setAlternatives(alternatives);
 		this.setMaxUsers(maxUsers);
 		this.setTimeCreated(System.currentTimeMillis());
+		this.description = description;
 	}
 	
 	boolean checkUserPassword(User user, String password) {
