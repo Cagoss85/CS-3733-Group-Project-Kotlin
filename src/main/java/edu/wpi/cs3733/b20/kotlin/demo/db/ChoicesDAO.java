@@ -21,7 +21,7 @@ public class ChoicesDAO {
 	
 	public boolean addChoice(Choice choice) throws Exception{
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO" + tblName1 + "(choiceUUID, description, maxUsers, timeCreated) values (?,?,?,?);");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName1 + " (choiceUUID, description, maxUsers, timeCreated) values(?,?,?,?);");
 			ps.setString(1, choice.getUuid());
 			ps.setString(2, choice.getDescription());
 			ps.setInt(3, choice.getMaxUsers());
