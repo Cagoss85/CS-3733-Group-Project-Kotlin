@@ -50,6 +50,24 @@ public class CreateChoiceHandlerTest extends LambdaTest{
 		assertEquals(200, response.statusCode);
     }
     
+    @Test
+    public void testShouldBeBad() {
+    	ArrayList<Alternative> professors = new ArrayList<Alternative>();
+    	CreateChoiceRequest req = new CreateChoiceRequest(professors, 3, null);
+
+		Alternative heineman = new Alternative("Heineman");
+		Alternative wong = new Alternative("Wong");
+		
+		professors.add(heineman);
+		professors.add(wong);
+		
+		CreateChoiceHandler handler = new CreateChoiceHandler();
+		
+		CreateChoiceResponse response = handler.handleRequest(req, createContext("Handling a choice creation request"));
+
+		assertEquals(400, response.statusCode);
+    }
+    
     
     
     
