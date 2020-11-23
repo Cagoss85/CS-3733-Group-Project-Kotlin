@@ -57,34 +57,41 @@ public class ChoicesDAO {
         ps.setString(1,  uuid);
         ResultSet choiceSet = ps.executeQuery();
         //save choice info to memory.
-        String resultUuid = choiceSet.getString(1);
+        String resultUuid = choiceSet.getString("uuid");
         if(!uuid.equals(resultUuid)) {
         	throw new Exception("UUID Mismatch");
         }
-        String description = choiceSet.getString(2);
-        int maxUsers = choiceSet.getInt(3);
+        String description = choiceSet.getString("description");
+        int maxUsers = choiceSet.getInt("maxUsers");
+        
         
         // grab all alternatives with choice uuid and place them in an array
         ArrayList<Alternative> alternatives = new ArrayList<Alternative>();
-        // get all alternative rows with ChoiceUUID as out selected choice
+        // get all alternative rows with ChoiceUUID as our selected choice
         PreparedStatement ps2 = conn.prepareStatement("SELECT * FROM " + tblName1 + " WHERE choiceUUID=?;");
         ps.setString(1,  uuid);
         ResultSet alternativeSet = ps.executeQuery();
-                
-        choice = new Choice(uuid, null, 0, uuid);
-        
-       
-        
-        resultSet.close();
+        // iterate through all alternatives located from the database
+        while(alternativeSet.next()) {
+        	// create alternative w/ description from table
+        	Alternative alt = new Alternative(alternativeSet.getString("description"));
+        	// place alternative in correct index based on the altID
+        	alternatives.add(alternativeSet.getInt("altID")-1, alt);
+        }
+        // create new choice from our found values        
+        choice = new Choice(uuid, alternatives, maxUsers, description);
+              
+        // close no longer used items
+        choiceSet.close();
+        alternativeSet.close();
         ps.close();
+        ps2.close();
         } catch(Exception e) {
         	e.printStackTrace();
             throw new Exception("Failed in getting choice: " + e.getMessage());
         }
         
         return choice;
-	
-		
 	}
 	
 }

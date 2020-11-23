@@ -17,6 +17,9 @@ public class GetChoiceHandler implements RequestHandler<String,GetChoiceResponse
 		
 		try {
 			
+			return true;
+		}catch(Exception e) {
+			return false;
 		}
 		}
 	}
