@@ -6,11 +6,7 @@ function handleCreateClick(e){
 	var form = document.createChoiceForm;
 	
 	var data = {};   //variable to assemble our JSON object
-	
-	var usersNotANumber = isNaN(form.numUsers.value);
-	if(usersNotANumber){
-		alert("Number of users must be a valid integer!");
-	}
+
 	
 	var descEmpty;
 	if(form.choiceDesc.value.length == 0){
@@ -37,15 +33,6 @@ function handleCreateClick(e){
 		
 	}
 	
-	var inputTooLong;
-	if(form.choiceDesc.value.length > 512 || form.alt1.value.length > 512 || form.alt2.value.length > 512 || form.alt3.value.length > 512
-	|| form.alt4.value.length > 512 || form.alt5.value.length > 512){
-		inputTooLong = true;
-		alert("Description fields are limited to 512 characters or less in length");
-	} else{
-		inputTooLong = false;
-	}
-	
 	var alt4NoAlt3;
 	if(form.alt4.value.length > 0 && form.alt3.value.length == 0){
 		alt4NoAlt3 = true;
@@ -62,7 +49,24 @@ function handleCreateClick(e){
 		alt5NoAlt3Or4 = false;
 	}
 	
-	if(usersNotANumber==false && descEmpty==false && alt1Empty==false && alt2Empty==false && inputTooLong==false
+	var inputTooLong;
+	if(form.choiceDesc.value.length > 512 || form.alt1.value.length > 512 || form.alt2.value.length > 512 || form.alt3.value.length > 512
+	|| form.alt4.value.length > 512 || form.alt5.value.length > 512){
+		inputTooLong = true;
+		alert("Description fields are limited to 512 characters or less in length");
+	} else{
+		inputTooLong = false;
+	}
+		
+	var usersLessThan1;
+	if(form.numUsers.value < 1){
+		usersLessThan1 = true;
+		alert("Number of users must be at least 1!")
+	} else{
+		usersLessThan1 = false;
+	}
+	
+	if(usersLessThan1==false && descEmpty==false && alt1Empty==false && alt2Empty==false && inputTooLong==false
 	&& alt4NoAlt3 == false && alt5NoAlt3Or4 == false){   //Proceed with constructing JSON output to send to back end
 		
 		data["alternatives"] = [];
