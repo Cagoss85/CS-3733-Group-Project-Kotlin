@@ -1,5 +1,18 @@
+var username;    //GLOBAL USERNAME VARIABLE
+
 function processAuthenticateReponse(response){
-	//TODO
+	var responseObj = JSON.parse(response);
+	
+	username = response["username"];   //global username variable now set
+	
+	//hide login
+	document.getElementById("regTitle").style.display='none';
+	document.getElementById("regInst1").style.display='none';
+	document.getElementById("regInst2").style.display='none';
+	document.getElementById("userRegister").style.display='none';
+	
+	document.getElementById("tempMessage").innerHTML = "Your user has been successfully registered. Additional options for leaving feedback, approvals, and disapprovals will appear at this point in later project iterations.";
+	document.getElementById("tempMessage").style.display='block';
 }
 
 function handleRegisterClick(e){
