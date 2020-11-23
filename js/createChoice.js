@@ -1,5 +1,12 @@
-function processCreateChoiceReponse(response){
-	console.log("result:" + result);
+function processCreateChoiceResponse(response){
+	console.log("result:" + response);
+	
+	var responseObj = JSON.parse(response);
+	
+	var uuid = responseObj.uniqueID;
+	
+	window.location.href = '/html/getChoice.html?uuid=' + uuid; //relative to domain
+	
 }
 
 function handleCreateClick(e){
@@ -105,8 +112,7 @@ function handleCreateClick(e){
 		
 		xhr.onloadend = function (){
 			console.log(xhr);
-			console.log(xhr.request);
-			if(xhr.readyState == XMLHttpRequest.done){
+			if(xhr.readyState == XMLHttpRequest.DONE){
 				if(xhr.status == 200){
 					console.log ("XHR:" + xhr.responseText);
 					processCreateChoiceResponse(xhr.responseText);

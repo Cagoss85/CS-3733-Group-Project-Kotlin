@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Choice</title>
+<script type='text/javascript' src='../js/api.js'></script>
+<script type='text/javascript' src='../js/checkParam.js'></script>
+<script type='text/javascript' src='../js/getChoice.js'></script>
+<script type='text/javascript' src='../js/authenticateUser.js'></script>
+
+<script type="text/javascript">
+function initialize() {
+	
+	var hasParam = checkParam();
+	
+	if(hasParam){
+		getChoice();
+	} else{
+		alert("No valid uuid request. Did you follow a bad link?");
+	}
+}
+</script>
+</head>
+<body onload="initialize()">
+<b>This is your custom URL: </b><input id="customURL" readonly>
+<p>Share this with your team members!</p>
+
+<div id="choiceDescription"></div>
+
+<h2>Alternatives</h2>
+
+<p id="alt1"></p><br>
+<p id="alt2"></p><br>
+<p id="alt3"></p><br>
+<p id="alt4"></p><br>
+<p id="alt5"></p><br>
+
+
+</body>
+</html>
