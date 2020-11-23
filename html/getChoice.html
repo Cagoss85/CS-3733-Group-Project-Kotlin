@@ -34,6 +34,19 @@ function initialize() {
 <p id="alt4"></p><br>
 <p id="alt5"></p><br>
 
+<h2>Register with this choice</h2>
+<p>New users please register with a username. You may also specify a password if you wish.</p>
+<p>Returning users please enter the same username you used before, along with your password if you gave one.</p>
+<form name="userRegister" method="post">
+	<label for="username">Username:</label><br>
+	<input id="username" name="username"></input> <br><br>
+	
+	<label for="password">Password (optional):</label><br>
+	<input id="password" name="password"></input> <br><br>
+	
+	<input type="button" id="registerUserButton" value="Register" onClick="JavaScript:handleRegisterClick(this)">
+
+</form>
 
 </body>
 </html>
