@@ -16,6 +16,9 @@ public class CreateChoiceRequest {
 		this.description = description;
 	}
 	
+	public CreateChoiceRequest() {
+	}
+	
 	public List<Alternative> getAlternatives(){return alternatives;}
 	public void setAlternatives(ArrayList<Alternative> alternatives) {this.alternatives = alternatives;}
 	
@@ -24,9 +27,6 @@ public class CreateChoiceRequest {
 	
 	public String getDescription() {return description;}
 	public void setDescription(String description) {this.description = description;}
-	
-	public CreateChoiceRequest() {
-	}
 	
 	public String toString() {
 		return "CreateChoice(with array, " + users + "," + description + ")";
