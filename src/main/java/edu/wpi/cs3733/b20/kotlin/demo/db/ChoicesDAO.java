@@ -9,9 +9,9 @@ import edu.wpi.cs3733.b20.kotlin.demo.model.Alternative;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Choice;
 
 public class ChoicesDAO {
-	java.sql.Connection conn;
-	final String tblName1 = "choices";
-	final String tblName2 = "alternatives";
+	static java.sql.Connection conn;
+	final static String tblName1 = "choices";
+	final static String tblName2 = "alternatives";
 	
 	public ChoicesDAO() {
 		try {
@@ -49,7 +49,7 @@ public class ChoicesDAO {
 			throw new Exception("Failed to insert choice: " + e.getMessage());
 		}
 	}
-	public Choice getChoice(String uuid) throws Exception{
+	public static Choice getChoice(String uuid) throws Exception{
 		Choice choice = null;
 		try {
 		// search database for choice info
