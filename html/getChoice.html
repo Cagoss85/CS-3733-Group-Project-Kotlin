@@ -16,17 +16,18 @@ function initialize() {
 		getChoice();
 	} else{
 		alert("No valid uuid request. Did you follow a bad link?");
+		document.getElementById("alt1").innerHTML = "Alternatives not found.";
 	}
 }
 </script>
 </head>
 <body onload="initialize()">
-<b>This is your custom URL: </b><input id="customURL" readonly>
+<b>This is your custom URL: </b><input id="customURL" size="112" readonly>
 <p>Share this with your team members!</p>
 
 <div id="choiceDescription"></div>
 
-<h2>Alternatives</h2>
+<h2 id="altLabel">Alternatives</h2>
 
 <p id="alt1"></p><br>
 <p id="alt2"></p><br>
@@ -34,10 +35,10 @@ function initialize() {
 <p id="alt4"></p><br>
 <p id="alt5"></p><br>
 
-<h2>Register with this choice</h2>
-<p>New users please register with a username. You may also specify a password if you wish.</p>
-<p>Returning users please enter the same username you used before, along with your password if you gave one.</p>
-<form name="userRegister" method="post">
+<h2 id="regTitle" style="display:none">Register with this choice</h2>
+<p id="regInst1" style="display:none">New users please register with a username. You may also specify a password if you wish.</p>
+<p id="regInst2" style="display:none">Returning users please enter the same username you used before, along with your password if you gave one.</p>
+<form name="userRegister" method="post" style="display:none">
 	<label for="username">Username:</label><br>
 	<input id="username" name="username"></input> <br><br>
 	

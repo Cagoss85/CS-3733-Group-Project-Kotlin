@@ -37,7 +37,7 @@ function handleRegisterClick(e){
 				} else{
 					console.log("actual:" + xhr.responseText);
 					var js = JSON.parse(xhr.responseText);
-					var err = js["response"];
+					var err = js["error"];
 					alert (err);
 				}
 			} else{
