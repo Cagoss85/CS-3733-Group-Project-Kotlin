@@ -1,0 +1,435 @@
+swagger: '2.0'
+info:
+  description: KotlinAPI
+  version: 1.0.2
+  title: KotlinAPI
+  # put the contact info for your development or API team
+  contact:
+    email: gr-kotlinB2020@wpi.edu
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+
+paths:
+  /choice:
+    post:
+      operationId: "createChoice"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "CreateChoiceRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/CreateChoiceRequest"
+      responses:
+        200:
+          description: "choice properly created"
+          schema: 
+            $ref: "#/definitions/CreateChoiceResponse"
+        400:
+          description: "choice creation failed"
+          schema: 
+            $ref: "#/definitions/CreateChoiceResponse"
+    get:
+      operationId: "getChoice"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "uniqueID"
+        description: "unique ID of choice to get"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "choice found"
+          schema:
+            $ref: "#/definitions/GetChoiceResponse"
+        400:
+          description: "choice doesn't exist"
+  /alternative:
+    get:
+      operationId: "getAlternative"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "alternativeNumber"
+        description: "alternative number we want to retrieve"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "alternative found"
+          schema:
+            $ref: "#/definitions/GetAlternativeResponse"
+        400:
+          description: "alternative doesn't exist"
+  /user:
+    post: 
+      operationId: "authenticateUser"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "AuthenticateUserRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        200:
+          description: "user successfully added to the choice or successfully authenticated with prexisting registration"
+          schema: 
+            $ref: "#/definitions/AuthenticateUserResponse"
+        400:
+          description: "user authentication failed, error message specifies"
+          schema: 
+            $ref: "#/definitions/AuthenticateUserResponse"
+  /feedback:
+    post: 
+      operationId: "leaveFeedback"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "LeaveFeedbackRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/LeaveFeedbackRequest"
+      responses:
+        200:
+          description: "Feedback left successfully"
+        400:
+          description: "error"
+    get:
+      operationId: "getFeedback"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "alternativeNumber"
+        description: "alternative number we want feedback for"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: "feedback for alternative found"
+          schema:
+            $ref: "#/definitions/GetFeedbackResponse"
+        400:
+          description: "alternative doesn't exist"         
+  /approval:  #called both when adding an approval and deleting an approval
+    post:
+      operationId: "leaveApproval"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "LeaveApprovalRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/LeaveApprovalRequest"
+      responses:
+        200:
+          description: "Approval left or removed successfully"
+        400:
+          description: "error"
+  /disapproval:  #called both when adding an disapproval and deleting an disapproval
+    post:
+      operationId: "leaveDisapproval"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "LeaveDisapprovalRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/LeaveDisapprovalRequest"
+      responses:
+        200:
+          description: "Disapproval left or removed successfully"
+        400:
+          description: "error"        
+  /complete:
+    post:
+      operationId: "completeChoice"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "CompleteChoiceRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/CompleteChoiceRequest"
+      responses:
+        200:
+          description: "Proval left or removed successfully"
+        400:
+          description: "error"
+  /report:
+    get:
+      operationId: "getReport"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "report generated"
+          schema:
+            $ref: "#/definitions/GetReportResponse"
+        400:
+          description: "no choices in the system" 
+  
+
+definitions:
+  CreateChoiceRequest:
+    type: "object"
+    required:
+    - "alternatives"
+    - "users"
+    - "description"
+    properties:
+      alternatives:
+        type: "array"
+        items: 
+          $ref: "#/definitions/Alternative" 
+      users:
+        type: "integer"
+      description: 
+        type: "string"
+        
+  CreateChoiceResponse:
+    type: "object"
+    required:
+    - "statusCode"
+    - "error"
+    - "uniqueID"
+    properties:
+      statusCode:
+        type: "integer"
+      error:
+        type: "string"
+      uniqueID: 
+        type: "string"
+        
+  GetChoiceResponse:
+    type: "object"
+    required:
+    - "uniqueID"
+    - "alternatives"
+    - "maxUsers"
+    - "description"
+    - "finalAlternative"
+    properties:
+      uniqueID:
+        type: "string"
+      alternatives:
+        type: "array"
+        items: 
+          $ref: "#/definitions/Alternative" 
+      maxUsers:
+        type: "integer"
+      description: 
+        type: "string"
+      finalAlternative:
+        $ref: "#/definitions/Alternative"
+  GetAlternativeResponse:
+    type: "object"
+    required:
+    - "description"
+    - "feedback"
+    - "approvalUserList"
+    - "dissaprovalUserList"
+    properties:
+      description:
+        type: "string"
+      feedback: 
+        type: "array"
+        items:
+          $ref: "#/definitions/Feedback" 
+      approvalUserList:
+        type: "array"
+        items:
+          $ref: "#/definitions/User"
+      dissaprovalUserList:
+        type: "array"
+        items:
+          $ref: "#/definitions/User" 
+  AuthenticateUserResponse:
+    type: "object"
+    required:
+    - "statusCode"
+    - "error"
+    - "username"
+    properties:
+      statusCode:
+        type: "integer"
+      error:
+        type: "string"
+      username:
+        type: "string"
+        
+  LeaveFeedbackRequest:
+    type: "object"
+    required:
+    - "uniqueID"
+    - "altnerativeNumber"
+    - "user"
+    - "text"
+    properties:
+      uniqueID:
+        type: "string"
+      alternativeNumber:
+        type: "integer"
+      user:
+        $ref: '#/definitions/User'
+      text:
+        type: "string"
+  GetFeedbackResponse:
+    type: "object"
+    required:
+    - "feedbackList"
+    properties:
+      feedbackList:
+        type: "array"
+        items:
+          $ref: '#/definitions/Feedback'
+  LeaveApprovalRequest:
+    type: "object"
+    required:
+    - "uniqueID"
+    - "alternativeNumber"
+    - "user"
+    properties:
+      uniqueID:
+        type: "string"
+      alternativeNumber:
+        type: "integer"
+      user:
+        $ref: '#/definitions/User'
+  LeaveDisapprovalRequest:
+    type: "object"
+    required:
+    - "uniqueID"
+    - "alternativeNumber"
+    - "user"
+    properties:
+      uniqueID:
+        type: "string"
+      alternativeNumber:
+        type: "integer"
+      user:
+        $ref: '#/definitions/User'      
+  CompleteChoiceRequest:
+    type: "object"
+    required:
+    - "uniqueID"
+    - "alternativeNumber"
+    properties:
+      uniqueID:
+        type: "string"
+      alternativeNumber:
+        type: "integer"
+  GetReportResponse:
+    type: "object"
+    required:
+    - "choiceReport"
+    properties:
+      choiceReport:
+        type: "array"
+        items:
+          $ref: '#/definitions/Choice'
+          
+  Alternative:
+    type: "object"
+    required:
+    - "description"
+    - "feedback"
+    - "approvalUserList"
+    - "dissaprovalUserList"
+    properties:
+      description:
+        type: "string"
+      feedback: 
+        type: "array"
+        items:
+          $ref: "#/definitions/Feedback" 
+      approvalUserList:
+        type: "array"
+        items:
+          $ref: "#/definitions/User"
+      dissaprovalUserList:
+        type: "array"
+        items:
+          $ref: "#/definitions/User"    
+          
+  Feedback:
+    type: "object"
+    required:
+    - "user"
+    - "timestamp"
+    - "text"
+    properties:
+      user:
+        $ref: "#/definitions/User" 
+      timestamp:
+        type: "number"
+      text:
+        type: "string"
+        
+  User:
+    type: "object"
+    required:
+    - "choiceUUID"
+    - "username"
+    - "password"
+    properties:
+      choiceUUID:
+        type: "string"
+      username:
+        type: "string"
+      password:
+        type: "string"
+        
+  Choice:
+    type: "object"
+    required:
+    - "uniqueID"
+    - "alternatives"
+    - "maxUsers"
+    - "timeCreated"
+    - "timeCompleted"
+    properties:
+      alternatives:
+        type: "array"
+        items:
+          $ref: '#/definitions/Alternative'
+      maxUsers:
+        type: "integer"
+      uniqueID:
+        type: "string"
+      timeCreated:
+        type: "number"
+      timeCompleted:
+        type: "number"
+
+
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /Kotlin/KotlinAPIv1/1.0.0
+schemes:
+ - https
