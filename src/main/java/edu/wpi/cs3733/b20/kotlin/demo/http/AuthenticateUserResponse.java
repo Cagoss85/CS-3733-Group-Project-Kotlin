@@ -1,9 +1,9 @@
 package edu.wpi.cs3733.b20.kotlin.demo.http;
 
 public class AuthenticateUserResponse {
-	public final int statusCode;
-	public final String error;
-	public final String username;
+	public int statusCode;
+	public String error;
+	public String username;
 	
 	public AuthenticateUserResponse(String username) {
 		this.username = username;
@@ -16,6 +16,18 @@ public class AuthenticateUserResponse {
 		this.error = error;
 		this.statusCode = 400;
 	}
+	
+	public AuthenticateUserResponse() {
+	}
+	
+	public int getStatusCode() {return this.statusCode;}
+	public void setStatusCode(int code) {this.statusCode = code;}
+	
+	public String getError() {return this.error;}
+	public void setError(String er) {this.error = er;}
+	
+	public String getUsername() {return username;}
+	public void setUsername(String username) {this.username = username;}
 	
 	public String toString() {
 		return "Response(" + statusCode + "," + error + "," + username + ")";

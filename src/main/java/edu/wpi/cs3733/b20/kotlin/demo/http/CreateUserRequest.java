@@ -15,10 +15,20 @@ public class CreateUserRequest {
 		this.choiceUUID = choiceUUID;
 		this.username = username;
 	}
-
-	public String getPassword() {return password;}
+	
+	public CreateUserRequest() {
+	}
 
 	public String getChoiceUUID() {return choiceUUID;}
+	public void setChoiceUUID(String id) {this.choiceUUID = id;}
 
 	public String getUsername() {return username;}
+	public void setUsername(String username) {this.username = username;}
+	
+	public String getPassword() {return password;}
+	public void setPassword(String password) {this.password = password;}
+	
+	public String toString() {
+			return "CreateUser(" + choiceUUID  + "," + username + "," + password + ")";
+	}
 }
