@@ -7,13 +7,11 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-
 import edu.wpi.cs3733.b20.kotlin.demo.db.ChoicesDAO;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceResponse;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Alternative;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Choice;
-
 
 public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,CreateChoiceResponse>{
 	LambdaLogger logger;
