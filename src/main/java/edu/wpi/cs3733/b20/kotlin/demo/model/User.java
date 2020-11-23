@@ -4,20 +4,17 @@ public class User {
 	final String choiceUUID;
 	final String username;
 	final String password;
-	final boolean hasPassword;
 	
 	public User(String choiceUUID, String username, String password) {  //constructor with password
 		this.choiceUUID = choiceUUID;
 		this.username = username;
 		this.password = password;
-		this.hasPassword = true;
 	}
 	
 	public User(String choiceUUID, String username) {   //constructor without password
 		this.choiceUUID = choiceUUID;
 		this.username = username;
 		this.password = null;
-		this.hasPassword = false;
 	}
 	
 	public String getChoiceUUID() {return choiceUUID;}
@@ -25,7 +22,6 @@ public class User {
 	public String getUsername() {return username;}
 	
 	public String getPassword() {return password;}
-	public boolean isHasPassword() {return hasPassword;}
 	
 	public boolean equals(Object o) {
 		if (o==null) {
@@ -40,11 +36,7 @@ public class User {
 	
 	public String toString() {
 		String outString = "";
-		if(hasPassword) {
-			outString = "Choice UUID: " + choiceUUID + " Username: " + username + " Password: " + password;
-		} else {
-			outString = "Choice UUID: " + choiceUUID + " Username: " + username + " No password.";
-		}
+		outString = "Choice UUID: " + choiceUUID + " Username: " + username + " No password.";
 		return outString;
 	}
 
