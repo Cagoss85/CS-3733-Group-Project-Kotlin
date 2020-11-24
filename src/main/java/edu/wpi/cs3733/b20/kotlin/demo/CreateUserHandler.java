@@ -68,8 +68,6 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 			String pw = dao.getUser(user).getPassword();
 			System.out.println("getPassword result is: " + pw);
 			return pw;
-			
-	
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new Exception("Failed to get password: " + e.getMessage());
@@ -88,7 +86,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 			throw new Exception("Failed to get space available: " + e.getMessage());
 		}
 	}
-
+	
 	@Override
 	public AuthenticateUserResponse handleRequest(CreateUserRequest req, Context context) {
 		logger = context.getLogger();
@@ -103,7 +101,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 					System.out.println("Database user has the password: " + getPassword(req.getChoiceUUID(), req.getUsername()));
 					System.out.println("The requested password is: " + req.getPassword());
 					
-					if(getPassword(req.getChoiceUUID(), req.getUsername()) == req.getPassword()) {
+					if(getPassword(req.getChoiceUUID(), req.getUsername()).equals(req.getPassword()) ) {
 						System.out.println("Passwords match, authentication granted");
 						response = new AuthenticateUserResponse(req.getUsername());
 					}
@@ -148,25 +146,3 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 		return response;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

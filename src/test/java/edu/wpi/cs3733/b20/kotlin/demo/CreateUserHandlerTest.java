@@ -17,13 +17,13 @@ public class CreateUserHandlerTest extends LambdaTest{
 	
 	@Test
 	public void testUserInput() {
-		CreateChoiceRequest choiceReq = new CreateChoiceRequest(new ArrayList<Alternative>(), 10, "Which team is better");
+		CreateChoiceRequest choiceReq = new CreateChoiceRequest(new ArrayList<Alternative>(), 5, "Which team is better");
 		choiceReq.getAlternatives().add(new Alternative("190"));
 		choiceReq.getAlternatives().add(new Alternative("Bert"));
 		choiceReq.getAlternatives().add(new Alternative("Not Caseys Team"));
 		
 		CreateChoiceHandler choiceHandler = new CreateChoiceHandler();
-		String sampleUUID = choiceHandler.handleRequest(choiceReq, createContext("Creating test choice")).uniqueID.toString();
+		String sampleUUID = choiceHandler.handleRequest(choiceReq, createContext("Creating test choice 1")).uniqueID.toString();
 		
 		CreateUserHandler userHandler = new CreateUserHandler();
 		
@@ -52,7 +52,6 @@ public class CreateUserHandlerTest extends LambdaTest{
 		AuthenticateUserResponse userResponse2a = userHandler.handleRequest(userReq2a, createContext("Authenticating user 2 (with password)"));
 		assertEquals(400, userResponse2a.statusCode);
 		
-		//NOT WORKING
 		System.out.println("ReDoing 1");
 		//Re-authenticate user 1
 		CreateUserRequest userReq3 = new CreateUserRequest(sampleUUID, "user1", "password");
@@ -75,11 +74,11 @@ public class CreateUserHandlerTest extends LambdaTest{
 		choiceReq.getAlternatives().add(new Alternative("TrainGame"));
 		
 		CreateChoiceHandler choiceHandler = new CreateChoiceHandler();
-		String sampleUUID = choiceHandler.handleRequest(choiceReq, createContext("Creating test choice")).uniqueID.toString();
+		String sampleUUID = choiceHandler.handleRequest(choiceReq, createContext("Creating test choice 2")).uniqueID.toString();
+		CreateUserHandler userHandler = new CreateUserHandler();
 		
 		//Add a user with a password
 		CreateUserRequest userReq1 = new CreateUserRequest(sampleUUID, "user1", "password1");
-		CreateUserHandler userHandler = new CreateUserHandler();
 		AuthenticateUserResponse userResponse1 = userHandler.handleRequest(userReq1, createContext("Authenticating user 1"));
 		assertEquals(200, userResponse1.statusCode);
 		
@@ -98,9 +97,9 @@ public class CreateUserHandlerTest extends LambdaTest{
 		AuthenticateUserResponse userResponse4 = userHandler.handleRequest(userReq4, createContext("Re-Authenticating user 2"));
 		assertEquals(200, userResponse4.statusCode);
 		
-		//assertFalse(3, <GETMAXNUMUSERSFROMDATABASE>);
+		//re-authenticate user 1
+		CreateUserRequest userReq1a = new CreateUserRequest(sampleUUID, "user1", "password1");
+		AuthenticateUserResponse userResponse1a = userHandler.handleRequest(userReq1a, createContext("Authenticating user 1"));
+		assertEquals(200, userResponse1a.statusCode);
 	}
-	
-	
-	
 }

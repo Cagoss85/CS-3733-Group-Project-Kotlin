@@ -83,7 +83,6 @@ public class UsersDAO {
 		}
 	}
 
-
 	public User getUser(User user) throws Exception {
 		try {
 			User sampleUser = null;
