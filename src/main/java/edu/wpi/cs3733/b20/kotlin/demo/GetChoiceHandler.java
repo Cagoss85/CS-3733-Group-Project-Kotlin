@@ -44,12 +44,12 @@ public class GetChoiceHandler implements RequestHandler<String,GetChoiceResponse
 				response = new GetChoiceResponse(choice.getUuid(), choice.getAlternatives(), choice.getMaxUsers(), choice.getDescription(), choice.finalAlternative);
 			}
 			else {
-				System.out.println("choice not found by method")
+				System.out.println("choice not found by method");
 				
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-			throw new Exception("failed to create response to get choice: " + e.getMessage());
+//			throw new Exception("failed to create response to get choice: " + e.getMessage());
 		}
 		return response;
 	}
