@@ -66,7 +66,9 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 		User user = new User(choiceUUID, username);
 		try {
 			String pw = dao.getUser(user).getPassword();
+			System.out.println("getPassword result is: " + pw);
 			return pw;
+			
 	
 		} catch(Exception e) {
 			e.printStackTrace();
