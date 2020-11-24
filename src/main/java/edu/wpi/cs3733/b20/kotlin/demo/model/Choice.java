@@ -5,16 +5,18 @@ import java.util.ArrayList;
 public class Choice {
 	private String uuid;
 	private ArrayList<Alternative> alternatives = new ArrayList<Alternative>();
+	ArrayList<User> users = new ArrayList<User>();
 	private int maxUsers;
 	private String description;
+	public Alternative finalAlternative;
 	private long timeCreated;
-	ArrayList<User> users = new ArrayList<User>();
+	
 	
 	public Choice(String uuid,ArrayList<Alternative> alternatives, int maxUsers, String description){
 		this.uuid= uuid;
-		this.setAlternatives(alternatives);
-		this.setMaxUsers(maxUsers);
-		this.setTimeCreated(System.currentTimeMillis());
+		this.alternatives = alternatives;
+		this.maxUsers = maxUsers;
+		this.timeCreated = System.currentTimeMillis();
 		this.description = description;
 	}
 	

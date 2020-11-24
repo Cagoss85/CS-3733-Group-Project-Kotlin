@@ -33,7 +33,6 @@ public class UsersDAO {
 				return false;
 			}
 			
-			
 			if(user.getPassword() == null) {   //user has no password to insert into table
 				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username) values (?,?);");
 				ps2.setString(1, user.getChoiceUUID());
@@ -75,7 +74,6 @@ public class UsersDAO {
 			throw new Exception("Failed in getting user: " + e.getMessage());
 		}
 	}
-	
 	
 	private User generateUser(ResultSet resultSet) throws Exception{
 		String choiceUUID = resultSet.getString("choiceUUID");
