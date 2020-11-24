@@ -20,7 +20,7 @@ public class GetChoiceHandlerTest extends LambdaTest{
 		
 		GetChoiceResponse response = handler.handleRequest(request, createContext("create"));
 		
-		Assert.assertEquals(200, response.statusCode);
+		Assert.assertEquals(200, response.httpStatus);
 	}
 
 }

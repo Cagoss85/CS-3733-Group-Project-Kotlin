@@ -11,7 +11,7 @@ public class GetChoiceResponse {
 	public final String description;
 	public final Alternative finalAlternative;
 	
-	public final int statusCode;
+	public final int httpStatus;
 	public final String error;
 	
 	public GetChoiceResponse(String uniqueID, ArrayList<Alternative> alternatives, int user, String description, Alternative finalAlternative2) {
@@ -21,7 +21,7 @@ public class GetChoiceResponse {
 		this.description = description;
 		this.finalAlternative = finalAlternative2;
 		this.error = "";
-		this.statusCode = 200;
+		this.httpStatus = 200;
 	}
 	public GetChoiceResponse(int statusCode, String errorMsg) {
 		
@@ -31,9 +31,9 @@ public class GetChoiceResponse {
 		this.alternatives = null;
 		this.finalAlternative = null;
 		this.error = errorMsg;
-		this.statusCode = statusCode;
+		this.httpStatus = statusCode;
 	}
 	public String toString() {
-		return "Response(" + statusCode + "," + error + "," + uniqueID + ")";
+		return "Response(" + httpStatus + "," + error + "," + uniqueID + ")";
 	}
 }

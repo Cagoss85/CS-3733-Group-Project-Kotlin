@@ -48,39 +48,46 @@ function processGetChoiceResponse(result){
 	
 	var js = JSON.parse(result);   //we now have our result
 	
-	document.getElementById("customURL").value = window.location.href;
+	if(js["httpStatus"] == "400"){
+		var err = js["error"];
+		alert (err);
+	} else{
+		document.getElementById("customURL").value = window.location.href;
 	
-	var choiceDescription = js["description"];
+		var choiceDescription = js["description"];
 	
-	document.getElementById("choiceDescription").innerHTML = choiceDescription;
+		document.getElementById("choiceDescription").innerHTML = choiceDescription;
 	
-	var alternatives = js["alternatives"];
+		var alternatives = js["alternatives"];
 	
-	var alt1Desc = alternatives[0]["description"];
-	document.getElementById("alt1").innerHTML = "Alternative 1: "+ alt1Desc;
+		var alt1Desc = alternatives[0]["description"];
+		document.getElementById("alt1").innerHTML = "Alternative 1: "+ alt1Desc;
 	
-	var alt2Desc = alternatives[1]["description"];
-	document.getElementById("alt2").innerHTML = "Alternative 2: "+ alt2Desc;
-	
-	if(alternatives.length > 2){
-		var alt3Desc = alternatives[2]["description"];
-		document.getElementById("alt3").innerHTML = "Alternative 3: " +alt3Desc;
-	}
-	
-	if(alternatives.length > 3){
-		var alt4Desc = alternatives[3]["description"];
-		document.getElementById("alt4").innerHTML = "Alternative 4: "+ alt4Desc;
-	}
-	
-	if(alternatives.length > 4){
-		var alt5Desc = alternatives[4]["description"];
-		document.getElementById("alt5").innerHTML = "Alternative 5: "+ alt5Desc;
-	}
-	
-	//Set login interface to be visible:
-	document.getElementById("regTitle").style.display='block';
-	document.getElementById("regInst1").style.display='block';
-	document.getElementById("regInst2").style.display='block';
-	document.getElementById("userRegister").style.display='block';
-	document.getElementById("tempMessage").style.display='block';
+		var alt2Desc = alternatives[1]["description"];
+		document.getElementById("alt2").innerHTML = "Alternative 2: "+ alt2Desc;
+		
+		if(alternatives.length > 2){
+			var alt3Desc = alternatives[2]["description"];
+			document.getElementById("alt3").innerHTML = "Alternative 3: " +alt3Desc;
+		}
+		
+		if(alternatives.length > 3){
+			var alt4Desc = alternatives[3]["description"];
+			document.getElementById("alt4").innerHTML = "Alternative 4: "+ alt4Desc;
+		}
+		
+		if(alternatives.length > 4){
+			var alt5Desc = alternatives[4]["description"];
+			document.getElementById("alt5").innerHTML = "Alternative 5: "+ alt5Desc;
+		}
+		
+		//Set login interface to be visible:
+		document.getElementById("regTitle").style.display='block';
+		document.getElementById("regInst1").style.display='block';
+		document.getElementById("regInst2").style.display='block';
+		document.getElementById("userRegister").style.display='block';
+		document.getElementById("tempMessage").style.display='block';
+		}
+		
+		
 }
