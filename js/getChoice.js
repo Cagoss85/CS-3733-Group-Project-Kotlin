@@ -50,6 +50,10 @@ function processGetChoiceResponse(result){
 	
 	document.getElementById("customURL").value = window.location.href;
 	
+	var choiceDescription = js["description"];
+	
+	document.getElementById("choiceDescription").innerHTML = choiceDescription;
+	
 	var alternatives = js["alternatives"];
 	
 	var alt1Desc = alternatives[0]["description"];
