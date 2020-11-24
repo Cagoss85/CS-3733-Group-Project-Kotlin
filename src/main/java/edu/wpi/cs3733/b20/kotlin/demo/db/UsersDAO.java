@@ -8,6 +8,7 @@ import edu.wpi.cs3733.b20.kotlin.demo.model.User;
 public class UsersDAO {
 	java.sql.Connection conn;
 	final String tblName = "users";
+	final String tblName2 = "choices";
 	
 	public UsersDAO() {
 		try{
@@ -17,9 +18,39 @@ public class UsersDAO {
 		}
 	}
 	
+	public boolean isThereSpaceFor(User user) throws Exception{
+		try {
+			//figure out how many users are currently in a choice
+			PreparedStatement ps1 = conn.prepareStatement("SELECT COUNT(*) FROM " + tblName + " WHERE choiceUUID=?");
+			ps1.setString(1, user.getChoiceUUID());
+			ResultSet set1 = ps1.executeQuery();
+			set1.next();
+			String numCurrentUsersStr = set1.getString("COUNT(*)");
+			int numCurrentUsers = Integer.parseInt(numCurrentUsersStr);
+			
+			
+			
+			//figure out how many users a choice can have
+			PreparedStatement ps2 = conn.prepareStatement("SELECT maxUsers FROM " + tblName2 + " WHERE choiceUUID=?");
+			ps2.setString(1, user.getChoiceUUID());
+			ResultSet set2 = ps2.executeQuery();
+			set2.next();
+			String maxUsersStr = set2.getString("maxUsers");
+			int maxUsers = Integer.parseInt(maxUsersStr);
+			
+			if(maxUsers - numCurrentUsers > 0) {
+				return true;
+			}
+			
+		} catch(Exception e) {
+			throw new Exception("Failed to get number of users: " + e.getMessage());
+		}
+		return false;
+		
+	}
+	
 	public boolean addUser(User user) throws Exception{
 		try {
-			
 			//check to make sure user isn't already in database
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE choiceUUID = ? AND username = ?;");
 			ps.setString(1, user.getChoiceUUID());
@@ -28,7 +59,7 @@ public class UsersDAO {
 			
 			//if user is already in database
 			while(resultSet.next()) {
-				//User foundUser = generateUser(resultSet);
+				//User foundUser = generateUseesultSet);
 				resultSet.close();
 				return false;
 			}
@@ -51,40 +82,70 @@ public class UsersDAO {
 			throw new Exception("Failed to insert user: " + e.getMessage());
 		}
 	}
-	
-	/*
-	public User getUser(String choiceUUID, String username) throws Exception{
+
+	public User getUser(User user) throws Exception {
 		try {
-			User user = null;
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE choiceUUID=? AND username=?;");
-			ps.setString(1, choiceUUID);
-			ps.setString(2, username);
-			ResultSet resultSet = ps.executeQuery();
+			User sampleUser = null;
+			PreparedStatement ps1 = conn.prepareStatement("Select * FROM " + tblName + " WHERE choiceUUID=? AND username=?;");
+			ps1.setString(1, user.getChoiceUUID());
+			ps1.setString(2, user.getUsername());
+			ResultSet resultSet = ps1.executeQuery();
 			
 			while(resultSet.next()) {
-				user = generateUser(resultSet);
+				sampleUser = generateUser(resultSet);
 			}
 			resultSet.close();
-			ps.close();
+			ps1.close();
 			
-			return user;
+			return sampleUser;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new Exception("Failed in getting user: " + e.getMessage());
+			throw new Exception("Failed to search for user: " + e.getMessage());
+		}
+	}
+	
+	public boolean checkForUser(User user) throws Exception {
+		try {
+
+			PreparedStatement ps1 = conn.prepareStatement("Select * FROM " + tblName + " WHERE choiceUUID=? AND username=?;");
+			ps1.setString(1, user.getChoiceUUID());
+			ps1.setString(2, user.getUsername());
+			ResultSet resultSet = ps1.executeQuery();
+			
+			if(resultSet.next()) {
+				return true;
+			} else {
+				return false;
+			}
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed to search for user: " + e.getMessage());
 		}
 	}
 	
 	private User generateUser(ResultSet resultSet) throws Exception{
-		String choiceUUID = resultSet.getString("choiceUUID");
-		String username = resultSet.getString("username");
-		String password = " ";
-		if (password == " ") {
-			password = resultSet.getString("password");
-			return new User(choiceUUID, username, password);
-		} else {
-			return new User(choiceUUID, username);
+		try {
+			String choiceUUID = resultSet.getString("choiceUUID");
+			String username = resultSet.getString("username");
+			String password = resultSet.getString("password");
+			if(resultSet.wasNull()) {
+				password = " ";
+			}
+			if (password == " ") {
+				return new User(choiceUUID, username);
+			} else {
+				return new User(choiceUUID, username, password);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed to Generate User: " + e.getMessage());
 		}
+		
 	}
-	*/
+
+	
 }
