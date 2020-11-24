@@ -50,7 +50,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 		UsersDAO dao = new UsersDAO();
 		User user = new User(choiceUUID, username);
 		try {
-			if(user.getUsername() == dao.getUser(user).getUsername()) {
+			if(dao.checkForUser(user)) {
 				return true;
 			}
 		} catch(Exception e) {
@@ -79,12 +79,11 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 		UsersDAO dao = new UsersDAO();
 		User user = new User(choiceUUID);
 		try {
-			dao.isThereSpaceFor(user);
+			return dao.isThereSpaceFor(user);
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new Exception("Failed to get space available: " + e.getMessage());
 		}
-		return false;
 	}
 
 	@Override

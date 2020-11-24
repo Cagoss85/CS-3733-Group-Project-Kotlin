@@ -83,10 +83,7 @@ public class UsersDAO {
 		}
 	}
 
-	/*
-	 * returns true if the username is found in the database
-	 * 
-	 */
+
 	public User getUser(User user) throws Exception {
 		try {
 			User sampleUser = null;
@@ -102,6 +99,28 @@ public class UsersDAO {
 			ps1.close();
 			
 			return sampleUser;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed to search for user: " + e.getMessage());
+		}
+	}
+	
+	public boolean checkForUser(User user) throws Exception {
+		try {
+
+			PreparedStatement ps1 = conn.prepareStatement("Select * FROM " + tblName + " WHERE choiceUUID=? AND username=?;");
+			ps1.setString(1, user.getChoiceUUID());
+			ps1.setString(2, user.getUsername());
+			ResultSet resultSet = ps1.executeQuery();
+			
+			if(resultSet.next()) {
+				return true;
+			} else {
+				return false;
+			}
+			
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

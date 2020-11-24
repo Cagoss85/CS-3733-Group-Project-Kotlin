@@ -44,4 +44,9 @@ public class User {
 		return outString;
 	}
 
+	public boolean isNull() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
