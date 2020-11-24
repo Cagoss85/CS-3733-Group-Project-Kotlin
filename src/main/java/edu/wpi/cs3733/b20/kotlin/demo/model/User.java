@@ -2,8 +2,8 @@ package edu.wpi.cs3733.b20.kotlin.demo.model;
 
 public class User {
 	final String choiceUUID;
-	final String username;
-	final String password;
+	String username;
+	String password;
 	
 	public User(String choiceUUID, String username, String password) {  //constructor with password
 		this.choiceUUID = choiceUUID;
@@ -15,6 +15,10 @@ public class User {
 		this.choiceUUID = choiceUUID;
 		this.username = username;
 		this.password = null;
+	}
+	
+	public User(String choiceUUID) {
+		this.choiceUUID = choiceUUID;
 	}
 	
 	public String getChoiceUUID() {return choiceUUID;}

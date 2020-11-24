@@ -44,26 +44,49 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 	/*
 	 * returns true if the username is in the database
 	 */
-	public boolean userExists(String choiceUUID, String username) {
-		if(logger != null) {logger.log("In check user");}
+	public boolean userExists(String choiceUUID, String username) throws Exception {
+		if(logger != null) {logger.log("In check userExists");}
 		
 		UsersDAO dao = new UsersDAO();
 		User user = new User(choiceUUID, username);
 		try {
-			return dao.lookForUser(user);
+			if(user.getUsername() == dao.getUser(user).getUsername()) {
+				return true;
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 	
-	public boolean passwordExists(String choiceUUID, String username) {
-		if(logger != null) {logger.log("In check user");}
+	public String getPassword(String choiceUUID, String username, String password) throws Exception{
+		if(logger != null) {logger.log("In get password");}
 		
 		UsersDAO dao = new UsersDAO();
 		User user = new User(choiceUUID, username);
+		try {
+			String pw = dao.getUser(user).getPassword();
+			return pw;
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed to get password: " + e.getMessage());
+		}
 	}
 	
+	private boolean spaceAvailable(String choiceUUID) throws Exception{
+		if(logger != null) {logger.log("In space available");}
+		
+		UsersDAO dao = new UsersDAO();
+		User user = new User(choiceUUID);
+		try {
+			dao.isThereSpaceFor(user);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed to get space available: " + e.getMessage());
+		}
+		return false;
+	}
+
 	@Override
 	public AuthenticateUserResponse handleRequest(CreateUserRequest req, Context context) {
 		logger = context.getLogger();
@@ -77,7 +100,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 				if(req.getPassword() == null) {
 					//log in and refresh
 				}
-				else if(req.getPassword() == passwordExists(req.getPassword())) {
+				else if(req.getPassword() == getPassword(req.getChoiceUUID(), req.getUsername(), req.getPassword())) {
 					//log in and refresh
 				}
 				else {
@@ -85,7 +108,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 				}
 			}
 			//if the user isnt in the database, check if you can add a user
-			else if(spaceAvailable()) {
+			else if(spaceAvailable(req.getChoiceUUID())) {
 				if(req.getPassword() == null) {
 					//add user without password and refresh
 					if(createUser(req.getChoiceUUID(), req.getUsername())) {

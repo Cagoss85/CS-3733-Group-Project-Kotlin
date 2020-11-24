@@ -17,6 +17,33 @@ public class UsersDAO {
 		}
 	}
 	
+	public boolean isThereSpaceFor(User user) throws Exception{
+		try {
+			//figure out how many users are currently in a choice
+			PreparedStatement ps1 = conn.prepareStatement("SELECT COUNT(*) FROM " + tblName + " WHERE choiceUUID=?");
+			ps1.setString(1, user.getChoiceUUID());
+			ResultSet set1 = ps1.executeQuery();
+			String numCurrentUsersStr = set1.getString("COUNT(*)");
+			int numCurrentUsers = Integer.parseInt(numCurrentUsersStr);
+			
+			//figure out how many users a choice can have
+			PreparedStatement ps2 = conn.prepareStatement("SELECT maxUsers FROM " + tblName + " WHERE choiceUUID=?");
+			ps2.setString(1, user.getChoiceUUID());
+			ResultSet set2 = ps1.executeQuery();
+			String maxUsersStr = set2.getString("maxUsers");
+			int maxUsers = Integer.parseInt(maxUsersStr);
+			
+			if(maxUsers - numCurrentUsers > 0) {
+				return true;
+			}
+			
+		} catch(Exception e) {
+			throw new Exception("Failed to get number of users: " + e.getMessage());
+		}
+		return false;
+		
+	}
+	
 	public boolean addUser(User user) throws Exception{
 		try {
 			//check to make sure user isn't already in database
@@ -27,11 +54,10 @@ public class UsersDAO {
 			
 			//if user is already in database
 			while(resultSet.next()) {
-				//User foundUser = generateUser(resultSet);
+				//User foundUser = generateUseesultSet);
 				resultSet.close();
 				return false;
 			}
-			
 			
 			if(user.getPassword() == null) {   //user has no password to insert into table
 				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username) values (?,?);");
@@ -91,4 +117,6 @@ public class UsersDAO {
 			return new User(choiceUUID, username, password);
 		}
 	}
+
+	
 }
