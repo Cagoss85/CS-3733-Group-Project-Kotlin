@@ -14,7 +14,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 	LambdaLogger logger;
 	
 	boolean createUser(String choiceUUID, String username, String password) {
-		if(logger != null) {logger.log("in Create User");}
+		if(logger != null) {logger.log("Creating a user with a password");}
 		
 		UsersDAO dao = new UsersDAO();
 		User user = new User(choiceUUID, username, password);
@@ -28,7 +28,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 	}
 	
 	boolean createUser(String choiceUUID, String username) {
-		if(logger != null) {logger.log("in Create User");}
+		if(logger != null) {logger.log("Creating the user without password");}
 			
 			UsersDAO dao = new UsersDAO();
 			User user = new User(choiceUUID, username);
@@ -45,7 +45,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 	 * returns true if the username is in the database
 	 */
 	public boolean userExists(String choiceUUID, String username) throws Exception {
-		if(logger != null) {logger.log("In check userExists");}
+		if(logger != null) {logger.log("Checking if the user exists in the database.");}
 		
 		UsersDAO dao = new UsersDAO();
 		User user = new User(choiceUUID, username);
@@ -59,14 +59,15 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 		return false;
 	}
 	
-	public String getPassword(String choiceUUID, String username, String password) throws Exception{
-		if(logger != null) {logger.log("In get password");}
+	public String getPassword(String choiceUUID, String username) throws Exception{
+		if(logger != null) {logger.log("Seeing if the found user has a password.");}
 		
 		UsersDAO dao = new UsersDAO();
 		User user = new User(choiceUUID, username);
 		try {
 			String pw = dao.getUser(user).getPassword();
 			return pw;
+	
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw new Exception("Failed to get password: " + e.getMessage());
@@ -74,7 +75,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 	}
 	
 	private boolean spaceAvailable(String choiceUUID) throws Exception{
-		if(logger != null) {logger.log("In space available");}
+		if(logger != null) {logger.log("Seeing if the choice has user spots available.");}
 		
 		UsersDAO dao = new UsersDAO();
 		User user = new User(choiceUUID);
@@ -92,46 +93,54 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 		logger.log(req.toString());
 		
 		AuthenticateUserResponse response = null;
-		//Conditions for logging in a user
+
 		try {
-			//check if the username is in the database
 			if(userExists(req.getChoiceUUID(), req.getUsername())) {
-				if(req.getPassword() == null) {
-					response = new AuthenticateUserResponse(req.getUsername());
-				}
-				else if(req.getPassword() == getPassword(req.getChoiceUUID(), req.getUsername(), req.getPassword())) {
-					response = new AuthenticateUserResponse(req.getUsername());
+				System.out.println("The username exists in the database");
+				if(getPassword(req.getChoiceUUID(), req.getUsername()) != null) {
+					System.out.println("Database user has the password: " + getPassword(req.getChoiceUUID(), req.getUsername()));
+					System.out.println("The requested password is: " + req.getPassword());
+					
+					if(getPassword(req.getChoiceUUID(), req.getUsername()) == req.getPassword()) {
+						System.out.println("Passwords match, authentication granted");
+						response = new AuthenticateUserResponse(req.getUsername());
+					}
+					else {
+						System.out.println("Passwords don't match, try again");
+						response = new AuthenticateUserResponse(req.getUsername(), "Incorrect Password.");  //specify 400 error
+					}
 				}
 				else {
-					response = new AuthenticateUserResponse(req.getUsername(), "User already exists but the password doesn't match.");  //specify 400 error
-				}
-			}
-			//if the user isnt in the database, check if you can add a user
-			else if(spaceAvailable(req.getChoiceUUID())) {
-				if(req.getPassword() == null) {
-					//add user without password and refresh
-					if(createUser(req.getChoiceUUID(), req.getUsername())) {
-						response = new AuthenticateUserResponse(req.getUsername());
+					System.out.println("Database user has no password");
+					System.out.println("The requested password is: " + req.getPassword());
+					
+					if(req.getPassword() != null) {
+						System.out.println("Database user doesnt have a password but the request does");
+						response = new AuthenticateUserResponse(req.getUsername(), "This user exists and has a password.");  //specify 400 error
 					}
 					else {
-						System.out.println("Failed");
-						response = new AuthenticateUserResponse(req.getUsername(), "User Creation Failed");  //specify 400 error
-					}
-				}
-				else if(req.getPassword() != null) {
-					//add user with password and refresh
-					if(createUser(req.getChoiceUUID(), req.getUsername(), req.getPassword())) {
+						System.out.println("Database user doesnt have a password and neither does the request");
 						response = new AuthenticateUserResponse(req.getUsername());
-					}
-					else {
-						System.out.println("Failed");
-						response = new AuthenticateUserResponse(req.getUsername(), "User creation failed");  //specify 400 error
 					}
 				}
 			}
-			//otherwise reject
 			else {
-				response = new AuthenticateUserResponse(req.getUsername(), "This choice has reach capacity.");  //specify 400 error
+				System.out.println("The user does not exist in the database");
+				if(spaceAvailable(req.getChoiceUUID())) {
+					if(req.getPassword() != null) {
+						if(createUser(req.getChoiceUUID(), req.getUsername(), req.getPassword())) {
+							response = new AuthenticateUserResponse(req.getUsername());
+						}
+					}
+					else if(req.getPassword() == null) {
+						if(createUser(req.getChoiceUUID(), req.getUsername())) {
+							response = new AuthenticateUserResponse(req.getUsername());
+						}
+					}
+				}
+				else {
+					response = new AuthenticateUserResponse(req.getUsername(), "Sorry, this choice has reach capacity.");  //specify 400 error
+				}
 			}
 		} catch (Exception e) {}
 		return response;
