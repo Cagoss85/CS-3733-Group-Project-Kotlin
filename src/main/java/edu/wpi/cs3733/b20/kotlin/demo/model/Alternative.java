@@ -12,7 +12,6 @@ public class Alternative{
 	
 	//default constructor to make AWS happy
 	public Alternative() {
-		
 	}
 	
 	public Alternative(String description) {
@@ -50,13 +49,10 @@ public class Alternative{
 	
 	//getters and setters for the feedback
 	public ArrayList<Feedback> getFeedback() {return feedback;}
-	public void setFeedback(ArrayList<Feedback> feedback) {this.feedback = feedback;}
 	
 	//getters and setters for the approvals
 	public ArrayList<Approval> getApprovals() {return approvals;}
-	public void setApprovals(ArrayList<Approval> approvals) {this.approvals = approvals;}
 	
 	//getters and setters for the disapprovals
 	public ArrayList<Disapproval> getDisapprovals(){return disapprovals;}
-	public void setDisapprovals(ArrayList<Disapproval> disapprovals) {this.disapprovals = disapprovals;}
 }

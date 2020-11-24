@@ -43,10 +43,4 @@ public class User {
 		outString = "Choice UUID: " + choiceUUID + " Username: " + username + " No password.";
 		return outString;
 	}
-
-	public boolean isNull() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }
