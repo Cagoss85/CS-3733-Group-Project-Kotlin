@@ -9,6 +9,9 @@ public class User {
 		this.choiceUUID = choiceUUID;
 		this.username = username;
 		this.password = password;
+		if(this.password.equals("")) {
+			this.password=null;
+		}
 	}
 	
 	public User(String choiceUUID, String username) {   //constructor without password
