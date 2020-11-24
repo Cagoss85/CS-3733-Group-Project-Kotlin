@@ -16,17 +16,15 @@ public class GetChoiceHandler implements RequestHandler<GetChoiceRequest,GetChoi
 	LambdaLogger logger;
 	
 	boolean choiceExists(ChoicesDAO dao, String uuid) throws Exception {
-		if (logger != null) {logger.log("in getChoice");
-		
+		if (logger != null) {logger.log("in getChoice");}
+
 		try {
 			dao.getChoice(uuid);
 			return true;
 		}catch(Exception e) {
-			throw new Exception("Choice does not exist: " + e.getMessage());
-			}
+			System.out.println("Choice does not exist");
+			return false;
 		}
-		// unlikely that this is reached, but compiler throws a fit if this is not here
-		return false;
 	}
 	
 	
