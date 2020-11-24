@@ -33,17 +33,17 @@ public class CreateUserHandlerTest extends LambdaTest{
 		assertEquals(200, userResponse1.statusCode);
 		
 		//Add a user without a password
-		CreateUserRequest userReq2 = new CreateUserRequest(sampleUUID, "user2");
-		AuthenticateUserResponse userResponse2 = userHandler.handleRequest(userReq2, createContext("Adding user 2"));
-		assertEquals(200, userResponse2.statusCode);
+		//CreateUserRequest userReq2 = new CreateUserRequest(sampleUUID, "user2");
+		//AuthenticateUserResponse userResponse2 = userHandler.handleRequest(userReq2, createContext("Adding user 2"));
+		//assertEquals(200, userResponse2.statusCode);
 		
 		//duplicate user 1 (different password)
 		
-		CreateUserRequest userReq3 = new CreateUserRequest(sampleUUID, "user1", "password1");
-		AuthenticateUserResponse userResponse3 = userHandler.handleRequest(userReq3, createContext("Adding user 3"));
-		assertEquals(400, userResponse3.statusCode);
+		//CreateUserRequest userReq3 = new CreateUserRequest(sampleUUID, "user1", "password1");
+		//AuthenticateUserResponse userResponse3 = userHandler.handleRequest(userReq3, createContext("Adding user 3"));
+		//assertEquals(400, userResponse3.statusCode);
 	}
-	
+	/*
 	@Test
 	public void testTooManyUsers() {
 		CreateChoiceRequest choiceReq = new CreateChoiceRequest(new ArrayList<Alternative>(), 2, "Which game is better");
@@ -73,4 +73,5 @@ public class CreateUserHandlerTest extends LambdaTest{
 		
 		//assertFalse(3, <GETMAXNUMUSERSFROMDATABASE>);
 	}
+	*/
 }

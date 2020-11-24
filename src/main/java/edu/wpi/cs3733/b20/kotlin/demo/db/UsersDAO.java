@@ -8,6 +8,7 @@ import edu.wpi.cs3733.b20.kotlin.demo.model.User;
 public class UsersDAO {
 	java.sql.Connection conn;
 	final String tblName = "users";
+	final String tblName2 = "choices";
 	
 	public UsersDAO() {
 		try{
@@ -23,13 +24,17 @@ public class UsersDAO {
 			PreparedStatement ps1 = conn.prepareStatement("SELECT COUNT(*) FROM " + tblName + " WHERE choiceUUID=?");
 			ps1.setString(1, user.getChoiceUUID());
 			ResultSet set1 = ps1.executeQuery();
+			set1.next();
 			String numCurrentUsersStr = set1.getString("COUNT(*)");
 			int numCurrentUsers = Integer.parseInt(numCurrentUsersStr);
 			
+			
+			
 			//figure out how many users a choice can have
-			PreparedStatement ps2 = conn.prepareStatement("SELECT maxUsers FROM " + tblName + " WHERE choiceUUID=?");
+			PreparedStatement ps2 = conn.prepareStatement("SELECT maxUsers FROM " + tblName2 + " WHERE choiceUUID=?");
 			ps2.setString(1, user.getChoiceUUID());
-			ResultSet set2 = ps1.executeQuery();
+			ResultSet set2 = ps2.executeQuery();
+			set2.next();
 			String maxUsersStr = set2.getString("maxUsers");
 			int maxUsers = Integer.parseInt(maxUsersStr);
 			
@@ -91,7 +96,7 @@ public class UsersDAO {
 			ResultSet resultSet = ps1.executeQuery();
 			
 			while(resultSet.next()) {
-				user = generateUser(resultSet);
+				sampleUser = generateUser(resultSet);
 			}
 			resultSet.close();
 			ps1.close();
@@ -105,17 +110,23 @@ public class UsersDAO {
 	}
 	
 	private User generateUser(ResultSet resultSet) throws Exception{
-		String choiceUUID = resultSet.getString("choiceUUID");
-		String username = resultSet.getString("username");
-		String password = resultSet.getString("password");
-		if(resultSet.wasNull()) {
-			password = " ";
+		try {
+			String choiceUUID = resultSet.getString("choiceUUID");
+			String username = resultSet.getString("username");
+			String password = resultSet.getString("password");
+			if(resultSet.wasNull()) {
+				password = " ";
+			}
+			if (password == " ") {
+				return new User(choiceUUID, username);
+			} else {
+				return new User(choiceUUID, username, password);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed to Generate User: " + e.getMessage());
 		}
-		if (password == " ") {
-			return new User(choiceUUID, username);
-		} else {
-			return new User(choiceUUID, username, password);
-		}
+		
 	}
 
 	
