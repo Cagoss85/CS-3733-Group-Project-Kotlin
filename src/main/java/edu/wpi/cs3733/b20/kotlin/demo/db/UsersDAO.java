@@ -19,7 +19,6 @@ public class UsersDAO {
 	
 	public boolean addUser(User user) throws Exception{
 		try {
-			
 			//check to make sure user isn't already in database
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE choiceUUID = ? AND username = ?;");
 			ps.setString(1, user.getChoiceUUID());
@@ -32,6 +31,7 @@ public class UsersDAO {
 				resultSet.close();
 				return false;
 			}
+			
 			
 			if(user.getPassword() == null) {   //user has no password to insert into table
 				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO " + tblName + " (choiceUUID, username) values (?,?);");
@@ -51,40 +51,44 @@ public class UsersDAO {
 			throw new Exception("Failed to insert user: " + e.getMessage());
 		}
 	}
-	
+
 	/*
-	public User getUser(String choiceUUID, String username) throws Exception{
+	 * returns true if the username is found in the database
+	 * 
+	 */
+	public User getUser(User user) throws Exception {
 		try {
-			User user = null;
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName + " WHERE choiceUUID=? AND username=?;");
-			ps.setString(1, choiceUUID);
-			ps.setString(2, username);
-			ResultSet resultSet = ps.executeQuery();
+			User sampleUser = null;
+			PreparedStatement ps1 = conn.prepareStatement("Select * FROM " + tblName + " WHERE choiceUUID=? AND username=?;");
+			ps1.setString(1, user.getChoiceUUID());
+			ps1.setString(2, user.getUsername());
+			ResultSet resultSet = ps1.executeQuery();
 			
 			while(resultSet.next()) {
 				user = generateUser(resultSet);
 			}
 			resultSet.close();
-			ps.close();
+			ps1.close();
 			
-			return user;
+			return sampleUser;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new Exception("Failed in getting user: " + e.getMessage());
+			throw new Exception("Failed to search for user: " + e.getMessage());
 		}
 	}
 	
 	private User generateUser(ResultSet resultSet) throws Exception{
 		String choiceUUID = resultSet.getString("choiceUUID");
 		String username = resultSet.getString("username");
-		String password = " ";
+		String password = resultSet.getString("password");
+		if(resultSet.wasNull()) {
+			password = " ";
+		}
 		if (password == " ") {
-			password = resultSet.getString("password");
-			return new User(choiceUUID, username, password);
-		} else {
 			return new User(choiceUUID, username);
+		} else {
+			return new User(choiceUUID, username, password);
 		}
 	}
-	*/
 }

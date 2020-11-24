@@ -41,32 +41,75 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 			return false;
 	}
 	
+	/*
+	 * returns true if the username is in the database
+	 */
+	public boolean userExists(String choiceUUID, String username) {
+		if(logger != null) {logger.log("In check user");}
+		
+		UsersDAO dao = new UsersDAO();
+		User user = new User(choiceUUID, username);
+		try {
+			return dao.lookForUser(user);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean passwordExists(String choiceUUID, String username) {
+		if(logger != null) {logger.log("In check user");}
+		
+		UsersDAO dao = new UsersDAO();
+		User user = new User(choiceUUID, username);
+	}
+	
 	@Override
 	public AuthenticateUserResponse handleRequest(CreateUserRequest req, Context context) {
 		logger = context.getLogger();
 		logger.log(req.toString());
 		
 		AuthenticateUserResponse response = null;
+		//Conditions for logging in a user
 		try {
-			//has a password
-			if(req.getPassword() != null) { 
-				if(createUser(req.getChoiceUUID(), req.getUsername(), req.getPassword())) {
-					response = new AuthenticateUserResponse(req.getUsername());
+			//check if the username is in the database
+			if(userExists(req.getChoiceUUID(), req.getUsername())) {
+				if(req.getPassword() == null) {
+					//log in and refresh
+				}
+				else if(req.getPassword() == passwordExists(req.getPassword())) {
+					//log in and refresh
 				}
 				else {
-					System.out.println("Failed");
-					response = new AuthenticateUserResponse(req.getUsername(), "Choice creation failed");  //specify 400 error
+					//reject user login
 				}
 			}
-			//no password
-			else if(req.getPassword() == null) {
-				if(createUser(req.getChoiceUUID(), req.getUsername())) {
-					response = new AuthenticateUserResponse(req.getUsername());
+			//if the user isnt in the database, check if you can add a user
+			else if(spaceAvailable()) {
+				if(req.getPassword() == null) {
+					//add user without password and refresh
+					if(createUser(req.getChoiceUUID(), req.getUsername())) {
+						response = new AuthenticateUserResponse(req.getUsername());
+					}
+					else {
+						System.out.println("Failed");
+						response = new AuthenticateUserResponse(req.getUsername(), "Choice creation failed");  //specify 400 error
+					}
 				}
-				else {
-					System.out.println("Failed");
-					response = new AuthenticateUserResponse(req.getUsername(), "Choice creation failed");  //specify 400 error
+				else if(req.getPassword() != null) {
+					//add user with password and refresh
+					if(createUser(req.getChoiceUUID(), req.getUsername(), req.getPassword())) {
+						response = new AuthenticateUserResponse(req.getUsername());
+					}
+					else {
+						System.out.println("Failed");
+						response = new AuthenticateUserResponse(req.getUsername(), "Choice creation failed");  //specify 400 error
+					}
 				}
+			}
+			//otherwise reject
+			else {
+				//reject user creation
 			}
 		} catch (Exception e) {}
 		return response;
