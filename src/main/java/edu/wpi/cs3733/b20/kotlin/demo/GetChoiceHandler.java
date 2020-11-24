@@ -22,8 +22,7 @@ public class GetChoiceHandler implements RequestHandler<String,GetChoiceResponse
 			return true;
 		}catch(Exception e) {
 			throw new Exception("Choice does not exist: " + e.getMessage());
-			
-		}
+			}
 		}
 		// unlikely that this is reached, but compiler throws a fit if this is not here
 		return false;
@@ -44,12 +43,12 @@ public class GetChoiceHandler implements RequestHandler<String,GetChoiceResponse
 				response = new GetChoiceResponse(choice.getUuid(), choice.getAlternatives(), choice.getMaxUsers(), choice.getDescription(), choice.finalAlternative);
 			}
 			else {
+				response = new GetChoiceResponse(400, "Choice not found");
 				System.out.println("choice not found by method");
 				
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-//			throw new Exception("failed to create response to get choice: " + e.getMessage());
 		}
 		return response;
 	}

@@ -23,7 +23,16 @@ public class GetChoiceResponse {
 		this.error = "";
 		this.statusCode = 200;
 	}
-	
+	public GetChoiceResponse(int statusCode, String errorMsg) {
+		
+		this.uniqueID = "";
+		this.maxUsers = 0;
+		this.description = "";
+		this.alternatives = null;
+		this.finalAlternative = null;
+		this.error = errorMsg;
+		this.statusCode = statusCode;
+	}
 	public String toString() {
 		return "Response(" + statusCode + "," + error + "," + uniqueID + ")";
 	}
