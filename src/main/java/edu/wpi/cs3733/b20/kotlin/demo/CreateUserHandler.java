@@ -98,13 +98,13 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 			//check if the username is in the database
 			if(userExists(req.getChoiceUUID(), req.getUsername())) {
 				if(req.getPassword() == null) {
-					//log in and refresh
+					response = new AuthenticateUserResponse(req.getUsername());
 				}
 				else if(req.getPassword() == getPassword(req.getChoiceUUID(), req.getUsername(), req.getPassword())) {
-					//log in and refresh
+					response = new AuthenticateUserResponse(req.getUsername());
 				}
 				else {
-					//reject user login
+					response = new AuthenticateUserResponse(req.getUsername(), "User already exists but the password doesn't match.");  //specify 400 error
 				}
 			}
 			//if the user isnt in the database, check if you can add a user
@@ -116,7 +116,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 					}
 					else {
 						System.out.println("Failed");
-						response = new AuthenticateUserResponse(req.getUsername(), "Choice creation failed");  //specify 400 error
+						response = new AuthenticateUserResponse(req.getUsername(), "User Creation Failed");  //specify 400 error
 					}
 				}
 				else if(req.getPassword() != null) {
@@ -126,13 +126,13 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 					}
 					else {
 						System.out.println("Failed");
-						response = new AuthenticateUserResponse(req.getUsername(), "Choice creation failed");  //specify 400 error
+						response = new AuthenticateUserResponse(req.getUsername(), "User creation failed");  //specify 400 error
 					}
 				}
 			}
 			//otherwise reject
 			else {
-				//reject user creation
+				response = new AuthenticateUserResponse(req.getUsername(), "This choice has reach capacity.");  //specify 400 error
 			}
 		} catch (Exception e) {}
 		return response;
