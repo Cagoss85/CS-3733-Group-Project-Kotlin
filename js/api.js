@@ -4,7 +4,7 @@ var base_url = "https://56kkh41t7g.execute-api.us-east-2.amazonaws.com/beta/";
 
 var createChoice_url = base_url + "choice";        //POST
 var authenticateUser_url = base_url + "user";      //POST
-var getChoice_url = base_url + "choice";           //GET
+var getChoice_url = base_url + "getChoice";           //POST
 var getAlternative_url = base_url + "alternative"  //GET
 var postFeedback_url = base_url + "feedback"       //POST
 var getFeedback_url = base_url + "feedback"        //GET

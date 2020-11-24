@@ -7,18 +7,19 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import edu.wpi.cs3733.b20.kotlin.demo.db.ChoicesDAO;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceResponse;
+import edu.wpi.cs3733.b20.kotlin.demo.http.GetChoiceRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.GetChoiceResponse;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Choice;
 import edu.wpi.cs3733.b20.kotlin.demo.db.ChoicesDAO;
 
-public class GetChoiceHandler implements RequestHandler<String,GetChoiceResponse>{
+public class GetChoiceHandler implements RequestHandler<GetChoiceRequest,GetChoiceResponse>{
 	LambdaLogger logger;
 	
-	boolean choiceExists(String uuid) throws Exception {
+	boolean choiceExists(ChoicesDAO dao, String uuid) throws Exception {
 		if (logger != null) {logger.log("in getChoice");
 		
 		try {
-			ChoicesDAO.getChoice(uuid);
+			dao.getChoice(uuid);
 			return true;
 		}catch(Exception e) {
 			throw new Exception("Choice does not exist: " + e.getMessage());
@@ -31,14 +32,19 @@ public class GetChoiceHandler implements RequestHandler<String,GetChoiceResponse
 	
 	
 	@Override
-	public GetChoiceResponse handleRequest(String uuid, Context context) {
+	public GetChoiceResponse handleRequest(GetChoiceRequest req, Context context) {
+		
+		String uuid = req.getUuid();
 		logger = context.getLogger();
 		logger.log("attempting to get choice: " + uuid);
 		// initialize the response 
 		GetChoiceResponse response = null;
+		
+		ChoicesDAO dao = new ChoicesDAO();
+		
 		try {
-			if(choiceExists(uuid)) {
-				Choice choice = ChoicesDAO.getChoice(uuid);
+			if(choiceExists(dao, uuid)) {
+				Choice choice = dao.getChoice(uuid);
 				
 				response = new GetChoiceResponse(choice.getUuid(), choice.getAlternatives(), choice.getMaxUsers(), choice.getDescription(), choice.finalAlternative);
 			}
