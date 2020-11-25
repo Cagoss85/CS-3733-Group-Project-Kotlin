@@ -114,7 +114,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 					System.out.println("Database user has no password");
 					System.out.println("The requested password is: " + req.getPassword());
 					
-					if(req.getPassword() != null) {
+					if(req.getPassword() != null && !(req.getPassword().equals(""))) {
 						System.out.println("Database user doesnt have a password but the request does");
 						response = new AuthenticateUserResponse(req.getUsername(), "This user exists and doesn't have a password.");  //specify 400 error
 					}
