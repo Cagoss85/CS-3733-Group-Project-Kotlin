@@ -1,3 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Admin Console </title>
+<script type='text/javascript' src='../js/api.js'></script>
+<script type='text/javascript' src='../js/getReport.js'></script>
+
+<script type="text/javascript">
+function initialize() {
+	
+	var hasParam = checkParam();
+	
+	if(hasParam){
+		getChoice();
+	} else{
+		alert("No valid uuid request. Did you follow a bad link?");
+		document.getElementById("alt1").innerHTML = "Alternatives not found.";
+	}
+}
+</script>
+</head>
+
 <h2><strong>Administrator Console</strong></h2>
 <h3><strong>Active Choices</strong></h3>
 	<p>Choice 1 Description, choiceUUID, X Alternatives, X/Y Registered Users, Created on [DATE], not chosen</p>
