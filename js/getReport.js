@@ -33,3 +33,24 @@ function getReport(){
 		}
 	}
 }
+
+function processReportResponse(result){
+	console.log("res:" + result);
+	
+	var js = JSON.parse(result);   //we now have our result
+	
+	if(js["httpStatus"] == "400"){
+		var err = js["error"];
+		alert (err);
+	} else{
+		document.getElementById("customURL").value = window.location.href;
+	
+		var choiceDescription = js["description"];
+	
+	//establish each variable
+	//parse
+	//for loop going through an array.
+		
+		}
+		
+}
