@@ -9,6 +9,7 @@ import org.junit.Test;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.GetReportResponse;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Alternative;
+import edu.wpi.cs3733.b20.kotlin.demo.model.Choice;
 
 public class GetReportHandlerTest extends LambdaTest{
 	
@@ -33,7 +34,13 @@ public class GetReportHandlerTest extends LambdaTest{
 		GetReportHandler handler = new GetReportHandler();
 		GetReportResponse resp = handler.handleRequest(null, createContext("Test Report"));
 		
-		System.out.println(resp.choiceReport.size());
+		System.out.println("There are " + resp.choiceReport.size() + " choices in the database");
+		int i = 1;
+		for(Choice c: resp.choiceReport) {
+			System.out.println("Choice " + i + ": UUID: " + c.getUuid() + " , timeCreated: " + c.getTimeCreated() + " , isChosen: " + c.getIsChosen());
+			i++;
+		}
+		
 		assertEquals(200, resp.statusCode);
 	}
 
