@@ -115,12 +115,16 @@ public class ChoicesDAO {
 		}
 	}
 
+	/*
+	 * Function generates a choice for admin display of a choice
+	 * Displays ID, timeCreated, and a boolean for chosen status
+	 */
 	private Choice generateChoice(ResultSet resultSet) throws Exception{
 		try {
 			String choiceUUID = resultSet.getString("uuid");
 			String timeCreated = resultSet.getString("timeCreated");
-			String finalAlternative = resultSet.getString("isChosen"); //See what this returns, might need to re-add boolean
-			if(finalAlternative.equals(true)) {
+			Boolean isChosen = Boolean.parseBoolean(resultSet.getString("isChosen")); //Not sure if this will work right
+			if(isChosen) {
 				return new Choice(choiceUUID, timeCreated, true);
 			}
 			else {
@@ -131,6 +135,4 @@ public class ChoicesDAO {
 			throw new Exception("Failed to Generate Choice" + e.getMessage());
 		}
 	}
-	
-	
 }
