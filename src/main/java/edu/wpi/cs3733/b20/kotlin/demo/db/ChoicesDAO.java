@@ -121,7 +121,7 @@ public class ChoicesDAO {
 	 */
 	private Choice generateChoice(ResultSet resultSet) throws Exception{
 		try {
-			String choiceUUID = resultSet.getString("uuid");
+			String choiceUUID = resultSet.getString("choiceUUID");
 			String timeCreated = resultSet.getString("timeCreated");
 			Boolean isChosen = Boolean.parseBoolean(resultSet.getString("isChosen")); //Not sure if this will work right
 			if(isChosen) {

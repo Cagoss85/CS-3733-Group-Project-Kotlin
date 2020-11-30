@@ -52,4 +52,7 @@ public class Choice {
 	public void setAlternatives(ArrayList<Alternative> alternatives) {this.alternatives = alternatives;}
 
 	public ArrayList<User> getUsers()	{return this.users;}
+	
+	public boolean getIsChosen() {return isChosen;}
+	public void setIsChosen(boolean flag)	{this.isChosen = flag;}
 }
