@@ -14,7 +14,7 @@ public class GetChoiceHandlerTest extends LambdaTest{
 
 	@Test
 	public void testSuccessfulGetChoice() {
-		GetChoiceRequest request = new GetChoiceRequest("f4cd5ec7-0261-4daf-8b5b-dc8438eed3ab");
+		GetChoiceRequest request = new GetChoiceRequest("f4cd5ec7-0261-4daf-8b5b-dc8438eed3ab");//Choice deleted, so this test wont work
 		
 		GetChoiceHandler handler = new GetChoiceHandler();
 		
