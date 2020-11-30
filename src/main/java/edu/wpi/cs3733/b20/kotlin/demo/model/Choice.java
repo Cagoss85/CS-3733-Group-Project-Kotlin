@@ -11,6 +11,9 @@ public class Choice {
 	public Alternative finalAlternative;
 	private long timeCreated;
 	
+	public boolean isChosen;
+	public String timeCreatedString;
+	
 	public Choice(String uuid,ArrayList<Alternative> alternatives, int maxUsers, String description){
 		this.uuid= uuid;
 		this.alternatives = alternatives;
@@ -19,8 +22,13 @@ public class Choice {
 		this.description = description;
 	}
 	
-	public Choice() {
+	public Choice(String uuid, String timeCreatedString, boolean isChosen){
+		this.uuid= uuid;
+		this.timeCreatedString = timeCreatedString;
+		this.isChosen = isChosen;
 	}
+	
+	public Choice() {}
 	
 	public boolean addUser(User user) {
 		return users.add(user);

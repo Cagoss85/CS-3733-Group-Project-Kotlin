@@ -94,5 +94,43 @@ public class ChoicesDAO {
         
         return choice;
 	}
+
+	/*
+	 * Function returns a list of all choices in the database
+	 */
+	public ArrayList<Choice> getAllChoices() throws Exception{
+		ArrayList<Choice> allChoices = new ArrayList<Choice>();
+		try {
+			PreparedStatement p1 = conn.prepareStatement("SELECT * FROM " + tblName1 + ";");
+			ResultSet resultSet = p1.executeQuery();
+			
+			while(resultSet.next()) {
+				Choice c = generateChoice(resultSet);
+				allChoices.add(c);
+			}
+			resultSet.close();
+			return allChoices;
+		} catch (Exception e) {
+			throw new Exception("Failed to get all Choices" + e.getMessage());
+		}
+	}
+
+	private Choice generateChoice(ResultSet resultSet) throws Exception{
+		try {
+			String choiceUUID = resultSet.getString("uuid");
+			String timeCreated = resultSet.getString("timeCreated");
+			String finalAlternative = resultSet.getString("isChosen"); //See what this returns, might need to re-add boolean
+			if(finalAlternative.equals(true)) {
+				return new Choice(choiceUUID, timeCreated, true);
+			}
+			else {
+				return new Choice(choiceUUID, timeCreated, false);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed to Generate Choice" + e.getMessage());
+		}
+	}
+	
 	
 }

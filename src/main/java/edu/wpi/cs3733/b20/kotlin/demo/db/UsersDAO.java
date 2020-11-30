@@ -137,7 +137,8 @@ public class UsersDAO {
 			}
 			if (password == " ") {
 				return new User(choiceUUID, username);
-			} else {
+			} 
+			else {
 				return new User(choiceUUID, username, password);
 			}
 		} catch(Exception e) {

@@ -13,7 +13,7 @@ import edu.wpi.cs3733.b20.kotlin.demo.model.Choice;
 public class GetReportHandler implements RequestHandler<Object, GetReportResponse>{
 	LambdaLogger logger;
 	
-	//Searches RDS for all constants
+	//Searches RDS and Database for all Choices
 	public ArrayList<Choice> getChoices() throws Exception{
 		logger.log("in getChoices");
 		ChoicesDAO dao = new ChoicesDAO();
@@ -40,7 +40,4 @@ public class GetReportHandler implements RequestHandler<Object, GetReportRespons
 		return response;
 	}
 
-
-
-	
 }
