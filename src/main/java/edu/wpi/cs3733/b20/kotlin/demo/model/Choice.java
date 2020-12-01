@@ -47,6 +47,9 @@ public class Choice {
 
 	public long getTimeCreated() {return timeCreated;}
 	public void setTimeCreated(long timeCreated) {this.timeCreated = timeCreated;}
+	
+	public String getTimeCreatedString() {return timeCreatedString;}
+	public void setTimeCreatedString(String timeCreatedString) {this.timeCreatedString = timeCreatedString;}
 
 	public ArrayList<Alternative> getAlternatives() {return alternatives;}
 	public void setAlternatives(ArrayList<Alternative> alternatives) {this.alternatives = alternatives;}

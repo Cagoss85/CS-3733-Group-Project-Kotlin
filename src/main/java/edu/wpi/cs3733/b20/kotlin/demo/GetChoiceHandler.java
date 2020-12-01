@@ -26,9 +26,7 @@ public class GetChoiceHandler implements RequestHandler<GetChoiceRequest,GetChoi
 			return false;
 		}
 	}
-	
-	
-	
+
 	@Override
 	public GetChoiceResponse handleRequest(GetChoiceRequest req, Context context) {
 		
