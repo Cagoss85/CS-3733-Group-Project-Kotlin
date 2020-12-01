@@ -118,9 +118,6 @@ public class UsersDAO {
 			} else {
 				return false;
 			}
-			
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception("Failed to search for user: " + e.getMessage());
