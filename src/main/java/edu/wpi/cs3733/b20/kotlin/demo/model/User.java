@@ -40,4 +40,10 @@ public class User {
 			return false;
 		}
 	}
+	
+	public String toString() {
+		String outString = "";
+		outString = "Choice UUID: " + choiceUUID + " Username: " + username + " No password.";
+		return outString;
+	}
 }
