@@ -59,12 +59,10 @@ public class ChoicesDAO {
         //save choice info to memory.
         choiceSet.next();
         String resultUuid = choiceSet.getString("choiceUUID");
-        if(!uuid.equals(resultUuid)) {
+        if(!uuid.equals(resultUuid)) 
         	throw new Exception("UUID Mismatch");
-        }
         String description = choiceSet.getString("description");
         int maxUsers = choiceSet.getInt("maxUsers");
-        
         
         // grab all alternatives with choice uuid and place them in an array
         ArrayList<Alternative> alternatives = new ArrayList<Alternative>();
@@ -123,16 +121,26 @@ public class ChoicesDAO {
 		try {
 			String choiceUUID = resultSet.getString("choiceUUID");
 			String timeCreated = resultSet.getString("timeCreated");
-			Boolean isChosen = Boolean.parseBoolean(resultSet.getString("isChosen")); //Not sure if this will work right
-			if(isChosen) {
+			System.out.println(resultSet.getString("isChosen"));
+			Boolean isChosen = convertToBoolean(resultSet.getString("isChosen")); //Not sure if this will work right
+			if(isChosen) 
 				return new Choice(choiceUUID, timeCreated, true);
-			}
-			else {
+			else 
 				return new Choice(choiceUUID, timeCreated, false);
-			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception("Failed to Generate Choice" + e.getMessage());
 		}
+	}
+	
+	/*
+	 * Function converts a 0 or 1 into a boolean
+	 */
+	private boolean convertToBoolean(String val) {
+	    boolean retVal = false;
+	    if ("1".equalsIgnoreCase(val))
+	        retVal = true;
+	    return retVal;
 	}
 }

@@ -11,9 +11,9 @@ public class Choice {
 	public Alternative finalAlternative;
 	private long timeCreated;
 	
-	
-	public boolean isChosen;			//used only for admin console
-	public String timeCreatedString;	//used only for admin console
+	//Administrator Console Attributes
+	public boolean isChosen;
+	public String timeCreatedString;
 	
 	//Default Choice Constructor
 	public Choice(String uuid,ArrayList<Alternative> alternatives, int maxUsers, String description){
@@ -24,7 +24,7 @@ public class Choice {
 		this.description = description;
 	}
 	
-	//Constructor for admin console
+	//Admin Console Constructor
 	public Choice(String uuid, String timeCreatedString, boolean isChosen){
 		this.uuid= uuid;
 		this.timeCreatedString = timeCreatedString;

@@ -40,7 +40,6 @@ public class GetReportHandlerTest extends LambdaTest{
 			System.out.println("Choice " + i + ": UUID: " + c.getUuid() + ", timeCreated: " + c.getTimeCreatedString() + ", isChosen: " + c.getIsChosen());
 			i++;
 		}
-		
 		assertEquals(200, resp.statusCode);
 	}
 }

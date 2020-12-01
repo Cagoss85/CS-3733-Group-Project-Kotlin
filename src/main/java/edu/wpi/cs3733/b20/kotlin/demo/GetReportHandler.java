@@ -17,13 +17,10 @@ public class GetReportHandler implements RequestHandler<Object, GetReportRespons
 	public ArrayList<Choice> getChoices() throws Exception{
 		logger.log("in getChoices");
 		ChoicesDAO dao = new ChoicesDAO();
-		
 		return dao.getAllChoices();
 	}
 	
-	/*
-	 * Function returns an array of all choices currently found in the system. 
-	 */
+	//Function returns an array of all choices currently found in the system. 
 	@Override
 	public GetReportResponse handleRequest(Object input, Context context) {
 		logger = context.getLogger();
@@ -32,7 +29,6 @@ public class GetReportHandler implements RequestHandler<Object, GetReportRespons
 		GetReportResponse response;
 		try {
 			ArrayList<Choice> reportList = getChoices();
-
 			response = new GetReportResponse(reportList);
 		} catch (Exception e) {
 			response = new GetReportResponse(400, e.getMessage());
