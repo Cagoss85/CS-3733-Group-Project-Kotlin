@@ -28,7 +28,7 @@ public class GetChoiceHandlerTest extends LambdaTest{
 		
 		assertEquals(200, response1.httpStatus);
 		
-		GetChoiceRequest request2 = new GetChoiceRequest("f4cd5ec7-0261-4daf-8b5b-dc8438eed3ab");
+		GetChoiceRequest request2 = new GetChoiceRequest("f4cd5ec7-0261-4daf-8b5b-dc8438eed3ab"); //choice that doesnt exist
 		GetChoiceResponse response2 = handler.handleRequest(request2, createContext("create"));
 		
 		assertEquals(400, response2.httpStatus);
