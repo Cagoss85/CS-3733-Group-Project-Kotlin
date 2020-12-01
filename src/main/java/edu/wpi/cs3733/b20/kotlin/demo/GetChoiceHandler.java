@@ -22,6 +22,7 @@ public class GetChoiceHandler implements RequestHandler<GetChoiceRequest,GetChoi
 			dao.getChoice(uuid);
 			return true;
 		}catch(Exception e) {
+			System.out.println("Choice does not exist");
 			return false;
 		}
 	}
@@ -45,6 +46,8 @@ public class GetChoiceHandler implements RequestHandler<GetChoiceRequest,GetChoi
 			}
 			else {
 				response = new GetChoiceResponse(400, "Choice not found");
+				System.out.println("choice not found by method");
+				
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

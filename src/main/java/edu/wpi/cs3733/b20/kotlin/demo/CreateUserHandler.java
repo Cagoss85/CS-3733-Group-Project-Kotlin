@@ -66,6 +66,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 		User user = new User(choiceUUID, username);
 		try {
 			String pw = dao.getUser(user).getPassword();
+			System.out.println("getPassword result is: " + pw);
 			return pw;
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -94,6 +95,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 
 		try {
 			if(userExists(req.getChoiceUUID(), req.getUsername())) {
+				System.out.println("The username exists in the database");
 				if(getPassword(req.getChoiceUUID(), req.getUsername()) != null) {
 					if(getPassword(req.getChoiceUUID(), req.getUsername()).equals(req.getPassword()))
 						response = new AuthenticateUserResponse(req.getUsername());
@@ -108,6 +110,7 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 				}
 			}
 			else {
+				System.out.println("The user does not exist in the database");
 				if(spaceAvailable(req.getChoiceUUID())) {
 					if(req.getPassword() != null) {
 						if(createUser(req.getChoiceUUID(), req.getUsername(), req.getPassword()))

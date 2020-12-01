@@ -41,6 +41,7 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 			if(createChoice(choiceUUID, req.alternatives, req.users, req.description)) {
 				response = new CreateChoiceResponse(choiceUUID);
 			} else {
+				System.out.println("Failed");
 				response = new CreateChoiceResponse(choiceUUID, "Choice creation failed");  //specify 400 error
 			}
 		} catch (Exception e) {
