@@ -121,7 +121,6 @@ public class ChoicesDAO {
 		try {
 			String choiceUUID = resultSet.getString("choiceUUID");
 			String timeCreated = resultSet.getString("timeCreated");
-			System.out.println(resultSet.getString("isChosen"));
 			Boolean isChosen = convertToBoolean(resultSet.getString("isChosen")); //Not sure if this will work right
 			if(isChosen) 
 				return new Choice(choiceUUID, timeCreated, true);
