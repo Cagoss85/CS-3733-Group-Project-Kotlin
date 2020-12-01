@@ -21,8 +21,7 @@ public class GetReportResponse {
 		this.error = errorMsg;
 	}
 	
-	public GetReportResponse() {
-	}
+	public GetReportResponse() {}
 	
 	public ArrayList<Choice> getReport(){return this.choiceReport;}
 	public void setReport(ArrayList<Choice> rep) {this.choiceReport = rep;}

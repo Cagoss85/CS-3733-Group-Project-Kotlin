@@ -38,24 +38,21 @@ public class Choice {
 	}
 
 	public String getUuid() {return uuid;}
+	
+	public ArrayList<Alternative> getAlternatives() {return alternatives;}
+	public void setAlternatives(ArrayList<Alternative> alternatives) {this.alternatives = alternatives;}
+	
+	public ArrayList<User> getUsers()	{return this.users;}
+	
+	public int getMaxUsers() {return maxUsers;}
+	public void setMaxUsers(int maxUsers) {this.maxUsers = maxUsers;}
 
 	public String getDescription() {return description;}
 	public void setDescription(String description) {this.description = description;}
-
-	public int getMaxUsers() {return maxUsers;}
-	public void setMaxUsers(int maxUsers) {this.maxUsers = maxUsers;}
 
 	public long getTimeCreated() {return timeCreated;}
 	public void setTimeCreated(long timeCreated) {this.timeCreated = timeCreated;}
 	
 	public String getTimeCreatedString() {return timeCreatedString;}
-	public void setTimeCreatedString(String timeCreatedString) {this.timeCreatedString = timeCreatedString;}
-
-	public ArrayList<Alternative> getAlternatives() {return alternatives;}
-	public void setAlternatives(ArrayList<Alternative> alternatives) {this.alternatives = alternatives;}
-
-	public ArrayList<User> getUsers()	{return this.users;}
-	
 	public boolean getIsChosen() {return isChosen;}
-	public void setIsChosen(boolean flag)	{this.isChosen = flag;}
 }
