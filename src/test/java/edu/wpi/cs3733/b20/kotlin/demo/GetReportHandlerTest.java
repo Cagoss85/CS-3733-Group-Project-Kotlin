@@ -33,7 +33,7 @@ public class GetReportHandlerTest extends LambdaTest{
 		
 		GetReportHandler handler = new GetReportHandler();
 		GetReportResponse resp = handler.handleRequest(null, createContext("Test Report"));
-		
+		//text for printing confirmation
 		System.out.println("There are " + resp.choiceReport.size() + " choices in the database");
 		int i = 1;
 		for(Choice c: resp.choiceReport) {
