@@ -92,7 +92,9 @@ function processGetChoiceResponse(result){
 		document.getElementById("regInst2").style.display='inline';
 		document.getElementById("userRegister").style.display='inline';
 		document.getElementById("tempMessage").style.display='inline';
-		}
-		
-		
+		}	
+}
+
+function getApprvoalList(altNum){
+	//TODO
 }

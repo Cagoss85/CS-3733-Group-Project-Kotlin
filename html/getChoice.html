@@ -2,6 +2,20 @@
 <html>
 <head>
 <meta charset=utf-8 />
+<style>
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
 <title>View Choice</title>
 <script type='text/javascript' src='../js/api.js'></script>
 <script type='text/javascript' src='../js/checkParam.js'></script>
@@ -24,39 +38,49 @@ function initialize() {
 </script>
 </head>
 <body onload="initialize()">
-<b>This is your custom URL: </b><input id="customURL" size="112" readonly>
-<p>Share this with your team members!</p>
+<div class="row">
+	<div class="column">
+		
+		<b>This is your custom URL: </b><input id="customURL" size="112" readonly>
+		<p>Share this with your team members!</p>
+		
+		<div id="choiceDescription"></div>
+		
+		<h2 id="altLabel">Alternatives</h2>
+		
+		<p id="alt1" style="display:inline-block"></p> <br>
+		<input type="button" id="alt1AppButton" value="⇧" style="display:none"  onClick="JavaScript:handleApproval(1)"> 
+		<p id="alt1AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(1)"> 
+		<p id="alt2" style="display:inline-block"></p> 
+		<input type="button" id="alt2AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(2)"> 
+		<p id="alt2AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(2)"> <br>
+		<p id="alt3" style="display:inline-block"></p> 
+		<input type="button" id="alt3AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(3)"> 
+		<p id="alt3=AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(3)"> <br>
+		<p id="alt4" style="display:inline-block"></p> 
+		<input type="button" id="alt4AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(4)"> 
+		<p id="alt4AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(4)"> <br>
+		<p id="alt5" style="display:inline-block"></p> 
+		<input type="button" id="alt5AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(5)"> 
+		<p id="alt5AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(5)"> <br>
+		
+		<h2 id="regTitle" style="display:none">Register with this choice</h2><br>
+		<p id="regInst1" style="display:none">New users please register with a username. You may also specify a password if you wish.</p><br>
+		<p id="regInst2" style="display:none">Returning users please enter the same username you used before, along with your password if you gave one.</p><br><br>
+		<form id="userRegister" name="userRegister" method="post" style="display:none">
+			<label for="username">Username:</label><br>
+			<input id="username" name="username"></input> <br><br>
+			
+			<label for="password">Password (optional):</label><br>
+			<input type="password" id="password" name="password"></input> <br><br>
+			
+			<input type="button" id="registerUserButton" value="Register" onClick="JavaScript:handleRegisterClick(this)">
+		
+		</form>
+		
+		<p id="tempMessage" style="display:none"></p>
+	</div>
 
-<div id="choiceDescription"></div>
-
-<h2 id="altLabel">Alternatives</h2>
-
-<p id="alt1" style="display:inline-block"></p> 
-<input type="button" id="alt1AppButton" value="⇧" style="display:none"  onClick="JavaScript:handleApproval(1)"><br>
-<p id="alt2" style="display:inline-block"></p> 
-<input type="button" id="alt2AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(2)"><br>
-<p id="alt3" style="display:inline-block"></p> 
-<input type="button" id="alt3AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(3)"><br>
-<p id="alt4" style="display:inline-block"></p> 
-<input type="button" id="alt4AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(4)"><br>
-<p id="alt5" style="display:inline-block"></p> 
-<input type="button" id="alt5AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(5)"><br>
-
-<h2 id="regTitle" style="display:none">Register with this choice</h2><br>
-<p id="regInst1" style="display:none">New users please register with a username. You may also specify a password if you wish.</p><br>
-<p id="regInst2" style="display:none">Returning users please enter the same username you used before, along with your password if you gave one.</p><br><br>
-<form id="userRegister" name="userRegister" method="post" style="display:none">
-	<label for="username">Username:</label><br>
-	<input id="username" name="username"></input> <br><br>
-	
-	<label for="password">Password (optional):</label><br>
-	<input type="password" id="password" name="password"></input> <br><br>
-	
-	<input type="button" id="registerUserButton" value="Register" onClick="JavaScript:handleRegisterClick(this)">
-
-</form>
-
-<p id="tempMessage" style="display:none"></p>
-
+</div>
 </body>
 </html>

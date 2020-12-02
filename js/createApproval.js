@@ -4,13 +4,18 @@
 
 function approvalControlsVisible(){
 	document.getElementById("alt1AppButton").style.display='inline-block';
+	document.getElementById("alt1AppNum").style.display='inline-block';
 	document.getElementById("alt2AppButton").style.display='inline-block';
+	document.getElementById("alt2AppNum").style.display='inline-block';
 	if(numAlternatives >= 3){
 		document.getElementById("alt3AppButton").style.display='inline-block';
+		document.getElementById("alt3AppNum").style.display='inline-block';
 	} if(numAlternatives >= 4){
 		document.getElementById("alt4AppButton").style.display='inline-block';
+		document.getElementById("alt4AppNum").style.display='inline-block';
 	} if(numAlternatives == 5){
 		document.getElementById("alt5AppButton").style.display='inline-block';
+		document.getElementById("alt5AppNum").style.display='inline-block';
 	}
 	
 }
