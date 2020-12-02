@@ -44,8 +44,15 @@ function processReportResponse(result){
 		alert (err);
 	} else{
 		document.getElementById("customURL").value = window.location.href;
-	
-		var choiceDescription = js["description"];
+		
+		var UUID = js["UUID"];
+		document.getElementById("UUID").value = UUID;
+		
+		var dateCreation = js["dateCreated"];
+		document.getElementById("timeCreated").value =timeCreated;
+		
+		var isCompleted = js["isCompleted"];
+		document.getElementById("isCompleted").value =isCompleted;
 	
 	//establish each variable
 	//parse
