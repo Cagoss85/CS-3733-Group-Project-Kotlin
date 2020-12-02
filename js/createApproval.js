@@ -2,6 +2,19 @@
  * 
  */
 
+function approvalControlsVisible(){
+	document.getElementById("alt1AppButton").style.display='inline-block';
+	document.getElementById("alt2AppButton").style.display='inline-block';
+	if(numAlternatives >= 3){
+		document.getElementById("alt3AppButton").style.display='inline-block';
+	} if(numAlternatives >= 4){
+		document.getElementById("alt4AppButton").style.display='inline-block';
+	} if(numAlternatives == 5){
+		document.getElementById("alt5AppButton").style.display='inline-block';
+	}
+	
+}
+
 function handleApproval(altNum){
 	var data = {}  //variable to assemble our JSON object
 	

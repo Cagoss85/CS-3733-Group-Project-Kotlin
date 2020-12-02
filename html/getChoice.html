@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset=utf-8 />
 <title>View Choice</title>
 <script type='text/javascript' src='../js/api.js'></script>
 <script type='text/javascript' src='../js/checkParam.js'></script>
@@ -30,15 +31,20 @@ function initialize() {
 
 <h2 id="altLabel">Alternatives</h2>
 
-<p id="alt1"></p> <input type="button" id="alt1AppButton" value="up" onClick="JavaScript:handleApprval(this)"><br>
-<p id="alt2"></p> <input type="button" id="alt1AppButton" value="up" onClick="JavaScript:handleApprval(this)"><br>
-<p id="alt3"></p> <input type="button" id="alt1AppButton" value="up" onClick="JavaScript:handleApprval(this)"><br>
-<p id="alt4"></p> <input type="button" id="alt1AppButton" value="up" onClick="JavaScript:handleApprval(this)"><br>
-<p id="alt5"></p> <input type="button" id="alt1AppButton" value="up" onClick="JavaScript:handleApprval(this)"><br>
+<p id="alt1" style="display:inline-block"></p> 
+<input type="button" id="alt1AppButton" value="⇧" style="display:none"  onClick="JavaScript:handleApproval(1)"><br>
+<p id="alt2" style="display:inline-block"></p> 
+<input type="button" id="alt2AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(2)"><br>
+<p id="alt3" style="display:inline-block"></p> 
+<input type="button" id="alt3AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(3)"><br>
+<p id="alt4" style="display:inline-block"></p> 
+<input type="button" id="alt4AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(4)"><br>
+<p id="alt5" style="display:inline-block"></p> 
+<input type="button" id="alt5AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(5)"><br>
 
-<h2 id="regTitle" style="display:none">Register with this choice</h2>
-<p id="regInst1" style="display:none">New users please register with a username. You may also specify a password if you wish.</p>
-<p id="regInst2" style="display:none">Returning users please enter the same username you used before, along with your password if you gave one.</p>
+<h2 id="regTitle" style="display:none">Register with this choice</h2><br>
+<p id="regInst1" style="display:none">New users please register with a username. You may also specify a password if you wish.</p><br>
+<p id="regInst2" style="display:none">Returning users please enter the same username you used before, along with your password if you gave one.</p><br><br>
 <form id="userRegister" name="userRegister" method="post" style="display:none">
 	<label for="username">Username:</label><br>
 	<input id="username" name="username"></input> <br><br>
