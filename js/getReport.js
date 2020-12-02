@@ -46,18 +46,30 @@ function processReportResponse(result){
 		document.getElementById("customURL").value = window.location.href;
 		
 		var UUID = js["UUID"];
-		document.getElementById("UUID").value = UUID;
+		document.getElementById("UUID").innerHTML = UUID;
 		
 		var timeCreated = js["timeCreated"];
-		document.getElementById("timeCreated").value =timeCreated;
+		document.getElementById("timeCreated").innerHTML = timeCreated;
 		
 		var isCompleted = js["isCompleted"];
-		document.getElementById("isCompleted").value =isCompleted;
+		document.getElementById("isCompleted").innerHTML = isCompleted;
 		
-		var Choice = ["UUID", "timeCreated", "isCompleted"];
+		var Choice = js["Choice"];
 		
-		for (i = 0; i<Choice.length; i++ ){
+		//var Choice = ["alt1", "alt2", "isCompleted"];
+		
+		for (i = 0; i<Choice.length; i++ ){ //fix CHoice.length
+			var choiceUUID = Choice[i]["UUID"];
+			var choiceTimeCreated = Choice[i]["timeCreated"];
+			var choiceIsCompleted = Choice[i]["isCompleted"];
 			
+			//in element Id should be whatever casey made i think
+			document.getElementById("choiceUUID").innerHTML = "Choice UUID:" +choiceUUID;
+			document.getElementById("choiceTimeCreated").innerHTML = "Chocie Time Created:" +choiceTimeCreated;
+			document.getElementById("choiceIsCompleted").innerHTML = "Choice is Completed:" +choiceIsCompleted;
+			//document.getElementById("UUID").innerHTML = UUID;
+			//document.getElementById("timeCreated").innerHTML = timeCreated;
+			//document.getElementById("isCompleted").innerHTML = isCompleted;
 		}
 	//establish each variable
 	//parse
