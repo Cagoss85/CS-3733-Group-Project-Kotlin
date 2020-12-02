@@ -45,8 +45,8 @@ function processGetReportResponse(result){
 	} else{
 		document.getElementById("customURL").value = window.location.href;
 		
-		var UUID = js["UUID"];
-		document.getElementById("UUID").innerHTML = UUID;
+		var UUID = js["choiceUUID"];
+		document.getElementById("choiceUUID").innerHTML = UUID;
 		
 		var dateCreated = js["dateCreated"];
 		document.getElementById("dateCreated").innerHTML = DateCreated;
@@ -68,10 +68,6 @@ function processGetReportResponse(result){
 			document.getElementById("choiceIsCompleted").innerHTML = "Choice is Completed:" +choiceIsCompleted;
 			
 		}
-	//establish each variable
-	//parse
-	//for loop going through an array.
-		
 		}
 		
 }
