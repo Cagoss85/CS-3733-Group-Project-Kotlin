@@ -39,7 +39,7 @@ function initialize() {
 </head>
 <body onload="initialize()">
 <div class="row">
-	<div class="column">
+	<div class="column"> <!-- COLUMN 1 -->
 		
 		<b>This is your custom URL: </b><input id="customURL" size="112" readonly>
 		<p>Share this with your team members!</p>
@@ -48,21 +48,21 @@ function initialize() {
 		
 		<h2 id="altLabel">Alternatives</h2>
 		
-		<p id="alt1" style="display:inline-block"></p> <br>
+		<p id="alt1" style="display:inline-block"></p> 
 		<input type="button" id="alt1AppButton" value="⇧" style="display:none"  onClick="JavaScript:handleApproval(1)"> 
-		<p id="alt1AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(1)"> 
+		<p id="alt1AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(1)"></p> <br>
 		<p id="alt2" style="display:inline-block"></p> 
 		<input type="button" id="alt2AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(2)"> 
-		<p id="alt2AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(2)"> <br>
+		<p id="alt2AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(2)"></p> <br>
 		<p id="alt3" style="display:inline-block"></p> 
 		<input type="button" id="alt3AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(3)"> 
-		<p id="alt3=AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(3)"> <br>
+		<p id="alt3AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(3)"></p> <br>
 		<p id="alt4" style="display:inline-block"></p> 
 		<input type="button" id="alt4AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(4)"> 
-		<p id="alt4AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(4)"> <br>
+		<p id="alt4AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(4)"></p> <br>
 		<p id="alt5" style="display:inline-block"></p> 
 		<input type="button" id="alt5AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(5)"> 
-		<p id="alt5AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(5)"> <br>
+		<p id="alt5AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(5)"></p> <br>
 		
 		<h2 id="regTitle" style="display:none">Register with this choice</h2><br>
 		<p id="regInst1" style="display:none">New users please register with a username. You may also specify a password if you wish.</p><br>
@@ -79,6 +79,10 @@ function initialize() {
 		</form>
 		
 		<p id="tempMessage" style="display:none"></p>
+	</div>
+	
+	<div class="column"> <!-- COLUMN 2 -->
+	
 	</div>
 
 </div>
