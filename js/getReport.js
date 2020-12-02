@@ -15,7 +15,7 @@ function getReport(){
 		if(xhr.readyState == XMLHttpRequest.DONE){
 			if(xhr.status == 200){
 					console.log ("XHR:" + xhr.responseText);
-					processGetChoiceResponse(xhr.responseText);
+					processGetReportResponse(xhr.responseText);
 				} else{
 					console.log("actual:" + xhr.responseText);
 					var js = JSON.parse(xhr.responseText);
@@ -34,7 +34,7 @@ function getReport(){
 	}
 }
 
-function processReportResponse(result){
+function processGetReportResponse(result){
 	console.log("res:" + result);
 	
 	var js = JSON.parse(result);   //we now have our result
@@ -48,28 +48,25 @@ function processReportResponse(result){
 		var UUID = js["UUID"];
 		document.getElementById("UUID").innerHTML = UUID;
 		
-		var timeCreated = js["timeCreated"];
-		document.getElementById("timeCreated").innerHTML = timeCreated;
+		var dateCreated = js["dateCreated"];
+		document.getElementById("dateCreated").innerHTML = DateCreated;
 		
 		var isCompleted = js["isCompleted"];
 		document.getElementById("isCompleted").innerHTML = isCompleted;
 		
 		var Choice = js["Choice"];
 		
-		//var Choice = ["alt1", "alt2", "isCompleted"];
 		
-		for (i = 0; i<Choice.length; i++ ){ //fix CHoice.length
+		for (i = 0; i<Choice.length; i++ ){ 
 			var choiceUUID = Choice[i]["UUID"];
-			var choiceTimeCreated = Choice[i]["timeCreated"];
+			var choiceDateCreated = Choice[i]["dateCreated"];
 			var choiceIsCompleted = Choice[i]["isCompleted"];
 			
 			//in element Id should be whatever casey made i think
 			document.getElementById("choiceUUID").innerHTML = "Choice UUID:" +choiceUUID;
-			document.getElementById("choiceTimeCreated").innerHTML = "Chocie Time Created:" +choiceTimeCreated;
+			document.getElementById("choiceDateCreated").innerHTML = "Chocie Date Created:" +choiceDateCreated;
 			document.getElementById("choiceIsCompleted").innerHTML = "Choice is Completed:" +choiceIsCompleted;
-			//document.getElementById("UUID").innerHTML = UUID;
-			//document.getElementById("timeCreated").innerHTML = timeCreated;
-			//document.getElementById("isCompleted").innerHTML = isCompleted;
+			
 		}
 	//establish each variable
 	//parse
