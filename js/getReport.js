@@ -48,12 +48,17 @@ function processReportResponse(result){
 		var UUID = js["UUID"];
 		document.getElementById("UUID").value = UUID;
 		
-		var dateCreation = js["dateCreated"];
+		var timeCreated = js["timeCreated"];
 		document.getElementById("timeCreated").value =timeCreated;
 		
 		var isCompleted = js["isCompleted"];
 		document.getElementById("isCompleted").value =isCompleted;
-	
+		
+		var Choice = ["UUID", "timeCreated", "isCompleted"];
+		
+		for (i = 0; i<Choice.length; i++ ){
+			
+		}
 	//establish each variable
 	//parse
 	//for loop going through an array.
