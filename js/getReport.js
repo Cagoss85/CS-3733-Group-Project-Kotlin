@@ -27,7 +27,7 @@ function getReport(){
 			
 			document.getElementById("customURL").value = window.location.href;  
 			
-			//document.getElementById("alt1").innerHTML = "Report not found."
+			
 			
 			
 		}
@@ -44,23 +44,25 @@ function processGetReportResponse(result){
 		alert (err);
 	} else{
 	
-
-		var Choice = js["Choice"];
+		//create choiceReport
+		var Choice = js["choiceReport"];
 		
+		//if there are no choices in the array, say no choices found
+		if (Choice.length ==0){
+			document.getElementById("choiceList").innerHTML = "<li> No Choices Found </li>";
+		}
 		
+		//sort through the array of choices, assign variables, set the lists.
 		for (i = 0; i<Choice.length; i++ ){ 
 			var choiceUUID = Choice[i]["uuid"];
-			var choiceDateCreated = Choice[i]["dateCreated"];
-			var choiceIsCompleted = Choice[i]["isCompleted"];
+			var choiceDateCreated = Choice[i]["timeCreatedString"];
+			var choiceIsCompleted = Choice[i]["isChosen"];
 			
-			var currentList = document.getElementById(choiceList).innerHTML;
+			var currentList = document.getElementById("choiceList").innerHTML;
 			
-			currentList = currentList + "<li> choiceUUID: " + choiceUUID + "dateCreated: " + choiceDateCreated + "choiceCompleted: " + choiceIsCompleted + "</li>";
-			//in element Id should be whatever casey made i think
-			//document.getElementById("uuid").innerHTML = "Choice UUID:" +choiceUUID;
-			//document.getElementById("choiceDateCreated").innerHTML = "Choice Date Created:" +choiceDateCreated;
-			//document.getElementById("choiceIsCompleted").innerHTML = "Choice is Completed:" +choiceIsCompleted;
-			
+			currentList = currentList + "<li> choiceUUID: " + choiceUUID + " dateCreated: " + choiceDateCreated + " choiceCompleted: " + choiceIsCompleted + "</li>";
+			document.getElementById("choiceList").innerHTML = currentList;
+		
 		}
 		}
 		
