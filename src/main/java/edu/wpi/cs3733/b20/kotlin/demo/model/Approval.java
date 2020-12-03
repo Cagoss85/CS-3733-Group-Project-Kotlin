@@ -3,12 +3,16 @@ package edu.wpi.cs3733.b20.kotlin.demo.model;
 public class Approval {
 	
 	String choiceUUID;
-	User user;
+	String username;	
+	int altID;
 	
-	public Approval (String choiceUUID, User user) {
+	public Approval (int altID, String choiceUUID, String user) {
 		this.choiceUUID = choiceUUID;
-		this.user = user;
+		this.username = user;
+		this.altID =altID;
 	}
 	
-	public User getUser() {return this.user;}
+	public String getUsername() {return this.username;}
+	public String getChoiceUUID() {return this.choiceUUID;}
+	public int getAltID() {return this.altID;}
 }
