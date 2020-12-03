@@ -45,11 +45,11 @@ function processGetReportResponse(result){
 	} else{
 		document.getElementById("customURL").value = window.location.href;
 		
-		var UUID = js["choiceUUID"];
-		document.getElementById("choiceUUID").innerHTML = UUID;
+		var uuid = js["uuid"];
+		document.getElementById("uuid").innerHTML = uuid;
 		
 		var dateCreated = js["dateCreated"];
-		document.getElementById("dateCreated").innerHTML = DateCreated;
+		document.getElementById("dateCreated").innerHTML = dateCreated;
 		
 		var isCompleted = js["isCompleted"];
 		document.getElementById("isCompleted").innerHTML = isCompleted;
@@ -58,12 +58,12 @@ function processGetReportResponse(result){
 		
 		
 		for (i = 0; i<Choice.length; i++ ){ 
-			var choiceUUID = Choice[i]["UUID"];
+			var choiceUUID = Choice[i]["uuid"];
 			var choiceDateCreated = Choice[i]["dateCreated"];
 			var choiceIsCompleted = Choice[i]["isCompleted"];
 			
 			//in element Id should be whatever casey made i think
-			document.getElementById("choiceUUID").innerHTML = "Choice UUID:" +choiceUUID;
+			document.getElementById("uuid").innerHTML = "Choice UUID:" +choiceUUID;
 			document.getElementById("choiceDateCreated").innerHTML = "Chocie Date Created:" +choiceDateCreated;
 			document.getElementById("choiceIsCompleted").innerHTML = "Choice is Completed:" +choiceIsCompleted;
 			
