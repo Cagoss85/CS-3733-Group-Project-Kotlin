@@ -50,19 +50,23 @@ function initialize() {
 		
 		<p id="alt1" style="display:inline-block"></p> 
 		<input type="button" id="alt1AppButton" value="⇧" style="display:none"  onClick="JavaScript:handleApproval(1)"> 
-		<p id="alt1AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(1)"></p> <br>
+		<p id="alt1AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		
 		<p id="alt2" style="display:inline-block"></p> 
 		<input type="button" id="alt2AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(2)"> 
-		<p id="alt2AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(2)"></p> <br>
+		<p id="alt2AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(2)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		
 		<p id="alt3" style="display:inline-block"></p> 
 		<input type="button" id="alt3AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(3)"> 
-		<p id="alt3AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(3)"></p> <br>
+		<p id="alt3AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(3)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		
 		<p id="alt4" style="display:inline-block"></p> 
 		<input type="button" id="alt4AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(4)"> 
-		<p id="alt4AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(4)"></p> <br>
+		<p id="alt4AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(4)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		
 		<p id="alt5" style="display:inline-block"></p> 
 		<input type="button" id="alt5AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(5)"> 
-		<p id="alt5AppNum" style="display:none" onmouseover="JavaScript:getApprovalList(5)"></p> <br>
+		<p id="alt5AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(5)" onmouseout="JavaScript:hideProvalList()"></p> <br>
 		
 		<h2 id="regTitle" style="display:none">Register with this choice</h2><br>
 		<p id="regInst1" style="display:none">New users please register with a username. You may also specify a password if you wish.</p><br>
@@ -82,7 +86,8 @@ function initialize() {
 	</div>
 	
 	<div class="column"> <!-- COLUMN 2 -->
-	
+		<!-- LIST APPROVALS/DISAPPROVALS -->
+		<ul id = "appDisList" style="display:none"></ul>
 	</div>
 
 </div>

@@ -95,6 +95,14 @@ function processGetChoiceResponse(result){
 		}	
 }
 
-function getApprvoalList(altNum){
+function showApprovalList(altNum){
+	//TODO
+}
+
+function showDisapprovalList(altNum){
+	
+}
+
+function hideProvalList(){
 	//TODO
 }
