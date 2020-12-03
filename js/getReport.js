@@ -25,7 +25,7 @@ function getReport(){
 		} else{
 			console.log("res:" + xhr.responseText);
 			
-			document.getElementById("customURL").value = window.location.href;  //TODO: COMMENT THIS OUT LATER
+			document.getElementById("customURL").value = window.location.href;  
 			
 			//document.getElementById("alt1").innerHTML = "Report not found."
 			
@@ -43,17 +43,8 @@ function processGetReportResponse(result){
 		var err = js["error"];
 		alert (err);
 	} else{
-		document.getElementById("customURL").value = window.location.href;
-		
-		var uuid = js["uuid"];
-		document.getElementById("uuid").innerHTML = uuid;
-		
-		var dateCreated = js["dateCreated"];
-		document.getElementById("dateCreated").innerHTML = dateCreated;
-		
-		var isCompleted = js["isCompleted"];
-		document.getElementById("isCompleted").innerHTML = isCompleted;
-		
+	
+
 		var Choice = js["Choice"];
 		
 		
@@ -62,10 +53,13 @@ function processGetReportResponse(result){
 			var choiceDateCreated = Choice[i]["dateCreated"];
 			var choiceIsCompleted = Choice[i]["isCompleted"];
 			
+			var currentList = document.getElementById(choiceList).innerHTML;
+			
+			currentList = currentList + "<li> choiceUUID: " + choiceUUID + "dateCreated: " + choiceDateCreated + "choiceCompleted: " + choiceIsCompleted + "</li>";
 			//in element Id should be whatever casey made i think
-			document.getElementById("uuid").innerHTML = "Choice UUID:" +choiceUUID;
-			document.getElementById("choiceDateCreated").innerHTML = "Chocie Date Created:" +choiceDateCreated;
-			document.getElementById("choiceIsCompleted").innerHTML = "Choice is Completed:" +choiceIsCompleted;
+			//document.getElementById("uuid").innerHTML = "Choice UUID:" +choiceUUID;
+			//document.getElementById("choiceDateCreated").innerHTML = "Choice Date Created:" +choiceDateCreated;
+			//document.getElementById("choiceIsCompleted").innerHTML = "Choice is Completed:" +choiceIsCompleted;
 			
 		}
 		}
