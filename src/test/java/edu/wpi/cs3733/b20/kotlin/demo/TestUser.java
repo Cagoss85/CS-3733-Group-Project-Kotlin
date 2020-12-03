@@ -20,7 +20,7 @@ public class TestUser {
 	@Test 
 	public void testUserToString() {
 		User user1 = new User("uuid", "user1","password1");
-		System.out.print(user1.toString());
+		
 		assertEquals(user1.toString(), "Choice UUID: uuid Username: user1 No password.");
 	}
 }
