@@ -52,13 +52,11 @@ public class CreateUserHandlerTest extends LambdaTest{
 		AuthenticateUserResponse userResponse2a = userHandler.handleRequest(userReq2a, createContext("Authenticating user 2 (with password)"));
 		assertEquals(400, userResponse2a.statusCode);
 		
-		System.out.println("ReDoing 1");
 		//Re-authenticate user 1
 		CreateUserRequest userReq3 = new CreateUserRequest(sampleUUID, "user1", "password");
 		AuthenticateUserResponse userResponse3 = userHandler.handleRequest(userReq3, createContext("Authenticating user 1"));
 		assertEquals(200, userResponse3.statusCode);
 		
-		System.out.println("ReDoing 2");
 		//Re-authenticate user 2
 		CreateUserRequest userReq4 = new CreateUserRequest(sampleUUID, "user2");
 		AuthenticateUserResponse userResponse4 = userHandler.handleRequest(userReq4, createContext("Re-Authenticating user 2"));

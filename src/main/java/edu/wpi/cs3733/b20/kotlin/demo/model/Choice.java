@@ -11,6 +11,11 @@ public class Choice {
 	public Alternative finalAlternative;
 	private long timeCreated;
 	
+	//Administrator Console Attributes
+	public boolean isChosen;
+	public String timeCreatedString;
+	
+	//Default Choice Constructor
 	public Choice(String uuid,ArrayList<Alternative> alternatives, int maxUsers, String description){
 		this.uuid= uuid;
 		this.alternatives = alternatives;
@@ -19,26 +24,35 @@ public class Choice {
 		this.description = description;
 	}
 	
-	public Choice() {
+	//Admin Console Constructor
+	public Choice(String uuid, String timeCreatedString, boolean isChosen){
+		this.uuid= uuid;
+		this.timeCreatedString = timeCreatedString;
+		this.isChosen = isChosen;
 	}
+	
+	public Choice() {}
 	
 	public boolean addUser(User user) {
 		return users.add(user);
 	}
 
 	public String getUuid() {return uuid;}
+	
+	public ArrayList<Alternative> getAlternatives() {return alternatives;}
+	public void setAlternatives(ArrayList<Alternative> alternatives) {this.alternatives = alternatives;}
+	
+	public ArrayList<User> getUsers()	{return this.users;}
+	
+	public int getMaxUsers() {return maxUsers;}
+	public void setMaxUsers(int maxUsers) {this.maxUsers = maxUsers;}
 
 	public String getDescription() {return description;}
 	public void setDescription(String description) {this.description = description;}
 
-	public int getMaxUsers() {return maxUsers;}
-	public void setMaxUsers(int maxUsers) {this.maxUsers = maxUsers;}
-
 	public long getTimeCreated() {return timeCreated;}
 	public void setTimeCreated(long timeCreated) {this.timeCreated = timeCreated;}
-
-	public ArrayList<Alternative> getAlternatives() {return alternatives;}
-	public void setAlternatives(ArrayList<Alternative> alternatives) {this.alternatives = alternatives;}
-
-	public ArrayList<User> getUsers()	{return this.users;}
+	
+	public String getTimeCreatedString() {return timeCreatedString;}
+	public boolean getIsChosen() {return isChosen;}
 }
