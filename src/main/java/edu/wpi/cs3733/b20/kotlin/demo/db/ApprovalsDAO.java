@@ -8,6 +8,13 @@ import java.util.ArrayList;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Approval;
 
 public class ApprovalsDAO {
+	public ApprovalsDAO() {
+		try {
+			conn = DatabaseUtil.connect();
+		} catch (Exception e) {
+			conn = null;
+		}
+	}
 	static java.sql.Connection conn;
 	final static String tblName1 = "approvals";
 	final static String tblName2 = "disapprovals";
@@ -16,19 +23,25 @@ public class ApprovalsDAO {
 		// return true if things are done correctly, false if there is an error
 		if(approvalExists(approval)) {
 			// delete approval from DAO 
-			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName1 + " (choiceUUID,altID, username) values(?,?,?);");
-			ps.setInt(1, approval.getAltID());
-			ps.setString(2, approval.getChoiceUUID());
+		try {	
+			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName1 + " (choiceUUID,altID,username) values(?,?,?);");
+			ps.setInt(2, approval.getAltID());
+			ps.setString(1, approval.getChoiceUUID());
 			ps.setString(3, approval.getUsername());
 			ps.executeUpdate();
 			ps.close();
 			return true;
+		}catch(Exception e) {
+			//return false;
+			throw new Exception("Failed to delete approval: "+ e.getMessage());
+		}
 		}
 		else {
+			// add approval to DAO as it does not exist
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName1 + " (choiceUUID,altID, username) values(?,?,?);");
-			ps.setInt(1, approval.getAltID());
-			ps.setString(2, approval.getChoiceUUID());
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName1 + " (choiceUUID,altID,username) values(?,?,?);");
+			ps.setInt(2, approval.getAltID());
+			ps.setString(1, approval.getChoiceUUID());
 			ps.setString(3, approval.getUsername());
 			ps.executeUpdate();
 			ps.close();
@@ -36,9 +49,12 @@ public class ApprovalsDAO {
 			return true;
 		} catch(Exception e){
 			e.printStackTrace();
+			//return false;
 			throw new Exception("Failed to insert approval: " + e.getMessage());
 			}
+		
 			}
+		
 		}
 	// get approval boolean, return true if this exists. 
 	public boolean approvalExists(Approval approval) {

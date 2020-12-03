@@ -19,10 +19,6 @@ public class TestApprovalHandler extends LambdaTest{
 //	public void testSuccessInput() {
 //		CreateApprovalHandler handler = new CreateApprovalHandler();
 //		assertTrue(handler.createApproval(5, "john", "randomUUID"));
-//		
-//		
-//		
-//		
 //	}
 	@Test
 	public void TestShouldBeOk() {
