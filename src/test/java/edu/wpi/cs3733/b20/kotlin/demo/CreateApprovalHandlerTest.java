@@ -13,7 +13,7 @@ import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceResponse;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Alternative;
 
-public class TestApprovalHandler extends LambdaTest{
+public class CreateApprovalHandlerTest extends LambdaTest{
 
 //	@Test
 //	public void testSuccessInput() {
@@ -38,10 +38,5 @@ public class TestApprovalHandler extends LambdaTest{
 		
 		CreateApprovalHandler approvalHandler = new CreateApprovalHandler();
 		assertTrue((Boolean)approvalHandler.handleRequest(approvalReq, createContext("Creating test Approval 1")));
-		
-		
-		
-		
-		
 	}
 }

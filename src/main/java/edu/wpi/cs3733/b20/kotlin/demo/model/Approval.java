@@ -6,15 +6,16 @@ public class Approval {
 	String username;	
 	int altID;
 	
-	public Approval (int altID, String choiceUUID, String user) {
+	public Approval (String choiceUUID, int altID, String user) {
 		this.choiceUUID = choiceUUID;
-		this.username = user;
 		this.altID =altID;
+		this.username = user;
 	}
 	
-	public String getUsername() {return this.username;}
 	public String getChoiceUUID() {return this.choiceUUID;}
+	public String getUsername() {return this.username;}
 	public int getAltID() {return this.altID;}
+	
 	public boolean equals(Approval approval) {
 		if (approval.getAltID() == altID && approval.getChoiceUUID() == choiceUUID && approval.getUsername() == username) {
 			return true;}
