@@ -12,6 +12,18 @@ public class ApprovalsDAO {
 	final static String tblName1 = "approvals";
 
 	public boolean addApproval(Approval approval) throws Exception {
+		// return true if things are done correctly, false if there is an error
+		if(approvalExists(approval)) {
+			// delete approval from DAO 
+			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName1 + " (altID, choiceUUID, username) values(?,?,?);");
+			ps.setInt(1, approval.getAltID());
+			ps.setString(2, approval.getChoiceUUID());
+			ps.setString(3, approval.getUsername());
+			ps.executeUpdate();
+			ps.close();
+			return true;
+		}
+		else {
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName1 + " (altID, choiceUUID, username) values(?,?,?);");
 			ps.setInt(1, approval.getAltID());
@@ -24,7 +36,8 @@ public class ApprovalsDAO {
 		} catch(Exception e){
 			e.printStackTrace();
 			throw new Exception("Failed to insert approval: " + e.getMessage());
-		}
+			}
+			}
 		}
 	// get approval boolean, return true if this exists. 
 	public boolean approvalExists(Approval approval) {
@@ -35,6 +48,7 @@ public class ApprovalsDAO {
 			ps.setInt(2, approval.getAltID());
 			ps.setNString(3, approval.getUsername());
 			ResultSet results = ps.executeQuery();
+			ps.close();
 			while(results.next()) {
 				if (new Approval(results.getInt("altID"),results.getNString("choiceUUID"), results.getString("username")).equals(approval)){
 					return true;
