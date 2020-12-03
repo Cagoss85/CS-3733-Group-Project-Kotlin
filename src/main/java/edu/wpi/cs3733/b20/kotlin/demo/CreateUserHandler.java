@@ -66,7 +66,6 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 		User user = new User(choiceUUID, username);
 		try {
 			String pw = dao.getUser(user).getPassword();
-			System.out.println("getPassword result is: " + pw);
 			return pw;
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -91,56 +90,36 @@ public class CreateUserHandler implements RequestHandler<CreateUserRequest, Auth
 	public AuthenticateUserResponse handleRequest(CreateUserRequest req, Context context) {
 		logger = context.getLogger();
 		logger.log(req.toString());
-		
 		AuthenticateUserResponse response = null;
 
 		try {
 			if(userExists(req.getChoiceUUID(), req.getUsername())) {
-				System.out.println("The username exists in the database");
 				if(getPassword(req.getChoiceUUID(), req.getUsername()) != null) {
-					System.out.println("Database user has the password: " + getPassword(req.getChoiceUUID(), req.getUsername()));
-					System.out.println("The requested password is: " + req.getPassword());
-					
-					if(getPassword(req.getChoiceUUID(), req.getUsername()).equals(req.getPassword()) ) {
-						System.out.println("Passwords match, authentication granted");
+					if(getPassword(req.getChoiceUUID(), req.getUsername()).equals(req.getPassword()))
 						response = new AuthenticateUserResponse(req.getUsername());
-					}
-					else {
-						System.out.println("Passwords don't match, try again");
+					else
 						response = new AuthenticateUserResponse(req.getUsername(), "Incorrect Password.");  //specify 400 error
-					}
 				}
 				else {
-					System.out.println("Database user has no password");
-					System.out.println("The requested password is: " + req.getPassword());
-					
-					if(req.getPassword() != null && !(req.getPassword().equals(""))) {
-						System.out.println("Database user doesnt have a password but the request does");
+					if(req.getPassword() != null && !(req.getPassword().equals(""))) 
 						response = new AuthenticateUserResponse(req.getUsername(), "This user exists and doesn't have a password.");  //specify 400 error
-					}
-					else {
-						System.out.println("Database user doesnt have a password and neither does the request");
+					else
 						response = new AuthenticateUserResponse(req.getUsername());
-					}
 				}
 			}
 			else {
-				System.out.println("The user does not exist in the database");
 				if(spaceAvailable(req.getChoiceUUID())) {
 					if(req.getPassword() != null) {
-						if(createUser(req.getChoiceUUID(), req.getUsername(), req.getPassword())) {
+						if(createUser(req.getChoiceUUID(), req.getUsername(), req.getPassword()))
 							response = new AuthenticateUserResponse(req.getUsername());
-						}
 					}
 					else if(req.getPassword() == null) {
-						if(createUser(req.getChoiceUUID(), req.getUsername())) {
+						if(createUser(req.getChoiceUUID(), req.getUsername()))
 							response = new AuthenticateUserResponse(req.getUsername());
-						}
 					}
 				}
-				else {
+				else
 					response = new AuthenticateUserResponse(req.getUsername(), "Sorry, this choice has reach capacity.");  //specify 400 error
-				}
 			}
 		} catch (Exception e) {}
 		return response;

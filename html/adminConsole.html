@@ -1,15 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Admin Console </title>
+<script type='text/javascript' src='../js/api.js'></script>
+<script type='text/javascript' src='../js/getReport.js'></script>
+
+<script type="text/javascript">
+function initialize() {
+	getReport();
+}
+</script>
+</head>
+<body onload="initialize()">
+
 <h2><strong>Administrator Console</strong></h2>
 <h3><strong>Active Choices</strong></h3>
-	<p>Choice 1 Description, choiceUUID, X Alternatives, X/Y Registered Users, Created on [DATE], not chosen</p>
-	<p>Choice 2 Description, choiceUUID, X Alternatives, X/Y Registered Users, Created on [DATE], not chosen</p>
-	<p>Choice 3 Description, choiceUUID, X Alternatives, X/Y Registered Users, Created on [DATE], not chosen</p>
-	<p>Choice 4 Description, choiceUUID, X Alternatives, X/Y Registered Users, Created on [DATE], not chosen</p>
+	<ul id = "choiceList"> </ul>
+	
 <h3>Delete Old Choices</h3>
 	<p>Delete Choices more than&nbsp;<input id="numDays" name="numDays" type="number" />&nbsp;<label for="numUsers">day(s) old.</label></p>
 	<p><input id="Delete choices" type="button" value="Delete choices" /></p>
 
 
-
+</body>
+</html>
 
 
 

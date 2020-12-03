@@ -59,12 +59,10 @@ public class ChoicesDAO {
         //save choice info to memory.
         choiceSet.next();
         String resultUuid = choiceSet.getString("choiceUUID");
-        if(!uuid.equals(resultUuid)) {
+        if(!uuid.equals(resultUuid)) 
         	throw new Exception("UUID Mismatch");
-        }
         String description = choiceSet.getString("description");
         int maxUsers = choiceSet.getInt("maxUsers");
-        
         
         // grab all alternatives with choice uuid and place them in an array
         ArrayList<Alternative> alternatives = new ArrayList<Alternative>();
@@ -94,5 +92,54 @@ public class ChoicesDAO {
         
         return choice;
 	}
+
+	/*
+	 * Function returns a list of all choices in the database
+	 */
+	public ArrayList<Choice> getAllChoices() throws Exception{
+		ArrayList<Choice> allChoices = new ArrayList<Choice>();
+		try {
+			PreparedStatement p1 = conn.prepareStatement("SELECT * FROM " + tblName1 + ";");
+			ResultSet resultSet = p1.executeQuery();
+			
+			while(resultSet.next()) {
+				Choice c = generateChoice(resultSet);
+				allChoices.add(c);
+			}
+			resultSet.close();
+			return allChoices;
+		} catch (Exception e) {
+			throw new Exception("Failed to get all Choices" + e.getMessage());
+		}
+	}
+
+	/*
+	 * Function generates a choice for admin display of a choice
+	 * Displays ID, timeCreated, and a boolean for chosen status
+	 */
+	private Choice generateChoice(ResultSet resultSet) throws Exception{
+		try {
+			String choiceUUID = resultSet.getString("choiceUUID");
+			String timeCreated = resultSet.getString("timeCreated");
+			Boolean isChosen = convertToBoolean(resultSet.getString("isChosen")); //Not sure if this will work right
+			if(isChosen) 
+				return new Choice(choiceUUID, timeCreated, true);
+			else 
+				return new Choice(choiceUUID, timeCreated, false);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed to Generate Choice" + e.getMessage());
+		}
+	}
 	
+	/*
+	 * Function converts a 0 or 1 into a boolean
+	 */
+	private boolean convertToBoolean(String val) {
+	    boolean retVal = false;
+	    if ("1".equalsIgnoreCase(val))
+	        retVal = true;
+	    return retVal;
+	}
 }

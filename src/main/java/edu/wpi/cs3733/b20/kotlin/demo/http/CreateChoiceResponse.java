@@ -1,9 +1,9 @@
 package edu.wpi.cs3733.b20.kotlin.demo.http;
 
 public class CreateChoiceResponse {
-	public  String uniqueID;
-	public  String error;
-	public  int statusCode;
+	public String uniqueID;
+	public String error;
+	public int statusCode;
 	
 	
 	public CreateChoiceResponse(String uniqueID) {
