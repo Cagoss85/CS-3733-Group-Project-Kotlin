@@ -15,4 +15,9 @@ public class Approval {
 	public String getUsername() {return this.username;}
 	public String getChoiceUUID() {return this.choiceUUID;}
 	public int getAltID() {return this.altID;}
+	public boolean equals(Approval approval) {
+		if (approval.getAltID() == altID && approval.getChoiceUUID() == choiceUUID && approval.getUsername() == username) {
+			return true;}
+		return false;
+	}
 }

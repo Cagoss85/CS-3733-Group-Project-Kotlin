@@ -27,7 +27,24 @@ public class ApprovalsDAO {
 		}
 		}
 	// get approval boolean, return true if this exists. 
-	
+	public boolean approvalExists(Approval approval) {
+		try{
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM "+ tblName1 + " WHERE choiceUUID =? AND altID =? AND username =?");
+		
+			ps.setString(1,approval.getChoiceUUID());
+			ps.setInt(2, approval.getAltID());
+			ps.setNString(3, approval.getUsername());
+			ResultSet results = ps.executeQuery();
+			while(results.next()) {
+				if (new Approval(results.getInt("altID"),results.getNString("choiceUUID"), results.getString("username")).equals(approval)){
+					return true;
+				}
+			}
+			return false;
+		} catch(Exception e) {
+			return false;
+		}
+	}
 	// get all approvals in a particular choice and alternative
 	public ArrayList<Approval> getApprovalList(String choiceUUID, int altID) {
 		ArrayList<Approval> approvals = new ArrayList<Approval>();
