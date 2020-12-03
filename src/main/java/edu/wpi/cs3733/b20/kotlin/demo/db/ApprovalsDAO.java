@@ -25,8 +25,8 @@ public class ApprovalsDAO {
 			// delete approval from DAO 
 		try {	
 			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName1 + " (choiceUUID,altID,username) values(?,?,?);");
-			ps.setInt(2, approval.getAltID());
 			ps.setString(1, approval.getChoiceUUID());
+			ps.setInt(2, approval.getAltID());
 			ps.setString(3, approval.getUsername());
 			ps.executeUpdate();
 			ps.close();
@@ -40,8 +40,8 @@ public class ApprovalsDAO {
 			// add approval to DAO as it does not exist
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName1 + " (choiceUUID,altID,username) values(?,?,?);");
-			ps.setInt(2, approval.getAltID());
 			ps.setString(1, approval.getChoiceUUID());
+			ps.setInt(2, approval.getAltID());
 			ps.setString(3, approval.getUsername());
 			ps.executeUpdate();
 			ps.close();
