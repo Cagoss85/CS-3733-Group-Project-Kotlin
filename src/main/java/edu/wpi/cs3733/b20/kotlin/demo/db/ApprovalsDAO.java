@@ -24,7 +24,7 @@ public class ApprovalsDAO {
 		if(approvalExists(approval)) {
 			// delete approval from DAO 
 		try {	
-			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName1 + " (choiceUUID,altID,username) values(?,?,?);");
+			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName1 + " WHERE choiceUUID=? AND altID=? AND username=?;");
 			ps.setString(1, approval.getChoiceUUID());
 			ps.setInt(2, approval.getAltID());
 			ps.setString(3, approval.getUsername());
@@ -63,15 +63,14 @@ public class ApprovalsDAO {
 		
 			ps.setString(1,approval.getChoiceUUID());
 			ps.setInt(2, approval.getAltID());
-			ps.setNString(3, approval.getUsername());
+			ps.setString(3, approval.getUsername());
 			ResultSet results = ps.executeQuery();
-			ps.close();
-			while(results.next()) {
-				if (new Approval(results.getInt("altID"),results.getNString("choiceUUID"), results.getString("username")).equals(approval)){
-					return true;
-				}
+			
+			if(results.next()) {
+				return true;
+			} else {
+				return false;
 			}
-			return false;
 		} catch(Exception e) {
 			return false;
 		}

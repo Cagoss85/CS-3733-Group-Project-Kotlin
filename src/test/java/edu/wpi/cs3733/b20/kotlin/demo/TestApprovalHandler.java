@@ -35,12 +35,13 @@ public class TestApprovalHandler extends LambdaTest{
 		
 		String UUID = handler.handleRequest(req, createContext("Creating test choice 1")).uniqueID.toString();
 		CreateApprovalRequest approvalReq = new CreateApprovalRequest(0,UUID,"kotlin");
+		CreateApprovalRequest approvalReq2 = new CreateApprovalRequest(0,UUID,"kotlin2");
 		
 		CreateApprovalHandler approvalHandler = new CreateApprovalHandler();
 		assertTrue((Boolean)approvalHandler.handleRequest(approvalReq, createContext("Creating test Approval 1")));
+		assertTrue((Boolean)approvalHandler.handleRequest(approvalReq, createContext("Creating test Approval 1")));
 		
-		
-		
+		assertTrue((Boolean)approvalHandler.handleRequest(approvalReq2, createContext("Creating test Approval 2")));
 		
 		
 	}
