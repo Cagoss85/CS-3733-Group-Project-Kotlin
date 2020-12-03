@@ -70,6 +70,7 @@ public class ApprovalsDAO {
 				return true;
 			} else {
 				return false;
+
 			}
 		} catch(Exception e) {
 			return false;
@@ -85,7 +86,7 @@ public class ApprovalsDAO {
 			ResultSet approvalSet = ps.executeQuery();
 			
 			while(approvalSet.next()) {
-				approvals.add(new Approval(approvalSet.getInt("altID"),approvalSet.getNString("choiceUUID"), approvalSet.getString("username")));
+				approvals.add(new Approval(approvalSet.getNString("choiceUUID"), approvalSet.getInt("altID"), approvalSet.getString("username")));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

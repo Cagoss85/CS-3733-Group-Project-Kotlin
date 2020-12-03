@@ -16,7 +16,7 @@ public class CreateApprovalHandler implements RequestHandler<CreateApprovalReque
 	boolean createApproval(int altID, String username, String choiceUUID) {
 		if (logger != null) {logger.log("in create approval");}
 		ApprovalsDAO dao = new ApprovalsDAO();
-		Approval approval = new Approval(altID, choiceUUID, username);
+		Approval approval = new Approval(choiceUUID, altID, username);
 		if (logger != null) {logger.log("create approval, approval generated");}
 		try {
 			if (logger != null) {logger.log("in create approval try block");}
