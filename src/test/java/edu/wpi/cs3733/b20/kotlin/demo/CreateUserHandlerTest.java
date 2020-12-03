@@ -100,4 +100,39 @@ public class CreateUserHandlerTest extends LambdaTest{
 		AuthenticateUserResponse userResponse1a = userHandler.handleRequest(userReq1a, createContext("Authenticating user 1"));
 		assertEquals(200, userResponse1a.statusCode);
 	}
+	
+	@Test
+	public void testAuthenticateUserReponse() {
+		CreateChoiceRequest choiceReq = new CreateChoiceRequest(new ArrayList<Alternative>(), 5, "Which team is better");
+		choiceReq.getAlternatives().add(new Alternative("190"));
+		choiceReq.getAlternatives().add(new Alternative("Bert"));
+		choiceReq.getAlternatives().add(new Alternative("Not Caseys Team"));
+		
+		CreateChoiceHandler choiceHandler = new CreateChoiceHandler();
+		String sampleUUID = choiceHandler.handleRequest(choiceReq, createContext("Creating test choice 1")).uniqueID.toString();
+		
+		CreateUserHandler userHandler = new CreateUserHandler();
+		
+		//Add a user with a password
+		CreateUserRequest userReq1 = new CreateUserRequest(sampleUUID, "user1", "password");
+		AuthenticateUserResponse userResponse1 = userHandler.handleRequest(userReq1, createContext("Authenticating user 1"));
+		
+		assertEquals (userResponse1.getStatusCode(), 200);
+		assertEquals (userResponse1.toString(), "Response(200, ,user1)");
+		assertEquals (userResponse1.getUsername(), "user1");
+		
+		CreateUserRequest userReq2 = new CreateUserRequest(sampleUUID, "user2");
+		AuthenticateUserResponse userResponse2 = userHandler.handleRequest(userReq2, createContext("Authenticating user 2"));
+		
+		userResponse2.setUsername("best user");
+		assertEquals(userResponse2.getUsername(), "best user");
+		
+		userResponse2.setError("User is hacked");
+		assertEquals(userResponse2.getError(), "User is hacked");
+		
+		userResponse2.setStatusCode(400);
+		assertEquals(userResponse2.getStatusCode(), 400);
+		
+	
+	}
 }
