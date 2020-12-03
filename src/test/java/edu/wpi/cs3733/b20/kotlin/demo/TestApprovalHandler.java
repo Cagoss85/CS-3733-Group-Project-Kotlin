@@ -13,7 +13,7 @@ import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceResponse;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Alternative;
 
-public class TestApproval extends LambdaTest{
+public class TestApprovalHandler extends LambdaTest{
 
 //	@Test
 //	public void testSuccessInput() {
