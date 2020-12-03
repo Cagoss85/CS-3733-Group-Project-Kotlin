@@ -4,7 +4,10 @@
 //GLOBAL NUM ALTERNATIVES
 var numAlternatives;
 
-function getChoice(){
+//GLOBAL CURRENT CHOICE PULL
+var currentChoice;
+
+function getChoice(registered){
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", getChoice_url, true)
 	
@@ -25,7 +28,7 @@ function getChoice(){
 		if(xhr.readyState == XMLHttpRequest.DONE){
 			if(xhr.status == 200){
 					console.log ("XHR:" + xhr.responseText);
-					processGetChoiceResponse(xhr.responseText);
+					processGetChoiceResponse(xhr.responseText, registered);
 				} else{
 					console.log("actual:" + xhr.responseText);
 					var js = JSON.parse(xhr.responseText);
@@ -44,22 +47,22 @@ function getChoice(){
 	}
 }
 
-function processGetChoiceResponse(result){
+function processGetChoiceResponse(result, registered){
 	console.log("res:" + result);
 	
-	var js = JSON.parse(result);   //we now have our result
+	currentChoice = JSON.parse(result);   //we now have our result
 	
-	if(js["httpStatus"] == "400"){
-		var err = js["error"];
+	if(currentChoice["httpStatus"] == "400"){
+		var err = currentChoice["error"];
 		alert (err);
 	} else{
 		document.getElementById("customURL").value = window.location.href;
 	
-		var choiceDescription = js["description"];
+		var choiceDescription = currentChoice["description"];
 	
 		document.getElementById("choiceDescription").innerHTML = choiceDescription;
 	
-		var alternatives = js["alternatives"];
+		var alternatives = currentChoice["alternatives"];
 	
 		var alt1Desc = alternatives[0]["description"];
 		document.getElementById("alt1").innerHTML = "Alternative 1: "+ alt1Desc;
@@ -86,23 +89,42 @@ function processGetChoiceResponse(result){
 			numAlternatives = 5;
 		}
 		
-		//Set login interface to be visible:
-		document.getElementById("regTitle").style.display='inline';
-		document.getElementById("regInst1").style.display='inline';
-		document.getElementById("regInst2").style.display='inline';
-		document.getElementById("userRegister").style.display='inline';
-		document.getElementById("tempMessage").style.display='inline';
-		}	
+		if(registered){
+			approvalControlsVisible();
+		}
+		
+		if(!registered){	
+			//Set login interface to be visible:
+			document.getElementById("regTitle").style.display='inline';
+			document.getElementById("regInst1").style.display='inline';
+			document.getElementById("regInst2").style.display='inline';
+			document.getElementById("userRegister").style.display='inline';
+			document.getElementById("tempMessage").style.display='inline';
+		}
+	}	
 }
 
 function showApprovalList(altNum){
-	//TODO
+	var thisAlt = currentChoice["alternatives"][altNum-1];   //altNum-1 because array index starts at 0
+	var appUserList = thisAlt["approvals"];
+	
+	var toHTML = "";
+	
+	for(var i = 0; i < appUserList.length; i++){
+		toHTML = toHTML + "<li>" + appUserList[i]["username"] + "</li>"
+	}
+	
+	document.getElementById("appDisList").innerHTML = toHTML;
+	
+	document.getElementById("appDisList").style.display='block';
 }
 
 function showDisapprovalList(altNum){
+	//TODO
 	
+	document.getElementById("appDisList").style.display='block';
 }
 
 function hideProvalList(){
-	//TODO
+	document.getElementById("appDisList").style.display='none';
 }

@@ -3,17 +3,12 @@
 <head>
 <meta charset=utf-8 />
 <style>
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
+.row {
+  display: flex;
 }
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.column {
+  flex: 50%;
+  padding: 10px;
 }
 </style>
 <title>View Choice</title>
@@ -29,7 +24,7 @@ function initialize() {
 	var hasParam = checkParam();
 	
 	if(hasParam){
-		getChoice();
+		getChoice(false);
 	} else{
 		alert("No valid uuid request. Did you follow a bad link?");
 		document.getElementById("alt1").innerHTML = "Alternatives not found.";
@@ -38,18 +33,17 @@ function initialize() {
 </script>
 </head>
 <body onload="initialize()">
+<b>This is your custom URL: </b><input id="customURL" size="112" readonly>
+<p>Share this with your team members!</p>
+		
+<h2 id="choiceDescription"></h2>
+
 <div class="row">
 	<div class="column"> <!-- COLUMN 1 -->
-		
-		<b>This is your custom URL: </b><input id="customURL" size="112" readonly>
-		<p>Share this with your team members!</p>
-		
-		<div id="choiceDescription"></div>
-		
 		<h2 id="altLabel">Alternatives</h2>
 		
-		<p id="alt1" style="display:inline-block"></p> 
-		<input type="button" id="alt1AppButton" value="⇧" style="display:none"  onClick="JavaScript:handleApproval(1)"> 
+		<p id="alt1" style="display:inline-block"></p>
+		<input type="button" id="alt1AppButton" value="⇧" style="display:none"  onClick="JavaScript:handleApproval(1)">
 		<p id="alt1AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()"></p> <br>
 		
 		<p id="alt2" style="display:inline-block"></p> 
