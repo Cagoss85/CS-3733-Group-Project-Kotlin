@@ -10,12 +10,13 @@ import edu.wpi.cs3733.b20.kotlin.demo.model.Approval;
 public class ApprovalsDAO {
 	static java.sql.Connection conn;
 	final static String tblName1 = "approvals";
+	final static String tblName2 = "disapprovals";
 
 	public boolean addApproval(Approval approval) throws Exception {
 		// return true if things are done correctly, false if there is an error
 		if(approvalExists(approval)) {
 			// delete approval from DAO 
-			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName1 + " (altID, choiceUUID, username) values(?,?,?);");
+			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName1 + " (choiceUUID,altID, username) values(?,?,?);");
 			ps.setInt(1, approval.getAltID());
 			ps.setString(2, approval.getChoiceUUID());
 			ps.setString(3, approval.getUsername());
@@ -25,7 +26,7 @@ public class ApprovalsDAO {
 		}
 		else {
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName1 + " (altID, choiceUUID, username) values(?,?,?);");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName1 + " (choiceUUID,altID, username) values(?,?,?);");
 			ps.setInt(1, approval.getAltID());
 			ps.setString(2, approval.getChoiceUUID());
 			ps.setString(3, approval.getUsername());

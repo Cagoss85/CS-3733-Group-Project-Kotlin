@@ -20,7 +20,7 @@ public class TestAlternative {
 		assertEquals("desc", testAlt.getDescription());
 		
 		User phil = new User("phil");
-		Approval app1 = new Approval("50", phil);
+		Approval app1 = new Approval(50, "qwerty36", "phil");
 		
 		assertEquals(0, testAlt.getApprovals().size());
 		testAlt.addApproval(app1);

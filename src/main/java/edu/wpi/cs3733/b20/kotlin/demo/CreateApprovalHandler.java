@@ -31,8 +31,15 @@ public class CreateApprovalHandler implements RequestHandler<CreateApprovalReque
 	public Object handleRequest(CreateApprovalRequest input, Context context) {
 		logger = context.getLogger();
 		logger.log(input.toString());
+		boolean ret = false; 
+		try {
+			 ret = createApproval(input.getAltID(),input.getUsername(), input.getChoiceUUID());
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
-		return null;
+		return ret;
 		
 	}
 	
