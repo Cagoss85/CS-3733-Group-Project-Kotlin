@@ -7,7 +7,7 @@ function processAuthenticateResponse(response){
 		var err = responseObj["error"];
 		alert (err);
 	}else{
-		username = response["username"];   //global username variable now set
+		username = responseObj["username"];   //global username variable now set
 		
 		//hide login
 		document.getElementById("regTitle").style.display='none';

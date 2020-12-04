@@ -76,8 +76,8 @@ function userPresent(altNum, type){  //type is TRUE for approval and FALSE for d
 function handleApproval(altNum){
 	var data = {}  //variable to assemble our JSON object
 	
-	data["uniqueID"] = uuid;
-	data["alternativeNumber"] = altNum;
+	data["altID"] = altNum;
+	data["choiceUUID"] = uuid;
 	data["username"] = username;
 	
 	var js = JSON.stringify(data);
