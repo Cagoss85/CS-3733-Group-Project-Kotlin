@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateDisapprovalRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceRequest;
