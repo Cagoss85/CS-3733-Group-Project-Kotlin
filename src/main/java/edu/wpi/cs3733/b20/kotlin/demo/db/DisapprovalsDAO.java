@@ -1,5 +1,102 @@
 package edu.wpi.cs3733.b20.kotlin.demo.db;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import edu.wpi.cs3733.b20.kotlin.demo.model.Disapproval;
+
 public class DisapprovalsDAO {
 
+	public DisapprovalsDAO() {
+		try {
+			conn = DatabaseUtil.connect();
+		} catch (Exception e) {
+			conn = null;
+		}
+	}
+	static java.sql.Connection conn;
+	final static String tblName1 = "approvals";
+	final static String tblName2 = "disapprovals";
+
+	public boolean addDisapproval(Disapproval disapproval) throws Exception {
+		// return true if things are done correctly, false if there is an error
+		if(disapprovalExists(disapproval)) {
+			// delete approval from DAO 
+		try {	
+			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName2 + " WHERE choiceUUID=? AND altID=? AND username=?;");
+			ps.setString(1, disapproval.getChoiceUUID());
+			ps.setInt(2, disapproval.getAltID());
+			ps.setString(3, disapproval.getUsername());
+			ps.executeUpdate();
+			ps.close();
+			return true;
+		}catch(Exception e) {
+			//return false;
+			throw new Exception("Failed to delete approval: "+ e.getMessage());
+		}
+		}
+		else {
+			// add approval to DAO as it does not exist
+		try {
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName2 + " (choiceUUID,altID,username) values(?,?,?);");
+			ps.setString(1, disapproval.getChoiceUUID());
+			ps.setInt(2, disapproval.getAltID());
+			ps.setString(3, disapproval.getUsername());
+			ps.executeUpdate();
+			ps.close();
+		
+			return true;
+		} catch(Exception e){
+			e.printStackTrace();
+			//return false;
+			throw new Exception("Failed to insert disapproval: " + e.getMessage());
+			}
+		
+			}
+		
+		}
+	// get approval boolean, return true if this exists. 
+	public boolean disapprovalExists(Disapproval disapproval) {
+		try{
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM "+ tblName2 + " WHERE choiceUUID =? AND altID =? AND username =?");
+		
+			ps.setString(1,disapproval.getChoiceUUID());
+			ps.setInt(2, disapproval.getAltID());
+			ps.setString(3, disapproval.getUsername());
+			ResultSet results = ps.executeQuery();
+			
+			if(results.next()) {
+				return true;
+			} else {
+				return false;
+
+			}
+		} catch(Exception e) {
+			return false;
+		}
+	}
+	// get all approvals in a particular choice and alternative
+	public ArrayList<Disapproval> getDisapprovalList(String choiceUUID, int altID) {
+		ArrayList<Disapproval> disapprovals = new ArrayList<Disapproval>();
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM "+ tblName2 + " WHERE choiceUUID =? AND altID =?");
+			ps.setString(1,choiceUUID);
+			ps.setInt(2, altID);
+			ResultSet disapprovalSet = ps.executeQuery();
+			
+			while(disapprovalSet.next()) {
+				disapprovals.add(new Disapproval(disapprovalSet.getNString("choiceUUID"), disapprovalSet.getInt("altID"), disapprovalSet.getString("username")));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return disapprovals;
+		
+		
+		
+		
+	}
 }
