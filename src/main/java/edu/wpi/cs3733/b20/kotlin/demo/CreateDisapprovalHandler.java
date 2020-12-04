@@ -12,7 +12,7 @@ public class CreateDisapprovalHandler implements RequestHandler<CreateDisapprova
 	LambdaLogger logger;
 	
 
-	boolean createDisapproval(int altID, String username, String choiceUUID) {
+	boolean createDisapproval(String choiceUUID, int altID, String username) {
 		if (logger != null) {logger.log("in create disapproval");}
 		DisapprovalsDAO dao = new DisapprovalsDAO();
 		Disapproval disapproval = new Disapproval(choiceUUID, altID, username);
@@ -34,7 +34,7 @@ public class CreateDisapprovalHandler implements RequestHandler<CreateDisapprova
 		logger.log(input.toString());
 		boolean ret = false; 
 		try {
-			 ret = createDisapproval(input.getAltID(),input.getUsername(), input.getChoiceUUID());
+			 ret = createDisapproval(input.getChoiceUUID(), input.getAltID(),input.getUsername());
 			
 		}catch(Exception e){
 			e.printStackTrace();
