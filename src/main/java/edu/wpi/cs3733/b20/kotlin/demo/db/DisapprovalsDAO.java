@@ -23,7 +23,7 @@ public class DisapprovalsDAO {
 	public boolean addDisapproval(Disapproval disapproval) throws Exception {
 		// return true if things are done correctly, false if there is an error
 		if(disapprovalExists(disapproval)) {
-			// delete approval from DAO 
+			// delete disapproval from DAO 
 		try {	
 			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName2 + " WHERE choiceUUID=? AND altID=? AND username=?;");
 			ps.setString(1, disapproval.getChoiceUUID());
@@ -38,7 +38,7 @@ public class DisapprovalsDAO {
 		}
 		}
 		else {
-			// add approval to DAO as it does not exist
+			// add disapproval to DAO as it does not exist
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName2 + " (choiceUUID,altID,username) values(?,?,?);");
 			ps.setString(1, disapproval.getChoiceUUID());
@@ -77,7 +77,7 @@ public class DisapprovalsDAO {
 			return false;
 		}
 	}
-	// get all approvals in a particular choice and alternative
+	// get all disapprovals in a particular choice and alternative
 	public ArrayList<Disapproval> getDisapprovalList(String choiceUUID, int altID) {
 		ArrayList<Disapproval> disapprovals = new ArrayList<Disapproval>();
 		try {
