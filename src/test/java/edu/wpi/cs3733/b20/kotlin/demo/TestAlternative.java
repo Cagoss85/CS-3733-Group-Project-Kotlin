@@ -20,14 +20,14 @@ public class TestAlternative {
 		assertEquals("desc", testAlt.getDescription());
 		
 		User phil = new User("phil");
-		Approval app1 = new Approval("50", phil);
+		Approval app1 = new Approval("qwerty36",50, "phil");
 		
 		assertEquals(0, testAlt.getApprovals().size());
 		testAlt.addApproval(app1);
 		assertEquals(1, testAlt.getApprovals().size());
 		
 		User dan = new User("dan");
-		Disapproval disp1 = new Disapproval("50", dan);
+		Disapproval disp1 = new Disapproval("yay", 50, "dave");
 		
 		assertEquals(0, testAlt.getDisapprovals().size());
 		testAlt.addDisapproval(disp1);

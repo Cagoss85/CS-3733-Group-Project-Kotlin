@@ -2,12 +2,22 @@ package edu.wpi.cs3733.b20.kotlin.demo.model;
 
 public class Disapproval {
 	String choiceUUID;
-	User user;
+	String username;	
+	int altID;
 	
-	public Disapproval (String choiceUUID, User user) {
+	public Disapproval (String choiceUUID, int altID, String user) {
 		this.choiceUUID = choiceUUID;
-		this.user = user;
+		this.altID =altID;
+		this.username = user;
 	}
 	
-	public User getUser() {return this.user;}
+	public String getChoiceUUID() {return this.choiceUUID;}
+	public String getUsername() {return this.username;}
+	public int getAltID() {return this.altID;}
+	
+	public boolean equals(Disapproval disapproval) {
+		if (disapproval.getAltID() == altID && disapproval.getChoiceUUID() == choiceUUID && disapproval.getUsername() == username) {
+			return true;}
+		return false;
+	}
 }
