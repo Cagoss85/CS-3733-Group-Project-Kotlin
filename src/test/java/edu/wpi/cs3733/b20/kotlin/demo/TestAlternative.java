@@ -27,7 +27,7 @@ public class TestAlternative {
 		assertEquals(1, testAlt.getApprovals().size());
 		
 		User dan = new User("dan");
-		Disapproval disp1 = new Disapproval("50", dan);
+		Disapproval disp1 = new Disapproval("yay", 50, "dave");
 		
 		assertEquals(0, testAlt.getDisapprovals().size());
 		testAlt.addDisapproval(disp1);
