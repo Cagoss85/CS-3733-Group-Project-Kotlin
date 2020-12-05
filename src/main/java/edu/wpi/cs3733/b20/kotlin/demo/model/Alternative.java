@@ -16,7 +16,11 @@ public class Alternative{
 	public Alternative(String description) {
 		this.description = description;
 	}
-	
+	public Alternative(String description, ArrayList<Approval> approvals, ArrayList<Disapproval> disapprovals) {
+		this.description = description;
+		this.approvals = approvals;
+		this.disapprovals = disapprovals;
+	}
 	//add Feedback to an alternative
 	public void addFeedback(Feedback f) {
 		feedback.add(f);
