@@ -38,7 +38,7 @@ function initialize() {
 <input id="customURL" size="112" readonly>
 <p style="display:inline-block">Share this with your team members!</p>
 
-<h2 id = "loading" style="visibility:hidden">Loading... Please wait.</h2>
+<h2 id = "loading" style="visibility:hidden;color:red">Loading... Please wait.</h2>
 <h2 id="choiceDescription"></h2>
 
 <div class="row">
@@ -98,6 +98,8 @@ function initialize() {
 			<input type="button" id="registerUserButton" value="Register" onClick="JavaScript:handleRegisterClick(this)">
 		
 		</form>
+		
+		<input type="button" id="refreshChoice" value="Refresh Choice" style="display:none" onclick="JavaScript:getChoice(true)">
 	</div>
 	
 	<div class="column"> <!-- COLUMN 2 -->

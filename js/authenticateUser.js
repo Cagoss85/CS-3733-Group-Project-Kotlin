@@ -17,6 +17,7 @@ function processAuthenticateResponse(response){
 		
 		approvalControlsVisible();
 		disapprovalControlsVisible();
+		document.getElementById("refreshChoice").style.display='block';
 	}
 	
 	
