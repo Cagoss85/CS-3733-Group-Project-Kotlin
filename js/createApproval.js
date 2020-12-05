@@ -7,6 +7,8 @@ function approvalControlsVisible(){   //USED TO BOTH ENABLE AND REFRESH STATE (C
 	document.getElementById("alt1AppButton").style.display='inline-block';
 	if(userPresent(0, true)){
 		document.getElementById("alt1AppButton").style.backgroundColor='green';
+	} else{
+		document.getElementById("alt1AppButton").style.backgroundColor='';
 	}
 	document.getElementById("alt1AppNum").style.display='inline-block';
 	document.getElementById("alt1AppNum").innerHTML = currentChoice["alternatives"][0]["approvals"].length;
@@ -14,7 +16,9 @@ function approvalControlsVisible(){   //USED TO BOTH ENABLE AND REFRESH STATE (C
 	//ALTERNATIVE 2 (ARRAY ID 1)
 	document.getElementById("alt2AppButton").style.display='inline-block';
 	if(userPresent(1, true)){
-		document.getElementById("alt1AppButton").style.backgroundColor='green';
+		document.getElementById("alt2AppButton").style.backgroundColor='green';
+	} else{
+		document.getElementById("alt2AppButton").style.backgroundColor='';
 	}
 	document.getElementById("alt2AppNum").style.display='inline-block';
 	document.getElementById("alt2AppNum").innerHTML = currentChoice["alternatives"][1]["approvals"].length;
@@ -23,7 +27,9 @@ function approvalControlsVisible(){   //USED TO BOTH ENABLE AND REFRESH STATE (C
 	if(numAlternatives >= 3){
 		document.getElementById("alt3AppButton").style.display='inline-block';
 		if(userPresent(2, true)){
-			document.getElementById("alt1AppButton").style.backgroundColor='green';
+			document.getElementById("alt3AppButton").style.backgroundColor='green';
+		} else{
+			document.getElementById("alt3AppButton").style.backgroundColor='';
 		}
 		document.getElementById("alt3AppNum").style.display='inline-block';
 		document.getElementById("alt3AppNum").innerHTML = currentChoice["alternatives"][2]["approvals"].length;	
@@ -33,7 +39,9 @@ function approvalControlsVisible(){   //USED TO BOTH ENABLE AND REFRESH STATE (C
 	if(numAlternatives >= 4){
 		document.getElementById("alt4AppButton").style.display='inline-block';
 		if(userPresent(3, true)){
-			document.getElementById("alt1AppButton").style.backgroundColor='green';
+			document.getElementById("alt4AppButton").style.backgroundColor='green';
+		} else{
+			document.getElementById("alt4AppButton").style.backgroundColor='';
 		}
 		document.getElementById("alt4AppNum").style.display='inline-block';
 		document.getElementById("alt4AppNum").innerHTML = currentChoice["alternatives"][3]["approvals"].length;	
@@ -43,7 +51,9 @@ function approvalControlsVisible(){   //USED TO BOTH ENABLE AND REFRESH STATE (C
 	if(numAlternatives == 5){
 		document.getElementById("alt5AppButton").style.display='inline-block';
 		if(userPresent(4, true)){
-			document.getElementById("alt1AppButton").style.backgroundColor='green';
+			document.getElementById("alt5AppButton").style.backgroundColor='green';
+		} else{
+			document.getElementById("alt5AppButton").style.backgroundColor='';
 		}
 		document.getElementById("alt5AppNum").style.display='inline-block';
 		document.getElementById("alt5AppNum").innerHTML = currentChoice["alternatives"][4]["approvals"].length;
@@ -76,7 +86,7 @@ function userPresent(altNum, type){  //type is TRUE for approval and FALSE for d
 function handleApproval(altNum){
 	var data = {}  //variable to assemble our JSON object
 	
-	data["altID"] = altNum;
+	data["altID"] = altNum-1;
 	data["choiceUUID"] = uuid;
 	data["username"] = username;
 	
