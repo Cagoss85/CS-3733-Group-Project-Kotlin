@@ -94,6 +94,7 @@ function processGetChoiceResponse(result, registered){
 		
 		if(registered){
 			approvalControlsVisible();
+			disapprovalControlsVisible();
 		}
 		
 		if(!registered){	
