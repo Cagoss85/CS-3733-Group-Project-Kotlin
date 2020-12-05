@@ -17,6 +17,7 @@
 <script type='text/javascript' src='../js/getChoice.js'></script>
 <script type='text/javascript' src='../js/authenticateUser.js'></script>
 <script type='text/javascript' src='../js/createApproval.js'></script>
+<script type='text/javascript' src='../js/createDisapproval.js'></script>
 
 <script type="text/javascript">
 function initialize() {
@@ -33,9 +34,11 @@ function initialize() {
 </script>
 </head>
 <body onload="initialize()">
-<b>This is your custom URL: </b><input id="customURL" size="112" readonly>
-<p>Share this with your team members!</p>
-		
+<b style="display:inline-block">This is your custom URL: </b>
+<input id="customURL" size="112" readonly>
+<p style="display:inline-block">Share this with your team members!</p>
+
+<h2 id = "loading" style="visibility:hidden">Loading... Please wait.</h2>
 <h2 id="choiceDescription"></h2>
 
 <div class="row">
@@ -43,24 +46,44 @@ function initialize() {
 		<h2 id="altLabel">Alternatives</h2>
 		
 		<p id="alt1" style="display:inline-block"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
 		<input type="button" id="alt1AppButton" value="⇧" style="display:none"  onClick="JavaScript:handleApproval(1)" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()">
-		<p id="alt1AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p id="alt1AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt1DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(1)" onmouseover="JavaScript:showDisapprovalList(1)" onmouseout="JavaScript:hideProvalList()">
+		<p id="alt1DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(1)" onmouseout="JavaScript:hideProvalList()"></p> <br>
 		
 		<p id="alt2" style="display:inline-block"></p> 
-		<input type="button" id="alt2AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(2)" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()"> 
-		<p id="alt2AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(2)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt2AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(2)" onmouseover="JavaScript:showApprovalList(2)" onmouseout="JavaScript:hideProvalList()"> 
+		<p id="alt2AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(2)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt2DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(2)" onmouseover="JavaScript:showDisapprovalList(2)" onmouseout="JavaScript:hideProvalList()">
+		<p id="alt2DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(2)" onmouseout="JavaScript:hideProvalList()"></p> <br>
 		
 		<p id="alt3" style="display:inline-block"></p> 
-		<input type="button" id="alt3AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(3)" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()"> 
-		<p id="alt3AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(3)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt3AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(3)" onmouseover="JavaScript:showApprovalList(3)" onmouseout="JavaScript:hideProvalList()"> 
+		<p id="alt3AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(3)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt3DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(3)" onmouseover="JavaScript:showDisapprovalList(3)" onmouseout="JavaScript:hideProvalList()">
+		<p id="alt3DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(3)" onmouseout="JavaScript:hideProvalList()"></p> <br>
 		
 		<p id="alt4" style="display:inline-block"></p> 
-		<input type="button" id="alt4AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(4)" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()"> 
-		<p id="alt4AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(4)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt4AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(4)" onmouseover="JavaScript:showApprovalList(4)" onmouseout="JavaScript:hideProvalList()"> 
+		<p id="alt4AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(4)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt4DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(4)" onmouseover="JavaScript:showDisapprovalList(4)" onmouseout="JavaScript:hideProvalList()">
+		<p id="alt4DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(4)" onmouseout="JavaScript:hideProvalList()"></p> <br>
 		
 		<p id="alt5" style="display:inline-block"></p> 
-		<input type="button" id="alt5AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(5)" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()"> 
-		<p id="alt5AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(5)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt5AppButton" value="⇧" style="display:none" onClick="JavaScript:handleApproval(5)" onmouseover="JavaScript:showApprovalList(5)" onmouseout="JavaScript:hideProvalList()"> 
+		<p id="alt5AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(5)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt5DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(5)" onmouseover="JavaScript:showDisapprovalList(5)" onmouseout="JavaScript:hideProvalList()">
+		<p id="alt5DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(5)" onmouseout="JavaScript:hideProvalList()"></p> <br>
 		
 		<h2 id="regTitle" style="display:none">Register with this choice</h2><br>
 		<p id="regInst1" style="display:none">New users please register with a username. You may also specify a password if you wish.</p><br>
@@ -75,8 +98,6 @@ function initialize() {
 			<input type="button" id="registerUserButton" value="Register" onClick="JavaScript:handleRegisterClick(this)">
 		
 		</form>
-		
-		<p id="tempMessage" style="display:none"></p>
 	</div>
 	
 	<div class="column"> <!-- COLUMN 2 -->

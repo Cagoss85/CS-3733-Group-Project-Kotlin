@@ -20,10 +20,13 @@ function getChoice(registered){
 	
 	xhr.send(js);
 	
+	document.getElementById("loading").style.visibility='visible';
+	
 	console.log("sent");
 	
 	
 	xhr.onloadend = function(){
+		document.getElementById("loading").style.visibility='hidden';
 		console.log(xhr);
 		if(xhr.readyState == XMLHttpRequest.DONE){
 			if(xhr.status == 200){
@@ -99,7 +102,6 @@ function processGetChoiceResponse(result, registered){
 			document.getElementById("regInst1").style.display='inline';
 			document.getElementById("regInst2").style.display='inline';
 			document.getElementById("userRegister").style.display='inline';
-			document.getElementById("tempMessage").style.display='inline';
 		}
 	}	
 }
@@ -120,7 +122,16 @@ function showApprovalList(altNum){
 }
 
 function showDisapprovalList(altNum){
-	//TODO
+	var thisAlt = currentChoice["alternatives"][altNum-1];   //altNum-1 because array index starts at 0
+	var disUserList = thisAlt["disapprovals"];
+	
+	var toHTML = "";
+	
+	for(var i = 0; i < disUserList.length; i++){
+		toHTML = toHTML + "<li>" + disUserList[i]["username"] + "</li>"
+	}
+	
+	document.getElementById("appDisList").innerHTML = toHTML;
 	
 	document.getElementById("appDisList").style.display='block';
 }

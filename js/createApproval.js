@@ -97,7 +97,10 @@ function handleApproval(altNum){
 	
 	xhr.send(js);
 	
+	document.getElementById("loading").style.visibility='visible';
+	
 	xhr.onloadend = function() {
+		document.getElementById("loading").style.visibility='hidden';
 		console.log(xhr);
 		if(xhr.readyState == XMLHttpRequest.DONE){
 			if(xhr.status == 200){

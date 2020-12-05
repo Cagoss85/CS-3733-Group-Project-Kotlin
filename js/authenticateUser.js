@@ -16,6 +16,7 @@ function processAuthenticateResponse(response){
 		document.getElementById("userRegister").style.display='none';
 		
 		approvalControlsVisible();
+		disapprovalControlsVisible();
 	}
 	
 	
@@ -47,7 +48,10 @@ function handleRegisterClick(e){
 		// send the collected data as JSON
 		xhr.send(js);
 		
+		document.getElementById("loading").style.visibility='visible';
+		
 		xhr.onloadend = function (){
+			document.getElementById("loading").style.visibility='hidden';
 			console.log(xhr);
 			if(xhr.readyState == XMLHttpRequest.DONE){
 				if(xhr.status == 200){
