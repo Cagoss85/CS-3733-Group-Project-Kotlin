@@ -71,9 +71,15 @@ public class ChoicesDAO {
         ps2.setString(1, uuid);
         ResultSet alternativeSet = ps2.executeQuery();
         // iterate through all alternatives located from the database
+        // add ability to get approvals and disapprovals
+        ApprovalsDAO appDAO = new ApprovalsDAO();
+        DisapprovalsDAO disDAO = new DisapprovalsDAO();
+        
+        
         while(alternativeSet.next()) {
         	// create alternative w/ description from table
-        	Alternative alt = new Alternative(alternativeSet.getString("description"));
+        	
+        	Alternative alt = new Alternative(alternativeSet.getString("description"),appDAO.getApprovalList(uuid, alternativeSet.getInt("altID")), disDAO.getDisapprovalList(uuid, alternativeSet.getInt("altID")));
         	// place alternative in correct index based on the altID
         	alternatives.add(alternativeSet.getInt("altID"), alt);
         }
