@@ -8,7 +8,8 @@ public class Feedback {
 	long timestamp;
 	String text;
 	
-	//UML said to input time but that seems wrong
+	String timestampString;
+	
 	public Feedback (String choiceUUID, int altID, String username, String text) {
 		this.choiceUUID = choiceUUID;
 		this.username = username;
@@ -23,6 +24,8 @@ public class Feedback {
 	public String getUsername() {return username;}
 	public long getTimestamp() {return timestamp;}
 	public String getText() {return text;}
+	
+	public String getTimestampString()	{return timestampString;}
 	
 	public boolean equals(Feedback feedback) {
 		if (feedback.getAltID() == altID && feedback.getChoiceUUID() == choiceUUID && feedback.getUsername() == username && feedback.getTimestamp() == timestamp && feedback.getText() == text) {
