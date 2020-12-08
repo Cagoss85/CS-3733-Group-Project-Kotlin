@@ -148,4 +148,21 @@ public class ChoicesDAO {
 	        retVal = true;
 	    return retVal;
 	}
+	
+	public boolean isChoiceOpen(String uuid) {
+	// looks for the state of the choice and returns true if the choice exists & is open
+		try {
+			Choice choice = this.getChoice(uuid);
+			// if finalAlternative has been set to not null
+			if(choice.finalAlternative == null) {
+				return true;
+			}
+			return false;
+			
+		} catch (Exception e) {
+			// assume that if the try fails, the Choice has been deleted/does not exist
+			return false;
+		}
+		
+	}
 }
