@@ -60,4 +60,29 @@ public class CreateFeedbackHandlerTest extends LambdaTest{
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq7, createContext("Creating test feedback7")));
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq8, createContext("Creating test feedback8")));
 	}
+	
+	@Test
+	public void TestDuplicate() {
+		System.out.println("hello1");
+		ArrayList<Alternative> colors = new ArrayList<Alternative>();
+		Alternative red = new Alternative("Red");
+		Alternative blue = new Alternative("Blue");
+		colors.add(red);
+		colors.add(blue);
+		
+		CreateChoiceRequest req = new CreateChoiceRequest(colors, 3, "Whats the best color");
+    	CreateChoiceHandler handler = new CreateChoiceHandler();
+
+		String sampleUUID = handler.handleRequest(req, createContext("Feedback test choice")).uniqueID.toString();
+		System.out.println(sampleUUID);
+		
+		CreateFeedbackHandler feedbackHandler = new CreateFeedbackHandler();
+		
+		CreateFeedbackRequest feedbackReq = new CreateFeedbackRequest(sampleUUID, 0, "feedbackUserBlue", "red is the best");
+		CreateFeedbackRequest feedbackReq2 = new CreateFeedbackRequest(sampleUUID, 0, "feedbackUserBlue", "red is the best");
+
+		//make a claim in one alternative
+		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq, createContext("Creating test feedback")));
+		assertFalse((Boolean)feedbackHandler.handleRequest(feedbackReq2, createContext("Creating duplicate test feedback")));
+	}
 }
