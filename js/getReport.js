@@ -57,6 +57,13 @@ function processGetReportResponse(result){
 			var choiceUUID = Choice[i]["uuid"];
 			var choiceDateCreated = Choice[i]["timeCreatedString"];
 			var choiceIsCompleted = Choice[i]["isChosen"];
+			var description = Choice[i]["description"];
+			
+			var currentTable = document.getElementById("tableRows").innerHTML;
+			
+			currentTable = currentTable + "<TR><TD>" + choiceUUID +"</TD> <TD>" + description + "</TD> <TD>" +choiceDateCreated + "</TD> <TD>"+ choiceIsCompleted +"</TD> </TR>";
+			
+			document.getElementById("tableRows").innerHTML = currentList;
 			
 			//var currentListChoiceUUID = document.getElementById("choiceUUIDList").innerHTML;
 			//var currentListDateCreated = document.getElementById("dateCreatedList").innerHTML;
