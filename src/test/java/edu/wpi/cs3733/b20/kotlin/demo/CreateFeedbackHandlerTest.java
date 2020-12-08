@@ -34,37 +34,29 @@ public class CreateFeedbackHandlerTest extends LambdaTest{
 		
 		CreateFeedbackRequest feedbackReq = new CreateFeedbackRequest(sampleUUID, 0, "feedbackUserRed", "red is the best");
 		CreateFeedbackRequest feedbackReq2 = new CreateFeedbackRequest(sampleUUID, 0, "feedbackUserBlue", "no blue is");
+		
 		CreateFeedbackRequest feedbackReq3 = new CreateFeedbackRequest(sampleUUID, 1, "feedbackUserBlue", "see blue is better");
 		CreateFeedbackRequest feedbackReq4 = new CreateFeedbackRequest(sampleUUID, 1, "feedbackUserRed", "Imagine being that wrong");
+		
 		CreateFeedbackRequest feedbackReq5 = new CreateFeedbackRequest(sampleUUID, 1, "feedbackUserBlue", "Ha you wish");
 		CreateFeedbackRequest feedbackReq6 = new CreateFeedbackRequest(sampleUUID, 1, "feedbackUserRed", "Wrong");
+		
 		CreateFeedbackRequest feedbackReq7 = new CreateFeedbackRequest(sampleUUID, 0, "feedbackUserBlue", "Look im in the worst color");
 		CreateFeedbackRequest feedbackReq8 = new CreateFeedbackRequest(sampleUUID, 0, "feedbackUserRed", "Wrong again pal");
 		
+		//make a claim in one alternative
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq, createContext("Creating test feedback")));
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq2, createContext("Creating test feedback2")));
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		//go fight in the other alternative
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq3, createContext("Creating test feedback3")));
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq4, createContext("Creating test feedback4")));
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		//start name calling
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq5, createContext("Creating test feedback5")));
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq6, createContext("Creating test feedback6")));
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		//go back and check
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq7, createContext("Creating test feedback7")));
 		assertTrue((Boolean)feedbackHandler.handleRequest(feedbackReq8, createContext("Creating test feedback8")));
 	}
