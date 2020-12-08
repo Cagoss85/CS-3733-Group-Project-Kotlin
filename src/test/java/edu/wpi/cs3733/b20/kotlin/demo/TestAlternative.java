@@ -19,22 +19,20 @@ public class TestAlternative {
 		testAlt.setDescription("desc");
 		assertEquals("desc", testAlt.getDescription());
 		
-		User phil = new User("phil");
 		Approval app1 = new Approval("qwerty36",50, "phil");
 		
 		assertEquals(0, testAlt.getApprovals().size());
 		testAlt.addApproval(app1);
 		assertEquals(1, testAlt.getApprovals().size());
 		
-		User dan = new User("dan");
 		Disapproval disp1 = new Disapproval("yay", 50, "dave");
 		
 		assertEquals(0, testAlt.getDisapprovals().size());
 		testAlt.addDisapproval(disp1);
 		assertEquals(1, testAlt.getDisapprovals().size());
 		
-		Feedback feed1 = new Feedback("50", dan, "this is a test");
-		Feedback feed2 = new Feedback("50", phil, "this is a test2");
+		Feedback feed1 = new Feedback("50", 0, "Dan", "this is a test");
+		Feedback feed2 = new Feedback("50", 0, "Phil", "this is a test2");
 		assertEquals(0, testAlt.getFeedback().size());
 		testAlt.addFeedback(feed1);
 		assertEquals(1, testAlt.getFeedback().size());
