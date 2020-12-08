@@ -58,6 +58,20 @@ function processGetReportResponse(result){
 			var choiceDateCreated = Choice[i]["timeCreatedString"];
 			var choiceIsCompleted = Choice[i]["isChosen"];
 			
+			var currentListChoiceUUID = document.getElementById("choiceUUIDList").innerHTML;
+			var currentListDateCreated = document.getElementById("dateCreatedList").innerHTML;
+			var currentListIsCompleted = document.getElementById("choiceIsCompletedList").innerHTML;
+			
+			currentListChoiceUUID = currentListChoiceUUID + "<li>" + choiceUUID +"</li>";
+			
+			currentListDateCreated = currentListDateCreated + choiceDateCreated;
+			
+			currentListIsCompleted = currentListIsCompleted +choiceIsCompleted;
+			
+			document.getElementById("choiceUUIDList").innerHTML = currentListChoiceUUID;
+			document.getElementById("dateCreatedList").innerHTML = currentListDateCreated;
+			document.getElementById("choiceIsCompletedList").innerHTML = currentListIsCompleted;
+			
 			var currentList = document.getElementById("choiceList").innerHTML;
 			
 			currentList = currentList + "<li> choiceUUID: " + choiceUUID + " dateCreated: " + choiceDateCreated + " choiceCompleted: " + choiceIsCompleted + "</li>";
