@@ -25,8 +25,9 @@ public class Choice {
 	}
 	
 	//Admin Console Constructor
-	public Choice(String uuid, String timeCreatedString, boolean isChosen){
+	public Choice(String uuid, String description, String timeCreatedString, boolean isChosen){
 		this.uuid= uuid;
+		this.description = description;
 		this.timeCreatedString = timeCreatedString;
 		this.isChosen = isChosen;
 	}

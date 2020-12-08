@@ -49,6 +49,7 @@ public class ChoicesDAO {
 			throw new Exception("Failed to insert choice: " + e.getMessage());
 		}
 	}
+	
 	public Choice getChoice(String uuid) throws Exception{
 		Choice choice = null;
 		try {
@@ -126,12 +127,14 @@ public class ChoicesDAO {
 	private Choice generateChoice(ResultSet resultSet) throws Exception{
 		try {
 			String choiceUUID = resultSet.getString("choiceUUID");
+			String description = resultSet.getString("description");
 			String timeCreated = resultSet.getString("timeCreated");
 			Boolean isChosen = convertToBoolean(resultSet.getString("isChosen")); //Not sure if this will work right
+			
 			if(isChosen) 
-				return new Choice(choiceUUID, timeCreated, true);
+				return new Choice(choiceUUID, description, timeCreated, true);
 			else 
-				return new Choice(choiceUUID, timeCreated, false);
+				return new Choice(choiceUUID, description, timeCreated, false);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
