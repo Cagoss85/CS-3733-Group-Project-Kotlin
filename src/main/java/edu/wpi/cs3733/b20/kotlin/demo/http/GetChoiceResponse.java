@@ -24,7 +24,6 @@ public class GetChoiceResponse {
 		this.httpStatus = 200;
 	}
 	public GetChoiceResponse(int statusCode, String errorMsg) {
-		
 		this.uniqueID = "";
 		this.maxUsers = 0;
 		this.description = "";
