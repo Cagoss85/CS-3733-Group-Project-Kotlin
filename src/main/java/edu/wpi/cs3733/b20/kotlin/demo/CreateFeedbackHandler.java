@@ -14,8 +14,9 @@ public class CreateFeedbackHandler implements RequestHandler<CreateFeedbackReque
 	public boolean createFeedback(String choiceUUID, int altID, String username, String text) {
 		if(logger != null) {logger.log("in create feedback");}
 		FeedbackDAO dao = new FeedbackDAO();
+		Feedback feedback = new Feedback(choiceUUID, altID, username, text);
 		try {
-			return dao.addFeedback(new Feedback(choiceUUID, altID, username, text));
+			return dao.addFeedback(feedback);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

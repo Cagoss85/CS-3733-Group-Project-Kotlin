@@ -24,7 +24,6 @@ public class CreateChoiceHandler implements RequestHandler<CreateChoiceRequest,C
 		try {
 			return dao.addChoice(choice);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;

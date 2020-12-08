@@ -2,6 +2,7 @@ package edu.wpi.cs3733.b20.kotlin.demo.db;
 
 import java.sql.PreparedStatement;
 import java.sql.PseudoColumnUsage;
+import java.sql.Timestamp;
 
 import edu.wpi.cs3733.b20.kotlin.demo.model.Feedback;
 
@@ -23,7 +24,8 @@ public class FeedbackDAO {
 			p1.setInt(2, feedback.getAltID());
 			p1.setString(3, feedback.getUsername());
 			p1.setString(4,  feedback.getText());
-			p1.setString(5, feedback.getTimestampString());
+			Timestamp time = new Timestamp(feedback.getTimestamp());
+			p1.setTimestamp(5, time);
 			p1.executeUpdate();
 			p1.close();
 			return true;
