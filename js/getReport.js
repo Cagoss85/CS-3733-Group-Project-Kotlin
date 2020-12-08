@@ -63,26 +63,7 @@ function processGetReportResponse(result){
 			
 			currentTable = currentTable + "<TR><TD>" + choiceUUID +"</TD> <TD>" + description + "</TD> <TD>" +choiceDateCreated + "</TD> <TD>"+ choiceIsCompleted +"</TD> </TR>";
 			
-			document.getElementById("tableRows").innerHTML = currentList;
-			
-			//var currentListChoiceUUID = document.getElementById("choiceUUIDList").innerHTML;
-			//var currentListDateCreated = document.getElementById("dateCreatedList").innerHTML;
-			//var currentListIsCompleted = document.getElementById("choiceIsCompletedList").innerHTML;
-			
-			//currentListChoiceUUID = currentListChoiceUUID + "<li>" + choiceUUID +"</li>";
-			
-			//currentListDateCreated = currentListDateCreated + choiceDateCreated;
-			
-			//currentListIsCompleted = currentListIsCompleted +choiceIsCompleted;
-			
-			//document.getElementById("choiceUUIDList").innerHTML = currentListChoiceUUID;
-			//document.getElementById("dateCreatedList").innerHTML = currentListDateCreated;
-			//document.getElementById("choiceIsCompletedList").innerHTML = currentListIsCompleted;
-			
-			var currentList = document.getElementById("choiceList").innerHTML;
-			
-			currentList = currentList + "<li> choiceUUID: " + choiceUUID + " dateCreated: " + choiceDateCreated + " choiceCompleted: " + choiceIsCompleted + "</li>";
-			document.getElementById("choiceList").innerHTML = currentList;
+			document.getElementById("tableRows").innerHTML = currentTable;
 		
 		}
 		}
