@@ -13,7 +13,7 @@ public class CreateApprovalHandler implements RequestHandler<CreateApprovalReque
 	LambdaLogger logger;
 	
 
-	boolean createApproval(String choiceUUID, int altID, String username) {
+	public boolean createApproval(String choiceUUID, int altID, String username) {
 		if (logger != null) {logger.log("in create approval");}
 		ApprovalsDAO dao = new ApprovalsDAO();
 		Approval approval = new Approval(choiceUUID, altID, username);

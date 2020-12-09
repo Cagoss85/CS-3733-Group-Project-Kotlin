@@ -35,7 +35,7 @@ public class CreateChoiceHandlerTest extends LambdaTest{
     @Test
     public void testShouldBeOk() {
     	ArrayList<Alternative> professors = new ArrayList<Alternative>();
-    	CreateChoiceRequest req = new CreateChoiceRequest(professors, 3, "Whos better");
+    	CreateChoiceRequest req = new CreateChoiceRequest(professors, 3, "TEST DATE SELECTION");
 
 		Alternative heineman = new Alternative("Heineman");
 		Alternative wong = new Alternative("Wong");
