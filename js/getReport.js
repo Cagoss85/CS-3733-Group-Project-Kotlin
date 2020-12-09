@@ -73,7 +73,7 @@ function processGetReportResponse(result){
 
 function handleDeleteClick(e){
 	
-	var data{};
+	var data[];
 	
 	var numEmpty;
 	
@@ -98,6 +98,8 @@ function handleDeleteClick(e){
 
 		xhr.send(js);
 
+		GetReport();
+/*
 		xhr.onloadend = function (){
 			console.log(xhr);
 			if(xhr.readyState == XMLHttpRequest.DONE){
@@ -114,6 +116,7 @@ function handleDeleteClick(e){
 				processGetReportResponse("N/A");
 			}
 		}
+		*/
 	}
 	
 }
