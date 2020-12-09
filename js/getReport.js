@@ -72,7 +72,7 @@ function processGetReportResponse(result){
 
 /*
 function handleDeleteClick(e){
-	var form = document.deleteChoicesForm;
+	//var form = document.deleteChoicesForm;
 	var data{};
 	
 	var numEmpty;
@@ -87,7 +87,7 @@ function handleDeleteClick(e){
 		numEmpty = false;
 	}
 	
-	if(numEmpty == false && document.numDays.type !== Number){
+	if(numEmpty == false && numDays.type !== Number){
 		alert("You must enter a number!");
 	}else{
 		var js = JSON.stringify(data);
