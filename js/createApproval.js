@@ -46,12 +46,10 @@ function handleApproval(altNum){
 		if(xhr.readyState == XMLHttpRequest.DONE){
 			if(xhr.status == 200){
 				console.log("XHR: " + xhr.responseText);
-				//process response?
 				getChoice(true);  //call getChoice to initiate refresh
 			} else{
 				console.log("actual: " + xhr.responseText);
 				alert("Unable to add approval");
-				//process error?
 			}
 		} else{
 			alert("Unable to send request");

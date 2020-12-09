@@ -2,7 +2,7 @@
  * Contains all Javascript calls for showing and hiding UI elements
  */
 
-var currentAlt;  //GLOBAL VARIABLE FOR CURRENTLY SELECTED ALTERNATIVE FOR FEEDBACK
+var currentAltID;  //GLOBAL VARIABLE FOR CURRENTLY SELECTED ALTERNATIVE FOR FEEDBACK
 
 var feedbackShowingFor;  //currently viewing feedback for this alternative
 
@@ -69,7 +69,8 @@ function showApprovalList(altNum){
 	var thisAlt = currentChoice["alternatives"][altNum-1];   //altNum-1 because array index starts at 0
 	var appUserList = thisAlt["approvals"];
 	
-	var toHTML = "";
+	var toHTML = "<p>Approvals for Alternative " + altNum + " :</p><br>";
+	
 	
 	for(var i = 0; i < appUserList.length; i++){
 		toHTML = toHTML + "<li>" + appUserList[i]["username"] + "</li>"
@@ -84,7 +85,7 @@ function showDisapprovalList(altNum){
 	var thisAlt = currentChoice["alternatives"][altNum-1];   //altNum-1 because array index starts at 0
 	var disUserList = thisAlt["disapprovals"];
 	
-	var toHTML = "";
+	var toHTML = "<p>Disapprovals for Alternative " + altNum + " :</p><br>";
 	
 	for(var i = 0; i < disUserList.length; i++){
 		toHTML = toHTML + "<li>" + disUserList[i]["username"] + "</li>"
@@ -161,9 +162,9 @@ function toggleFeedback(altNum){
 }
 
 function showFeedback(altNum){
-	currentAlt = altNum;
 	
 	var altID = altNum-1;
+	currentAltID = altID;
 	var thisAlt = currentChoice["alternatives"][altID];   //altNum-1 because array index starts at 0
 	var feedbackList = thisAlt["feedback"];  //TODO: Verify name of feedback in GetChoiceResponse
 	
