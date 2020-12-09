@@ -15,8 +15,10 @@ function processAuthenticateResponse(response){
 		document.getElementById("regInst2").style.display='none';
 		document.getElementById("userRegister").style.display='none';
 		
+		//show other UI elements
 		approvalControlsVisible();
 		disapprovalControlsVisible();
+		feedbackControlsVisible();
 		document.getElementById("refreshChoice").style.display='block';
 	}
 	

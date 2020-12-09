@@ -107,36 +107,5 @@ function processGetChoiceResponse(result, registered){
 	}	
 }
 
-function showApprovalList(altNum){
-	var thisAlt = currentChoice["alternatives"][altNum-1];   //altNum-1 because array index starts at 0
-	var appUserList = thisAlt["approvals"];
-	
-	var toHTML = "";
-	
-	for(var i = 0; i < appUserList.length; i++){
-		toHTML = toHTML + "<li>" + appUserList[i]["username"] + "</li>"
-	}
-	
-	document.getElementById("appDisList").innerHTML = toHTML;
-	
-	document.getElementById("appDisList").style.display='block';
-}
 
-function showDisapprovalList(altNum){
-	var thisAlt = currentChoice["alternatives"][altNum-1];   //altNum-1 because array index starts at 0
-	var disUserList = thisAlt["disapprovals"];
-	
-	var toHTML = "";
-	
-	for(var i = 0; i < disUserList.length; i++){
-		toHTML = toHTML + "<li>" + disUserList[i]["username"] + "</li>"
-	}
-	
-	document.getElementById("appDisList").innerHTML = toHTML;
-	
-	document.getElementById("appDisList").style.display='block';
-}
 
-function hideProvalList(){
-	document.getElementById("appDisList").style.display='none';
-}
