@@ -68,4 +68,25 @@ function processGetReportResponse(result){
 		}
 		}
 		
+}	
+
+
+function handleClick(e){
+	var form = document.deleteChoicesForm;
+	
+	var data{};
+	
+	var numEmpty;
+	
+	if (form.numUsers.value == 0){
+		numEmpty = true;
+		alert("You must enter a valid timespan!");
+	} else{
+		numEmpty = false;
+	}
+	
+	if(numEmpty == false){
+		
+	}
+	
 }
