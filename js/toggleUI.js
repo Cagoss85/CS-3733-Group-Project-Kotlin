@@ -171,18 +171,22 @@ function showFeedback(altNum){
 	document.getElementById("feedbackInstructions").innerHTML = "Leave Feedback for Alternative " + altNum + ":";
 	document.getElementById("feedbackInstructions").style.display="inline-block";
 	document.getElementById("feedbackInput").style.display="inline-block";
-	
 	document.getElementById("submitFeedback").style.display="inline-block";
-	
 	document.getElementById("feedbackList").style.display="block";
+	
+	var thisFeedbackArr = feedbackArr[altID];
+	var feedbackListHTML;
+	
+	for(var i = 0; i < thisFeedbackArr.length; i++){
+		var newHTML = "<b>" + thisFeedbackArr["username"] + "&nbsp;&nbsp;" + thisFeedbackArr["timestamp"] + "</b><br>" + "<p>" + thisFeedbackArr["text"] + "</p>";
+		feedbackListHTML = feedbackListHTML + newHTML;
+	}
 	
 }
 
 function hideFeedback(){
 	document.getElementById("feedbackInstructions").style.display="none";
 	document.getElementById("feedbackInput").style.display="none";
-	
 	document.getElementById("submitFeedback").style.display="none";
-	
 	document.getElementById("feedbackList").style.display="none";
 }
