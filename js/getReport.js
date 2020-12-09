@@ -71,22 +71,29 @@ function processGetReportResponse(result){
 }	
 
 
-function handleClick(e){
+function handleDeleteClick(e){
 	var form = document.deleteChoicesForm;
-	
 	var data{};
 	
 	var numEmpty;
 	
-	if (form.numUsers.value == 0){
+	data ["timeCreatedString"]
+	
+	if (numDays.value == 0){
 		numEmpty = true;
-		alert("You must enter a valid timespan!");
+		alert("You must enter a timespan!");
 	} else{
 		numEmpty = false;
 	}
 	
-	if(numEmpty == false){
+	if(numEmpty == false && document.numDays.type !== Number){
+		alert("You must enter a number!");
+	}else{
+		data ["deleteStale"]= [];
 		
+		var timeToDelete = numDays.input; 
 	}
 	
 }
+
+
