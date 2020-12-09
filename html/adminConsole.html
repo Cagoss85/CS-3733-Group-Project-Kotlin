@@ -4,7 +4,7 @@
 <title> Admin Console </title>
 <script type='text/javascript' src='../js/api.js'></script>
 <script type='text/javascript' src='../js/getReport.js'></script>
-
+a
 <script type="text/javascript">
 function initialize() {
 	getReport();
@@ -27,9 +27,10 @@ function initialize() {
 
 	
 <h3>Delete Old Choices</h3>
+	<form name = "dayInput" method = "post">
 	<p>Delete Choices more than&nbsp;<input id="numDays" name="numDays" type="number" />&nbsp;<label for="numUsers">day(s) old.</label></p>
-	<p><input id="Delete choices" type="button" value="Delete choices" onClick="JavaScript:handleCreateClick(this) /></p>
-
+	<p><input id="Delete choices" type="button" value="Delete choices" onClick="JavaScript:handleDeleteClick(this)" /></p>
+	</form>
 
 </body>
 </html>

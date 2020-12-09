@@ -72,33 +72,35 @@ function processGetReportResponse(result){
 
 
 function handleDeleteClick(e){
-	
-	var data[];
+	var form = document.dayInput;
+	var data = [];
 	
 	var numEmpty;
 	
 	
-	if (numDays.value == 0){
+	if (form.numDays.value == 0){
 		numEmpty = true;
 		alert("You must enter a timespan!");
 	} else{
 		numEmpty = false;
 	}
 	
-	if(numEmpty == false && numDays.type !== Number){
-		alert("You must enter a number!");
-	}else{
+	if(numEmpty == false){
 		
-		data ["timeCreatedString"]= numDays.value; 
+		if(form.numDays.value<0){
+		alert("You must enter a valid number!");
+		}else{
 		
-		var js = JSON.stringify(data);
-		console.log("JS:" + js);
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", deleteStaleRequest_url, true);
+			data ["timeCreatedString"]= numDays.value; 
+		
+			var js = JSON.stringify(data);
+			console.log("JS:" + js);
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", deleteStaleRequest_url, true);
+	
+			xhr.send(js);
 
-		xhr.send(js);
-
-		GetReport();
+			GetReport();
 /*
 		xhr.onloadend = function (){
 			console.log(xhr);
@@ -117,6 +119,7 @@ function handleDeleteClick(e){
 			}
 		}
 		*/
+	}
 	}
 	
 }
