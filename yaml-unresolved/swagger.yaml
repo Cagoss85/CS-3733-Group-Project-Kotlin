@@ -445,10 +445,13 @@ definitions:
       type: "object"
       required:
       - "uuid"
+      - "description"
       - "timeCreatedString"
       - "ischosen"
       properties:
         uuid:
+          type: "string"
+        description:
           type: "string"
         timeCreatedString:
           type: "string"
