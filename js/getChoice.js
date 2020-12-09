@@ -50,6 +50,9 @@ function getChoice(registered){
 	}
 }
 
+//STORAGE LOCATION FOR ALTERNATIVES' FEEDBACK
+var feedbackArr = [];
+
 function processGetChoiceResponse(result, registered){
 	console.log("res:" + result);
 	
@@ -69,28 +72,34 @@ function processGetChoiceResponse(result, registered){
 	
 		var alt1Desc = alternatives[0]["description"];
 		document.getElementById("alt1").innerHTML = "Alternative 1: "+ alt1Desc;
+		feedbackArr[0] = alternatives[0]["feedback"];
 	
 		var alt2Desc = alternatives[1]["description"];
 		document.getElementById("alt2").innerHTML = "Alternative 2: "+ alt2Desc;
+		feedbackArr[1] = alternatives[1]["feedback"];
 		numAlternatives = 2;
 		
 		if(alternatives.length > 2){
 			var alt3Desc = alternatives[2]["description"];
 			document.getElementById("alt3").innerHTML = "Alternative 3: " +alt3Desc;
+			feedbackArr[2] = alternatives[2]["feedback"];
 			numAlternatives = 3;
 		}
 		
 		if(alternatives.length > 3){
 			var alt4Desc = alternatives[3]["description"];
 			document.getElementById("alt4").innerHTML = "Alternative 4: "+ alt4Desc;
+			feedbackArr[3] = alternatives[3]["feedback"];
 			numAlternatives = 4;
 		}
 		
 		if(alternatives.length > 4){
 			var alt5Desc = alternatives[4]["description"];
 			document.getElementById("alt5").innerHTML = "Alternative 5: "+ alt5Desc;
+			feedbackArr[4] = alternatives[4]["feedback"];
 			numAlternatives = 5;
 		}
+		
 		
 		if(registered){
 			approvalControlsVisible();
@@ -107,36 +116,5 @@ function processGetChoiceResponse(result, registered){
 	}	
 }
 
-function showApprovalList(altNum){
-	var thisAlt = currentChoice["alternatives"][altNum-1];   //altNum-1 because array index starts at 0
-	var appUserList = thisAlt["approvals"];
-	
-	var toHTML = "";
-	
-	for(var i = 0; i < appUserList.length; i++){
-		toHTML = toHTML + "<li>" + appUserList[i]["username"] + "</li>"
-	}
-	
-	document.getElementById("appDisList").innerHTML = toHTML;
-	
-	document.getElementById("appDisList").style.display='block';
-}
 
-function showDisapprovalList(altNum){
-	var thisAlt = currentChoice["alternatives"][altNum-1];   //altNum-1 because array index starts at 0
-	var disUserList = thisAlt["disapprovals"];
-	
-	var toHTML = "";
-	
-	for(var i = 0; i < disUserList.length; i++){
-		toHTML = toHTML + "<li>" + disUserList[i]["username"] + "</li>"
-	}
-	
-	document.getElementById("appDisList").innerHTML = toHTML;
-	
-	document.getElementById("appDisList").style.display='block';
-}
 
-function hideProvalList(){
-	document.getElementById("appDisList").style.display='none';
-}

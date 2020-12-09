@@ -15,6 +15,7 @@
 <script type='text/javascript' src='../js/api.js'></script>
 <script type='text/javascript' src='../js/checkParam.js'></script>
 <script type='text/javascript' src='../js/getChoice.js'></script>
+<script type='text/javascript' src='../js/toggleUI.js'></script>
 <script type='text/javascript' src='../js/authenticateUser.js'></script>
 <script type='text/javascript' src='../js/createApproval.js'></script>
 <script type='text/javascript' src='../js/createDisapproval.js'></script>
@@ -51,7 +52,9 @@ function initialize() {
 		<p id="alt1AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(1)" onmouseout="JavaScript:hideProvalList()"></p>
 		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
 		<input type="button" id="alt1DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(1)" onmouseover="JavaScript:showDisapprovalList(1)" onmouseout="JavaScript:hideProvalList()">
-		<p id="alt1DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(1)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p id="alt1DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(1)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt1FeedbackButton" value="View/Leave Feedback" style="display:none" onClick="JavaScript:toggleFeedback(1)"> <br>
 		
 		<p id="alt2" style="display:inline-block"></p> 
 		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
@@ -59,7 +62,9 @@ function initialize() {
 		<p id="alt2AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(2)" onmouseout="JavaScript:hideProvalList()"></p>
 		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
 		<input type="button" id="alt2DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(2)" onmouseover="JavaScript:showDisapprovalList(2)" onmouseout="JavaScript:hideProvalList()">
-		<p id="alt2DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(2)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p id="alt2DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(2)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt2FeedbackButton" value="View/Leave Feedback" style="display:none" onClick="JavaScript:toggleFeedback(2)"> <br>
 		
 		<p id="alt3" style="display:inline-block"></p> 
 		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
@@ -67,7 +72,9 @@ function initialize() {
 		<p id="alt3AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(3)" onmouseout="JavaScript:hideProvalList()"></p>
 		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
 		<input type="button" id="alt3DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(3)" onmouseover="JavaScript:showDisapprovalList(3)" onmouseout="JavaScript:hideProvalList()">
-		<p id="alt3DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(3)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p id="alt3DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(3)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt3FeedbackButton" value="View/Leave Feedback" style="display:none" onClick="JavaScript:toggleFeedback(3)"> <br>
 		
 		<p id="alt4" style="display:inline-block"></p> 
 		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
@@ -75,7 +82,9 @@ function initialize() {
 		<p id="alt4AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(4)" onmouseout="JavaScript:hideProvalList()"></p>
 		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
 		<input type="button" id="alt4DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(4)" onmouseover="JavaScript:showDisapprovalList(4)" onmouseout="JavaScript:hideProvalList()">
-		<p id="alt4DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(4)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p id="alt4DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(4)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt4FeedbackButton" value="View/Leave Feedback" style="display:none" onClick="JavaScript:toggleFeedback(4)"> <br>
 		
 		<p id="alt5" style="display:inline-block"></p> 
 		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
@@ -83,7 +92,9 @@ function initialize() {
 		<p id="alt5AppNum" style="display:none" onmouseover="JavaScript:showApprovalList(5)" onmouseout="JavaScript:hideProvalList()"></p>
 		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
 		<input type="button" id="alt5DisButton" value="⇩" style="display:none"  onClick="JavaScript:handleDisapproval(5)" onmouseover="JavaScript:showDisapprovalList(5)" onmouseout="JavaScript:hideProvalList()">
-		<p id="alt5DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(5)" onmouseout="JavaScript:hideProvalList()"></p> <br>
+		<p id="alt5DisNum" style="display:none" onmouseover="JavaScript:showDisapprovalList(5)" onmouseout="JavaScript:hideProvalList()"></p>
+		<p style="display:inline-block">&nbsp;&nbsp;&nbsp;</p>
+		<input type="button" id="alt5FeedbackButton" value="View/Leave Feedback" style="display:none" onClick="JavaScript:toggleFeedback(5)"> <br>
 		
 		<h2 id="regTitle" style="display:none">Register with this choice</h2><br>
 		<p id="regInst1" style="display:none">New users please register with a username. You may also specify a password if you wish.</p><br>
@@ -103,6 +114,15 @@ function initialize() {
 	</div>
 	
 	<div class="column"> <!-- COLUMN 2 -->
+		<!-- LIST/VIEW FEEDBACK -->
+		<form name="leaveFeedbackForm" method="post">
+			<label for="feedbackInput" id="feedbackInstructions" style="display:none"></label><br>
+			<textarea id="feedbackInput" name="feedbackInput" style="display:none" rows="4" cols="50"></textarea><br>
+			<input type="button" id="submitFeedback" value="Submit" style="display:none" onClick="JavaScript:submitFeedback()">
+		</form>
+		
+		<div id="feedbackList" style="display:none"></div>
+		
 		<!-- LIST APPROVALS/DISAPPROVALS -->
 		<ul id = "appDisList" style="display:none"></ul>
 	</div>
