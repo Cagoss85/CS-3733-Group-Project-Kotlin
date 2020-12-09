@@ -70,14 +70,15 @@ function processGetReportResponse(result){
 		
 }	
 
-
+/*
 function handleDeleteClick(e){
 	var form = document.deleteChoicesForm;
 	var data{};
 	
 	var numEmpty;
 	
-	data ["timeCreatedString"]
+	//data ["timeToDelete"] = deleteTime;
+	
 	
 	if (numDays.value == 0){
 		numEmpty = true;
@@ -89,11 +90,13 @@ function handleDeleteClick(e){
 	if(numEmpty == false && document.numDays.type !== Number){
 		alert("You must enter a number!");
 	}else{
+		var js = JSON.stringify(data);
 		data ["deleteStale"]= [];
 		
 		var timeToDelete = numDays.input; 
 	}
 	
 }
+*/
 
 
