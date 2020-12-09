@@ -70,14 +70,12 @@ function processGetReportResponse(result){
 		
 }	
 
-/*
+
 function handleDeleteClick(e){
-	//var form = document.deleteChoicesForm;
+	
 	var data{};
 	
 	var numEmpty;
-	
-	//data ["timeToDelete"] = deleteTime;
 	
 	
 	if (numDays.value == 0){
@@ -90,13 +88,35 @@ function handleDeleteClick(e){
 	if(numEmpty == false && numDays.type !== Number){
 		alert("You must enter a number!");
 	}else{
-		var js = JSON.stringify(data);
-		data ["deleteStale"]= [];
 		
-		var timeToDelete = numDays.input; 
+		data ["timeCreatedString"]= numDays.value; 
+		
+		var js = JSON.stringify(data);
+		console.log("JS:" + js);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", deleteStaleRequest_url, true);
+
+		xhr.send(js);
+
+		xhr.onloadend = function (){
+			console.log(xhr);
+			if(xhr.readyState == XMLHttpRequest.DONE){
+				if(xhr.status == 200){
+					console.log ("XHR:" + xhr.responseText);
+					processGetReportResponse(xhr.responseText);
+				} else{
+					console.log("actual:" + xhr.responseText);
+					var js = JSON.parse(xhr.responseText);
+					var err = js["response"];
+					alert (err);
+				}	
+			} else{
+				processGetReportResponse("N/A");
+			}
+		}
 	}
 	
 }
-*/
+
 
 
