@@ -12,3 +12,4 @@ var createApproval_url = base_url + "approval"     //POST
 var createDisapproval_url = base_url + "disapproval" //POST
 var completeChoice_url = base_url + "complete"     //POST
 var getReport_url = base_url + "report"            //GET
+var deleteStaleRequest_url = base_url + "deleteStale" //POST
