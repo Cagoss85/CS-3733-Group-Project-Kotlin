@@ -4,6 +4,8 @@
 
 var currentAlt;  //GLOBAL VARIABLE FOR CURRENTLY SELECTED ALTERNATIVE FOR FEEDBACK
 
+var feedbackShowingFor;  //currently viewing feedback for this alternative
+
 function approvalControlsVisible(){   //USED TO BOTH ENABLE AND REFRESH STATE (COLOR) OF APPROVAL CONTROLS
 	//ALTERNATIVE 1 (ARRAY ID 0)
 	document.getElementById("alt1AppButton").style.display='inline-block';
@@ -97,38 +99,65 @@ function hideProvalList(){
 	document.getElementById("appDisList").style.display='none';
 }
 
-function feedbackControlsVisible(){
+function feedbackControlsVisible(){   //INCLUDING REFRESHING COLORS
 	//ALTERNATIVE 1 (ARRAY ID 0)
 	document.getElementById("alt1FeedbackButton").style.display='inline-block';
+	if(feedbackShowingFor == 1){
+		document.getElementById("alt1FeedbackButton").style.backgroundColor='gold';
+	} else{
+		document.getElementById("alt1FeedbackButton").style.backgroundColor='';
+	}
 	
 	//ALTERNATIVE 2 (ARRAY ID 1)
 	document.getElementById("alt2FeedbackButton").style.display='inline-block';
+	if(feedbackShowingFor == 2){
+		document.getElementById("alt2FeedbackButton").style.backgroundColor='gold';
+	} else{
+		document.getElementById("alt2FeedbackButton").style.backgroundColor='';
+	}
 	
 	//ALTERNATIVE 3 (ARRAY ID 2)
 	if(numAlternatives >= 3){
 		document.getElementById("alt3FeedbackButton").style.display='inline-block';
+		if(feedbackShowingFor == 3){
+			document.getElementById("alt3FeedbackButton").style.backgroundColor='gold';
+		} else{
+			document.getElementById("alt3FeedbackButton").style.backgroundColor='';
+		}
 	} 
+	
 	
 	//ALTERNATIVE 4 (ARRAY ID 3)
 	if(numAlternatives >= 4){
 		document.getElementById("alt4FeedbackButton").style.display='inline-block';
+		if(feedbackShowingFor == 4){
+			document.getElementById("alt4FeedbackButton").style.backgroundColor='gold';
+		} else{
+			document.getElementById("alt4FeedbackButton").style.backgroundColor='';
+		}
 	} 
 	
 	//ALTERNATIVE 5 (ARRAY ID 4)
 	if(numAlternatives == 5){
 		document.getElementById("alt5FeedbackButton").style.display='inline-block';
+		if(feedbackShowingFor == 5){
+			document.getElementById("alt5FeedbackButton").style.backgroundColor='gold';
+		} else{
+			document.getElementById("alt5FeedbackButton").style.backgroundColor='';
+		}
 	}
-
 }
 
-var feedbackShowingFor;
+
 function toggleFeedback(altNum){
 	if(feedbackShowingFor == altNum){
-		hideFeedback;
+		hideFeedback();
+		feedbackShowingFor = '';
 	} else{
 		showFeedback(altNum);
 		feedbackShowingFor = altNum;
 	}
+	feedbackControlsVisible(); //UPDATE BUTTON COLORS
 }
 
 function showFeedback(altNum){
@@ -138,12 +167,21 @@ function showFeedback(altNum){
 	var thisAlt = currentChoice["alternatives"][altID];   //altNum-1 because array index starts at 0
 	var feedbackList = thisAlt["feedback"];  //TODO: Verify name of feedback in GetChoiceResponse
 	
-	document.getElementById("feedbackInput").innerHTML = "Leave Feedback for Alternative " + altNum + ":";
+	document.getElementById("feedbackInstructions").innerHTML = "Leave Feedback for Alternative " + altNum + ":";
+	document.getElementById("feedbackInstructions").style.display="inline-block";
 	document.getElementById("feedbackInput").style.display="inline-block";
 	
-	docuemnt.getElementById("submitFeedback").style.display="inline-block";
+	document.getElementById("submitFeedback").style.display="inline-block";
+	
+	document.getElementById("feedbackList").style.display="block";
+	
 }
 
 function hideFeedback(){
+	document.getElementById("feedbackInstructions").style.display="none";
+	document.getElementById("feedbackInput").style.display="none";
 	
+	document.getElementById("submitFeedback").style.display="none";
+	
+	document.getElementById("feedbackList").style.display="none";
 }
