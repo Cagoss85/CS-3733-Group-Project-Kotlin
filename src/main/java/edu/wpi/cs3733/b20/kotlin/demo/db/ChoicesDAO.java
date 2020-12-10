@@ -178,10 +178,10 @@ public class ChoicesDAO {
 		
 	}
 
-	public Boolean addFinalAlternative(String uuid, Alternative alternative, int altID) {
+	public Boolean addFinalAlternative(String uuid, int altID) {
 		try {
 			PreparedStatement ps = conn.prepareStatement("UPDATE " + tblName1 + " SET finalAlternative = ?, isChosen =?  WHERE choiceUUID=? ;");	
-			ps.setObject(1, alternative);
+			ps.setInt(1, altID);
 			ps.setBoolean(2, true);
 			ps.setString(3, uuid);
 			ps.executeUpdate();
