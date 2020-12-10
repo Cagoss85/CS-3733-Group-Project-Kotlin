@@ -3,7 +3,7 @@
  */
 
 function submitFeedback(){
-	var data = {}
+	var data = {};
 	var form = document.leaveFeedbackForm;
 	
 	data["choiceUUID"] = uuid;
