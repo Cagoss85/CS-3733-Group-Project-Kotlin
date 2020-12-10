@@ -13,11 +13,15 @@ public class Alternative{
 	//default constructor to make AWS happy
 	public Alternative() {}
 	
+	//Default constructor
 	public Alternative(String description) {
 		this.description = description;
 	}
-	public Alternative(String description, ArrayList<Approval> approvals, ArrayList<Disapproval> disapprovals) {
+	
+	//Constructor used in getChoice
+	public Alternative(String description, ArrayList<Feedback> feedback, ArrayList<Approval> approvals, ArrayList<Disapproval> disapprovals) {
 		this.description = description;
+		this.feedback = feedback;
 		this.approvals = approvals;
 		this.disapprovals = disapprovals;
 	}

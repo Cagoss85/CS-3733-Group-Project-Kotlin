@@ -3,6 +3,7 @@ package edu.wpi.cs3733.b20.kotlin.demo.db;
 import java.sql.PreparedStatement;
 import java.sql.PseudoColumnUsage;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import edu.wpi.cs3733.b20.kotlin.demo.model.Feedback;
 
@@ -32,5 +33,10 @@ public class FeedbackDAO {
 		} catch (Exception e) {
 			throw new Exception("Failed to add feedback: " + e.getMessage());
 		}
+	}
+
+	public ArrayList<Feedback> getFeedbackList(String uuid, int int1) {
+		
+		
 	}
 }
