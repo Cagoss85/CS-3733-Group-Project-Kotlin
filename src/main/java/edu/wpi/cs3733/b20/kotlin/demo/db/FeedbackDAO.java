@@ -2,7 +2,10 @@ package edu.wpi.cs3733.b20.kotlin.demo.db;
 
 import java.sql.PreparedStatement;
 import java.sql.PseudoColumnUsage;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import edu.wpi.cs3733.b20.kotlin.demo.model.Feedback;
 
@@ -32,5 +35,22 @@ public class FeedbackDAO {
 		} catch (Exception e) {
 			throw new Exception("Failed to add feedback: " + e.getMessage());
 		}
+	}
+
+	public ArrayList<Feedback> getFeedbackList(String choiceUUID, int altID) {
+		ArrayList<Feedback> feedbackList = new ArrayList<Feedback>();
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName1 + " WHERE choiceUUID =? AND altID =?");
+			ps.setString(1, choiceUUID);
+			ps.setInt(2, altID);
+			ResultSet feedbackSet = ps.executeQuery();
+			
+			while(feedbackSet.next()) {
+				feedbackList.add(new Feedback(feedbackSet.getString("choiceUUID"), feedbackSet.getInt("altID"), feedbackSet.getString("username"), feedbackSet.getString("timeStamp")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return feedbackList;
 	}
 }

@@ -69,41 +69,35 @@ public class ChoicesDAO {
 	public Choice getChoice(String uuid) throws Exception{
 		Choice choice = null;
 		try {
-			// search database for choice info
+			//Search database for a choice with a matching UUID
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName1 + " WHERE choiceUUID=?;");
 			ps.setString(1,  uuid);
 			ResultSet choiceSet = ps.executeQuery();
-			//save choice info to memory.
 			choiceSet.next();
+			
 			String resultUuid = choiceSet.getString("choiceUUID");
 			if(!uuid.equals(resultUuid)) 
 				throw new Exception("UUID Mismatch");
 			String description = choiceSet.getString("description");
 			int maxUsers = choiceSet.getInt("maxUsers");
 
-			// grab all alternatives with choice uuid and place them in an array
-			ArrayList<Alternative> alternatives = new ArrayList<Alternative>();
-			// get all alternative rows with ChoiceUUID as our selected choice
+			//Search database for alts with matching UUID
 			PreparedStatement ps2 = conn.prepareStatement("SELECT * FROM " + tblName2 + " WHERE choiceUUID=?;");
 			ps2.setString(1, uuid);
 			ResultSet alternativeSet = ps2.executeQuery();
-			// iterate through all alternatives located from the database
-			// add ability to get approvals and disapprovals
+			
+			FeedbackDAO feedbackDAO = new FeedbackDAO();
 			ApprovalsDAO appDAO = new ApprovalsDAO();
 			DisapprovalsDAO disDAO = new DisapprovalsDAO();
+			ArrayList<Alternative> alternatives = new ArrayList<Alternative>();
 
 
 			while(alternativeSet.next()) {
-				// create alternative w/ description from table
-
-				Alternative alt = new Alternative(alternativeSet.getString("description"),appDAO.getApprovalList(uuid, alternativeSet.getInt("altID")), disDAO.getDisapprovalList(uuid, alternativeSet.getInt("altID")));
-				// place alternative in correct index based on the altID
+				Alternative alt = new Alternative(alternativeSet.getString("description"), feedbackDAO.getFeedbackList(uuid, alternativeSet.getInt("altID")),appDAO.getApprovalList(uuid, alternativeSet.getInt("altID")), disDAO.getDisapprovalList(uuid, alternativeSet.getInt("altID")));
 				alternatives.add(alternativeSet.getInt("altID"), alt);
 			}
-			// create new choice from our found values        
 			choice = new Choice(uuid, alternatives, maxUsers, description);
 
-			// close no longer used items
 			choiceSet.close();
 			alternativeSet.close();
 			ps.close();
