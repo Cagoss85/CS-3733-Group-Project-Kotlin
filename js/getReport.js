@@ -100,7 +100,7 @@ function handleDeleteClick(e){
 	
 			xhr.send(js);
 
-			GetReport();
+			getReport();
 /*
 		xhr.onloadend = function (){
 			console.log(xhr);
