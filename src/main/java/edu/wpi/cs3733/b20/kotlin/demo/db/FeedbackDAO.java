@@ -46,7 +46,7 @@ public class FeedbackDAO {
 			ResultSet feedbackSet = ps.executeQuery();
 			
 			while(feedbackSet.next()) {
-				feedbackList.add(new Feedback(feedbackSet.getString("choiceUUID"), feedbackSet.getInt("altID"), feedbackSet.getString("username"), feedbackSet.getString("timeStamp")));
+				feedbackList.add(new Feedback(feedbackSet.getString("choiceUUID"), feedbackSet.getInt("altID"), feedbackSet.getString("username"), feedbackSet.getString("text")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
