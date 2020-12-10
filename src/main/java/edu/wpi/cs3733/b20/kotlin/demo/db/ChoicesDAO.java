@@ -20,7 +20,7 @@ public class ChoicesDAO {
 			conn = null;
 		}
 	}
-
+	
 	public boolean addChoice(Choice choice) throws Exception{
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblName1 + " (choiceUUID, description, maxUsers, timeCreated) values(?,?,?,?);");
@@ -114,7 +114,7 @@ public class ChoicesDAO {
 		}
 		return choice;
 	}
-
+	
 	/*
 	 * Function returns a list of all choices in the database
 	 */
@@ -166,7 +166,37 @@ public class ChoicesDAO {
 			retVal = true;
 		return retVal;
 	}
+	
+	public boolean isChoiceOpen(String uuid) {
+	// looks for the state of the choice and returns true if the choice exists & is open
+		try {
+			Choice choice = this.getChoice(uuid);
+			// if finalAlternative has been set to not null
+			if(choice.finalAlternative == null) {
+				return true;
+			}
+			return false;
+			
+		} catch (Exception e) {
+			// assume that if the try fails, the Choice has been deleted/does not exist
+			return false;
+		}
+		
+	}
 
-
-
+	public Boolean addFinalAlternative(String uuid, Alternative alternative, int altID) {
+		try {
+			PreparedStatement ps = conn.prepareStatement("UPDATE " + tblName1 + " SET finalAlternative = ?, isChosen =?  WHERE choiceUUID=? ;");	
+			ps.setObject(1, alternative);
+			ps.setBoolean(2, true);
+			ps.setString(3, uuid);
+			ps.executeUpdate();
+			ps.close();
+			return true;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

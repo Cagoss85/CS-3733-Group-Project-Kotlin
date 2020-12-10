@@ -38,16 +38,20 @@ public class GetChoiceHandler implements RequestHandler<GetChoiceRequest,GetChoi
 		ChoicesDAO dao = new ChoicesDAO();
 		
 		try {
-			if(choiceExists(dao, uuid)) {
+			if(choiceExists(dao, uuid)&&dao.isChoiceOpen(uuid)) {
 				Choice choice = dao.getChoice(uuid);
 				
-				response = new GetChoiceResponse(choice.getUuid(), choice.getAlternatives(), choice.getMaxUsers(), choice.getDescription(), choice.finalAlternative);
+				response = new GetChoiceResponse(choice.getUuid(), choice.getAlternatives(), choice.getMaxUsers(), choice.getDescription(), choice.finalAlternative, false);
+				
+			}else if(choiceExists(dao, uuid)&&!dao.isChoiceOpen(uuid)){
+				response = new GetChoiceResponse(400, "Warning: Choice is closed, changes will not be accepted",true);
 			}
 			else {
-				response = new GetChoiceResponse(400, "Choice not found");
+				response = new GetChoiceResponse(400, "Choice not found",true);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
+			response = new GetChoiceResponse(400, "Failure when getting choice",true);
 		}
 		return response;
 	}
