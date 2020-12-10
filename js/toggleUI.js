@@ -171,7 +171,7 @@ function showFeedback(altNum){
 	document.getElementById("feedbackInstructions").innerHTML = "Leave Feedback for Alternative " + altNum + ":";
 	document.getElementById("feedbackInstructions").style.display="inline-block";
 	document.getElementById("feedbackInput").style.display="inline-block";
-	document.getElementById("submitFeedback").style.display="inline-block";
+	document.getElementById("submitFeedbackButton").style.display="inline-block";
 	document.getElementById("feedbackList").style.display="block";
 	
 	var thisFeedbackArr = feedbackArr[altID];
