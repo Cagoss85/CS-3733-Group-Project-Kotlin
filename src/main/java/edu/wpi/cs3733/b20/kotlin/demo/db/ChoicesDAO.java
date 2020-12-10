@@ -51,10 +51,13 @@ public class ChoicesDAO {
 	}
 	
 	public boolean deleteChoices(double numDays) throws Exception{
-		int numSecs = (int)(numDays / 86400);
+		int numSecs = (int)(numDays * 86400);
+		System.out.println("delete all more than " + numSecs);
 		try {
 			PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblName1 + " WHERE timeCreated < (NOW() - INTERVAL " + numSecs + " second);");
-			ps.executeUpdate();
+			int numDelete = ps.executeUpdate();
+			System.out.print(numDelete);
+			System.out.print(ps);
 			ps.close();
 			return true;
 		} catch (Exception e) {

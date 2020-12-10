@@ -6,8 +6,9 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 
 import edu.wpi.cs3733.b20.kotlin.demo.db.ChoicesDAO;
 import edu.wpi.cs3733.b20.kotlin.demo.http.DeleteStaleRequest;
+import edu.wpi.cs3733.b20.kotlin.demo.http.DeleteStaleResponse;
 
-public class DeleteChoiceHandler implements RequestHandler<DeleteStaleRequest, Object>{
+public class DeleteChoiceHandler implements RequestHandler<DeleteStaleRequest, DeleteStaleResponse>{
 	LambdaLogger logger;
 	
 	public boolean deleteChoices(double numDays) {
@@ -22,14 +23,16 @@ public class DeleteChoiceHandler implements RequestHandler<DeleteStaleRequest, O
 	}
 		
 	@Override
-	public Object handleRequest(DeleteStaleRequest req, Context context) {
+	public DeleteStaleResponse handleRequest(DeleteStaleRequest req, Context context) {
 		logger = context.getLogger();
 		logger.log(req.toString());
-		boolean ret = false;
+		DeleteStaleResponse ret = null;
 		try {
-			ret = deleteChoices(req.getNumDays());
+			boolean b = deleteChoices(req.getNumDays());
+			ret = new DeleteStaleResponse();
 		} catch(Exception e) {
 			e.printStackTrace();
+			ret = new DeleteStaleResponse(e.getMessage(), 400);
 		}
 		return ret;
 	}
