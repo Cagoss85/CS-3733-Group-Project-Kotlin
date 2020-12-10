@@ -19,6 +19,7 @@ function processAuthenticateResponse(response){
 		approvalControlsVisible();
 		disapprovalControlsVisible();
 		feedbackControlsVisible();
+		chooseControlsVisible();
 		document.getElementById("refreshChoice").style.display='block';
 	}
 	

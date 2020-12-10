@@ -193,3 +193,26 @@ function hideFeedback(){
 	document.getElementById("submitFeedbackButton").style.display="none";
 	document.getElementById("feedbackList").style.display="none";
 }
+
+function chooseControlsVisible(){
+	//ALTERNATIVE 1 (ARRAY ID 0)
+	document.getElementById("alt1CompleteButton").style.display='inline-block';
+	
+	//ALTERNATIVE 2 (ARRAY ID 1)
+	document.getElementById("alt2CompleteButton").style.display='inline-block';
+	
+	//ALTERNATIVE 3 (ARRAY ID 2)
+	if(numAlternatives >= 3){
+		document.getElementById("alt3CompleteButton").style.display='inline-block';
+	} 
+	
+	//ALTERNATIVE 4 (ARRAY ID 3)
+	if(numAlternatives >= 4){
+		document.getElementById("alt4CompleteButton").style.display='inline-block';
+	} 
+	
+	//ALTERNATIVE 5 (ARRAY ID 4)
+	if(numAlternatives == 5){
+		document.getElementById("alt5CompleteButton").style.display='inline-block';
+	}
+}
