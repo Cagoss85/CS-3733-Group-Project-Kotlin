@@ -108,6 +108,7 @@ function processGetChoiceResponse(result, registered){
 			if(currentAltID>-1){
 				showFeedback(currentAltID+1);   //to refresh feedback list if feedback is currently open
 			}
+			chooseControlsVisible();
 		}
 		
 		if(!registered){	
@@ -116,6 +117,22 @@ function processGetChoiceResponse(result, registered){
 			document.getElementById("regInst1").style.display='inline';
 			document.getElementById("regInst2").style.display='inline';
 			document.getElementById("userRegister").style.display='inline';
+		}
+		
+		if(currentChoice["isChosen"]){
+			document.getElementByID("alt1AppButton").disabled = true;
+			document.getElementByID("alt2AppButton").disabled = true;
+			document.getElementByID("alt3AppButton").disabled = true;
+			document.getElementByID("alt4AppButton").disabled = true;
+			document.getElementByID("alt5AppButton").disabled = true;
+			
+			document.getElementByID("alt1DisButton").disabled = true;
+			document.getElementByID("alt2DisButton").disabled = true;
+			document.getElementByID("alt3DisButton").disabled = true;
+			document.getElementByID("alt4DisButton").disabled = true;
+			document.getElementByID("alt5DisButton").disabled = true;
+			
+			document.getElementByID("submitFeedbackButton").disabled = true;
 		}
 	}	
 }
