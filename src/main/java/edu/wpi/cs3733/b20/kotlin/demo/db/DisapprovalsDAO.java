@@ -23,7 +23,9 @@ public class DisapprovalsDAO {
 
 	public boolean addDisapproval(Disapproval disapproval) throws Exception {
 		ApprovalsDAO appDAO = new ApprovalsDAO();
+		ChoicesDAO choicesDAO = new ChoicesDAO();
 		// return true if things are done correctly, false if there is an error
+		if(choicesDAO.isChoiceOpen(disapproval.getChoiceUUID())){
 		if(disapprovalExists(disapproval)) {
 			// delete disapproval from DAO 
 			try {	
@@ -59,6 +61,10 @@ public class DisapprovalsDAO {
 				throw new Exception("Failed to insert disapproval: " + e.getMessage());
 			}
 
+		}
+		}
+		else {
+			throw new Exception("Failed to insert approval: " + "choice is closed");
 		}
 
 	}
