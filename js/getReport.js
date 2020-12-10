@@ -59,7 +59,11 @@ function processGetReportResponse(result){
 			var choiceIsCompleted = Choice[i]["isChosen"];
 			var description = Choice[i]["description"];
 			
+			
 			var currentTable = document.getElementById("tableRows").innerHTML;
+			if (i ==0){
+				currentTable = "<TH>ChoiceUUID</TH><TH>Description</TH><TH>Timestamp</TH><TH>Is Completed</TH>";
+			}
 			
 			currentTable = currentTable + "<TR><TD>" + choiceUUID +"</TD> <TD>" + description + "</TD> <TD>" +choiceDateCreated + "</TD> <TD>"+ choiceIsCompleted +"</TD> </TR>";
 			
