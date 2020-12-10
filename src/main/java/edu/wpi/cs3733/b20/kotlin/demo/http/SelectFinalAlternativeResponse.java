@@ -31,6 +31,6 @@ public class SelectFinalAlternativeResponse {
 	public String getError(	) {return this.error;}
 	public void setError(String er) {this.error = er;}
 	
-	public String getUniqueID()	{return this.uniqueID;}
-	public void setUniqueID(String id) {this.uniqueID = id;}
+	public String getUUID()	{return this.uniqueID;}
+	public void setUUID(String id) {this.uniqueID = id;}
 }

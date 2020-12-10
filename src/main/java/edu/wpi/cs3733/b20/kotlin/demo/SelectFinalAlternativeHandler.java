@@ -14,19 +14,24 @@ public class SelectFinalAlternativeHandler implements RequestHandler<SelectFinal
 	Boolean SelectFinalAlternative(String uuid,int altID) {
 		try {
 			return choiceDAO.addFinalAlternative(uuid, altID);
-		}catch(Exception e) {
+		}catch(Exception e){
+			e.printStackTrace();
 			return false;
 		}
-		
-		
-	}
+		}
+
 
 	@Override
 	public SelectFinalAlternativeResponse handleRequest(SelectFinalAlternativeRequest input, Context context) {
+		try{
+			SelectFinalAlternativeResponse response = SelectFinalAlternativeResponse(input.getUUID(), input.getAltID());
+		}catch(Exception e){
+			
+		}
 		
-		return null;
 	}
 	
 	
 	
 }
+
