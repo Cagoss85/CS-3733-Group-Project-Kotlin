@@ -46,10 +46,12 @@ function processGetReportResponse(result){
 	
 		//create choiceReport
 		var Choice = js["choiceReport"];
-		
+		var currentTable = document.getElementById("tableRows").innerHTML;
 		//if there are no choices in the array, say no choices found
 		if (Choice.length ==0){
 			document.getElementById("choiceList").innerHTML = "<li> No Choices Found </li>";
+			currentTable = "<TH>ChoiceUUID</TH><TH>Description</TH><TH>Timestamp</TH><TH>Is Completed</TH>";
+			document.getElementById("tableRows").innerHTML = currentTable;
 		}
 		
 		//sort through the array of choices, assign variables, set the lists.
@@ -60,7 +62,7 @@ function processGetReportResponse(result){
 			var description = Choice[i]["description"];
 			
 			
-			var currentTable = document.getElementById("tableRows").innerHTML;
+			//var currentTable = document.getElementById("tableRows").innerHTML;
 			if (i ==0){
 				currentTable = "<TH>ChoiceUUID</TH><TH>Description</TH><TH>Timestamp</TH><TH>Is Completed</TH>";
 			}
