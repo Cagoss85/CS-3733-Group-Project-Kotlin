@@ -166,7 +166,7 @@ function showFeedback(altNum){
 	var altID = altNum-1;
 	currentAltID = altID;
 	var thisAlt = currentChoice["alternatives"][altID];   //altNum-1 because array index starts at 0
-	var feedbackList = thisAlt["feedback"];  //TODO: Verify name of feedback in GetChoiceResponse
+	var feedbackArr = thisAlt["feedback"];  //TODO: Verify name of feedback in GetChoiceResponse
 	
 	document.getElementById("feedbackInstructions").innerHTML = "Leave Feedback for Alternative " + altNum + ":";
 	document.getElementById("feedbackInstructions").style.display="inline-block";
@@ -174,17 +174,20 @@ function showFeedback(altNum){
 	document.getElementById("submitFeedbackButton").style.display="inline-block";
 	document.getElementById("feedbackList").style.display="block";
 	
-	var thisFeedbackArr = feedbackArr[altID];
-	var feedbackListHTML;
+	var feedbackListHTML = "";
 	
-	for(var i = 0; i < thisFeedbackArr.length; i++){
-		var newHTML = "<b>" + thisFeedbackArr["username"] + "&nbsp;&nbsp;" + thisFeedbackArr["timestamp"] + "</b><br>" + "<p>" + thisFeedbackArr["text"] + "</p>";
+	for(var i = 0; i < feedbackArr.length; i++){
+		var thisFeedbackArr = feedbackArr[i];
+		var newHTML = "<b>" + thisFeedbackArr["username"] + "&nbsp;&nbsp;" + thisFeedbackArr["timestampString"] + "</b><br>" + "<p>" + thisFeedbackArr["text"] + "</p>";
 		feedbackListHTML = feedbackListHTML + newHTML;
 	}
+	
+	document.getElementById("feedbackList").innerHTML=feedbackListHTML;
 	
 }
 
 function hideFeedback(){
+	currentAltID=-1;
 	document.getElementById("feedbackInstructions").style.display="none";
 	document.getElementById("feedbackInput").style.display="none";
 	document.getElementById("submitFeedbackButton").style.display="none";

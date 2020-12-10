@@ -105,6 +105,9 @@ function processGetChoiceResponse(result, registered){
 			approvalControlsVisible();
 			disapprovalControlsVisible();
 			document.getElementById("feedbackInput").value='';
+			if(currentAltID>-1){
+				showFeedback(currentAltID+1);   //to refresh feedback list if feedback is currently open
+			}
 		}
 		
 		if(!registered){	
