@@ -187,6 +187,6 @@ function showFeedback(altNum){
 function hideFeedback(){
 	document.getElementById("feedbackInstructions").style.display="none";
 	document.getElementById("feedbackInput").style.display="none";
-	document.getElementById("submitFeedback").style.display="none";
+	document.getElementById("submitFeedbackButton").style.display="none";
 	document.getElementById("feedbackList").style.display="none";
 }

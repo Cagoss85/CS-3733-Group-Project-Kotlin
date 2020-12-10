@@ -31,7 +31,8 @@ public class DeleteChoiceHandlerTest extends LambdaTest{
 		assertEquals(200, response2.statusCode);
 		
 		DeleteChoiceHandler dHandler = new DeleteChoiceHandler();
-		DeleteStaleRequest req = new DeleteStaleRequest(5.78704e-5); //delete all choices older than 5 seconds. (Will affect other junit tests)
-		assertTrue((Boolean)dHandler.handleRequest(req, createContext("testing delete stale choices")));
+		DeleteStaleRequest req = new DeleteStaleRequest(5.78704e-5); //delete all choices older than 5 seconds. (Will affect other junit tests)5.78704e-5
+		assertEquals(200, dHandler.handleRequest(req, createContext("testing delete stale choices")).getStatusCode());
     }
+    
 }

@@ -10,4 +10,5 @@ public class DeleteStaleRequest {
 	public DeleteStaleRequest() {}
 	
 	public double getNumDays() {return numDays;}
+	public void setNumDays(double numDays) {this.numDays = numDays;}
 }
