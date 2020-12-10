@@ -44,20 +44,36 @@ public class FeedbackDAO {
 		}
 		
 
-	public ArrayList<Feedback> getFeedbackList(String choiceUUID, int altID) {
+	public ArrayList<Feedback> getFeedbackList(String choiceUUID, int altID) throws Exception{
 		ArrayList<Feedback> feedbackList = new ArrayList<Feedback>();
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblName1 + " WHERE choiceUUID =? AND altID =?");
 			ps.setString(1, choiceUUID);
 			ps.setInt(2, altID);
 			ResultSet feedbackSet = ps.executeQuery();
-			
 			while(feedbackSet.next()) {
-				feedbackList.add(new Feedback(feedbackSet.getString("choiceUUID"), feedbackSet.getInt("altID"), feedbackSet.getString("username"), feedbackSet.getString("timeStamp")));
+				Feedback f = generateFeedback(feedbackSet);
+				feedbackList.add(f);
 			}
+			feedbackSet.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return feedbackList;
+	}
+
+	private Feedback generateFeedback(ResultSet feedbackSet) throws Exception{
+		try {
+			String choiceUUID = feedbackSet.getString("choiceUUID");
+			int altID = feedbackSet.getInt("altID");
+			String username = feedbackSet.getString("username");
+			String text = feedbackSet.getString("text");
+			String timestampString = feedbackSet.getString("timestamp");
+			return new Feedback(choiceUUID, altID, username, text, timestampString);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new Exception("Failed to generate feedback");
+		}
 	}
 }
