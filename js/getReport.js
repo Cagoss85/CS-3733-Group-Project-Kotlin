@@ -53,7 +53,7 @@ function processGetReportResponse(result){
 		}
 		
 		//sort through the array of choices, assign variables, set the lists.
-		for (i = 0; i<Choice.length; i++ ){ 
+		for (i =0; i<Choice.length; i++ ){ 
 			var choiceUUID = Choice[i]["uuid"];
 			var choiceDateCreated = Choice[i]["timeCreatedString"];
 			var choiceIsCompleted = Choice[i]["isChosen"];
@@ -93,36 +93,19 @@ function handleDeleteClick(e){
 		
 		if(form.numDays.value<0){
 		alert("You must enter a valid number!");
-		}else{
+		}	else{
 		
-			data ["numDays"]= numDays.value; 
+				data ["numDays"]= numDays.value; 
 		
-			var js = JSON.stringify(data);
-			console.log("JS:" + js);
-			var xhr = new XMLHttpRequest();
-			xhr.open("POST", deleteStaleRequest_url, true);
+				var js = JSON.stringify(data);
+				console.log("JS:" + js);
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", deleteStaleRequest_url, true);
 	
-			xhr.send(js);
+				xhr.send(js);
 
-			getReport();
-/*
-		xhr.onloadend = function (){
-			console.log(xhr);
-			if(xhr.readyState == XMLHttpRequest.DONE){
-				if(xhr.status == 200){
-					console.log ("XHR:" + xhr.responseText);
-					processGetReportResponse(xhr.responseText);
-				} else{
-					console.log("actual:" + xhr.responseText);
-					var js = JSON.parse(xhr.responseText);
-					var err = js["response"];
-					alert (err);
-				}	
-			} else{
-				processGetReportResponse("N/A");
-			}
-		}
-		*/
+				getReport();
+
 	}
 	}
 	
