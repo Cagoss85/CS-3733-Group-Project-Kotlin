@@ -10,11 +10,12 @@ public class GetChoiceResponse {
 	public final int maxUsers;
 	public final String description;
 	public final Alternative finalAlternative;
+	public final boolean isClosed;
 	
 	public final int httpStatus;
 	public final String error;
 	
-	public GetChoiceResponse(String uniqueID, ArrayList<Alternative> alternatives, int user, String description, Alternative finalAlternative2) {
+	public GetChoiceResponse(String uniqueID, ArrayList<Alternative> alternatives, int user, String description, Alternative finalAlternative2, boolean isClosed) {
 		this.uniqueID = uniqueID;
 		this.alternatives = alternatives;
 		this.maxUsers = user;
@@ -22,8 +23,9 @@ public class GetChoiceResponse {
 		this.finalAlternative = finalAlternative2;
 		this.error = "";
 		this.httpStatus = 200;
+		this.isClosed = isClosed;
 	}
-	public GetChoiceResponse(int statusCode, String errorMsg) {
+	public GetChoiceResponse(int statusCode, String errorMsg,boolean isClosed) {
 		
 		this.uniqueID = "";
 		this.maxUsers = 0;
@@ -32,6 +34,7 @@ public class GetChoiceResponse {
 		this.finalAlternative = null;
 		this.error = errorMsg;
 		this.httpStatus = statusCode;
+		this.isClosed = isClosed;
 	}
 	public String toString() {
 		return "Response(" + httpStatus + "," + error + "," + uniqueID + ")";
