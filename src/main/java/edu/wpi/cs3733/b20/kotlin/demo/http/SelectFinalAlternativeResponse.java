@@ -1,24 +1,23 @@
 package edu.wpi.cs3733.b20.kotlin.demo.http;
 
-import edu.wpi.cs3733.b20.kotlin.demo.model.Alternative;
 
 public class SelectFinalAlternativeResponse {
 	public String uniqueID;
-	public Alternative alternative;
+
 	public int altID;
 	public String error;
 	public int statusCode;
 	
-	public SelectFinalAlternativeResponse(String uuid, Alternative alternative, int altID) {
+	public SelectFinalAlternativeResponse(String uuid, int altID) {
 		this.uniqueID = uuid;
-		this.alternative = alternative;
+		
 		this.altID = altID;
 		this.error = "";
 		this.statusCode = 200;
 	}
-	public SelectFinalAlternativeResponse(String uuid, Alternative alternative, int altID, String error) {
+	public SelectFinalAlternativeResponse(String uuid, int altID, String error) {
 		this.uniqueID = uuid;
-		this.alternative = alternative;
+		
 		this.altID = altID;
 		this.error = error;
 		this.statusCode = 400;

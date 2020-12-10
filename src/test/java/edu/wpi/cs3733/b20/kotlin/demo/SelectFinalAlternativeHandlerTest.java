@@ -26,7 +26,7 @@ class SelectFinalAlternativeHandlerTest extends LambdaTest{
 		CreateChoiceHandler choiceHandler = new CreateChoiceHandler();
 		String sampleUUID = choiceHandler.handleRequest(choiceReq, createContext("Creating test choice 1")).uniqueID.toString();
 		SelectFinalAlternativeHandler selAltHandler = new SelectFinalAlternativeHandler();
-		SelectFinalAlternativeRequest selAltReq = new SelectFinalAlternativeRequest(sampleUUID, new Alternative("t2"), 2 );
+		SelectFinalAlternativeRequest selAltReq = new SelectFinalAlternativeRequest(sampleUUID, 2);
 		SelectFinalAlternativeResponse response1= selAltHandler.handleRequest(selAltReq, createContext("asking to set alternative 2 as final"));
 		
 		assertEquals(200, response1.statusCode);
