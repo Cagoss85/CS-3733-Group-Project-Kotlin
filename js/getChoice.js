@@ -104,6 +104,7 @@ function processGetChoiceResponse(result, registered){
 		if(registered){
 			approvalControlsVisible();
 			disapprovalControlsVisible();
+			document.getElementById("feedbackInput").value='';
 		}
 		
 		if(!registered){	
