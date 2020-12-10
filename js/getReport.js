@@ -73,7 +73,7 @@ function processGetReportResponse(result){
 
 function handleDeleteClick(e){
 	var form = document.dayInput;
-	var data = [];
+	var data = {};
 	
 	var numEmpty;
 	
@@ -91,7 +91,7 @@ function handleDeleteClick(e){
 		alert("You must enter a valid number!");
 		}else{
 		
-			data ["timeCreatedString"]= numDays.value; 
+			data ["numDays"]= numDays.value; 
 		
 			var js = JSON.stringify(data);
 			console.log("JS:" + js);
