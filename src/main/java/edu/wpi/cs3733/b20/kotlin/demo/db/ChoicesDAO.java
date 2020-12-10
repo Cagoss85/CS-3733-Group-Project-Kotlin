@@ -98,7 +98,7 @@ public class ChoicesDAO {
         
         return choice;
 	}
-
+	
 	/*
 	 * Function returns a list of all choices in the database
 	 */
@@ -164,5 +164,21 @@ public class ChoicesDAO {
 			return false;
 		}
 		
+	}
+
+	public Boolean addFinalAlternative(String uuid, Alternative alternative, int altID) {
+		try {
+			PreparedStatement ps = conn.prepareStatement("UPDATE " + tblName1 + " SET finalAlternative = ?, isChosen =?  WHERE choiceUUID=? ;");	
+			ps.setObject(1, alternative);
+			ps.setBoolean(2, true);
+			ps.setString(3, uuid);
+			ps.executeUpdate();
+			ps.close();
+			return true;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }
