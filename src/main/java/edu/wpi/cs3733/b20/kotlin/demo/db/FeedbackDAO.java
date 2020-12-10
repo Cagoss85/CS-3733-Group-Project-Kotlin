@@ -21,21 +21,28 @@ public class FeedbackDAO {
 	final static String tblName1 = "feedback";
 	
 	public boolean addFeedback(Feedback feedback) throws Exception{
+		ChoicesDAO choicesDAO = new ChoicesDAO();
+		
 		try {
-			PreparedStatement p1 = conn.prepareStatement("INSERT INTO " + tblName1 + " (choiceUUID, altID, username, text, timestamp) values(?,?,?,?,?);");
-			p1.setString(1, feedback.getChoiceUUID());
-			p1.setInt(2, feedback.getAltID());
-			p1.setString(3, feedback.getUsername());
-			p1.setString(4,  feedback.getText());
-			Timestamp time = new Timestamp(feedback.getTimestamp());
-			p1.setTimestamp(5, time);
-			p1.executeUpdate();
-			p1.close();
-			return true;
+			if(choicesDAO.isChoiceOpen(feedback.getChoiceUUID())) {
+				PreparedStatement p1 = conn.prepareStatement("INSERT INTO " + tblName1 + " (choiceUUID, altID, username, text, timestamp) values(?,?,?,?,?);");
+				p1.setString(1, feedback.getChoiceUUID());
+				p1.setInt(2, feedback.getAltID());
+				p1.setString(3, feedback.getUsername());
+				p1.setString(4,  feedback.getText());
+				Timestamp time = new Timestamp(feedback.getTimestamp());
+				p1.setTimestamp(5, time);
+				p1.executeUpdate();
+				p1.close();
+				return true;
+			}
+			else { throw new Exception("Failed to add feedback: Choice closed");}
+			
 		} catch (Exception e) {
 			throw new Exception("Failed to add feedback: " + e.getMessage());
 		}
-	}
+		}
+		
 
 	public ArrayList<Feedback> getFeedbackList(String choiceUUID, int altID) {
 		ArrayList<Feedback> feedbackList = new ArrayList<Feedback>();

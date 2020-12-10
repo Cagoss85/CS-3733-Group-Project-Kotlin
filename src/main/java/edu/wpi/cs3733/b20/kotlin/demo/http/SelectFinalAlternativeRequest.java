@@ -16,14 +16,14 @@ public class SelectFinalAlternativeRequest {
 		
 	}
 	
-	public String getUuid(){
+	public String getUUID(){
 		return uuid;
 	}
 	public int getAltID() {
 		return altID;
 	}
 	
-	public void setUuid(String uuid) {
+	public void setUUID(String uuid) {
 		this.uuid = uuid;
 	}
 	public void setAlternative(int altID) {

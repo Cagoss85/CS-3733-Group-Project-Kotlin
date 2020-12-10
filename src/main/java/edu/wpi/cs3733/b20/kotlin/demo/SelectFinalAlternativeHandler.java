@@ -24,13 +24,22 @@ public class SelectFinalAlternativeHandler implements RequestHandler<SelectFinal
 	@Override
 	public SelectFinalAlternativeResponse handleRequest(SelectFinalAlternativeRequest input, Context context) {
 		try{
-			SelectFinalAlternativeResponse response = SelectFinalAlternativeResponse(input.getUUID(), input.getAltID());
+			if(SelectFinalAlternative(input.getUUID(),input.getAltID())) {
+			SelectFinalAlternativeResponse response = new SelectFinalAlternativeResponse(input.getUUID(), input.getAltID());
+			return response;
+			}
+			else {
+				throw new Exception("Failed to change state of Choice");
+			}
 		}catch(Exception e){
+			return new SelectFinalAlternativeResponse(input.getUUID(), input.getAltID(), e.getMessage());
 			
 		}
 		
 	}
-	
+
+
+
 	
 	
 }
