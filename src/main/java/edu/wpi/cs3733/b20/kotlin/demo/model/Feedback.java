@@ -19,6 +19,15 @@ public class Feedback {
 		this.text = text;
 	}
 	
+	//getChoice Constructor
+		public Feedback (String choiceUUID, int altID, String username, String text, String timestampString) {
+			this.choiceUUID = choiceUUID;
+			this.altID = altID;
+			this.username = username;
+			this.text = text;
+			this.timestampString = timestampString;
+		}
+	
 	public Feedback() {}
 	
 	public String getChoiceUUID() {return choiceUUID;}
@@ -28,6 +37,7 @@ public class Feedback {
 	public String getText() {return text;}
 	
 	public String getTimestampString()	{return timestampString;}
+	public void setTimestampString(String timestampString) {this.timestampString = timestampString;}
 	
 	public boolean equals(Feedback feedback) {
 		if (feedback.getAltID() == altID && feedback.getChoiceUUID() == choiceUUID && feedback.getUsername() == username && feedback.getTimestamp() == timestamp && feedback.getText() == text) {
