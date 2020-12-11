@@ -3,7 +3,10 @@ var username;    //GLOBAL USERNAME VARIABLE
 function processAuthenticateResponse(response){
 	var responseObj = JSON.parse(response);
 	
-	if(responseObj["statusCode"] == "400"){
+	if(responseObj == null){
+		alert("This choice doesn't exist any more");
+	}
+	else if(responseObj["statusCode"] == "400"){
 		var err = responseObj["error"];
 		alert (err);
 	}else{
