@@ -58,7 +58,7 @@ function processGetChoiceResponse(result, registered){
 	
 	currentChoice = JSON.parse(result);   //we now have our result
 	
-	if(currentChoice["httpStatus"] == "400"){
+	if(currentChoice["httpStatus"] == "400" && currentChoice["isClosed"] == false){
 		var err = currentChoice["error"];
 		alert (err);
 	} else{
@@ -119,20 +119,31 @@ function processGetChoiceResponse(result, registered){
 			document.getElementById("userRegister").style.display='inline';
 		}
 		
-		if(currentChoice["isChosen"]){
-			document.getElementByID("alt1AppButton").disabled = true;
-			document.getElementByID("alt2AppButton").disabled = true;
-			document.getElementByID("alt3AppButton").disabled = true;
-			document.getElementByID("alt4AppButton").disabled = true;
-			document.getElementByID("alt5AppButton").disabled = true;
+		if(currentChoice["isClosed"]){
+			var err = currentChoice["error"];
+			alert (err);
+			document.getElementById("alt1AppButton").disabled = true;
+			document.getElementById("alt2AppButton").disabled = true;
+			document.getElementById("alt3AppButton").disabled = true;
+			document.getElementById("alt4AppButton").disabled = true;
+			document.getElementById("alt5AppButton").disabled = true;
 			
-			document.getElementByID("alt1DisButton").disabled = true;
-			document.getElementByID("alt2DisButton").disabled = true;
-			document.getElementByID("alt3DisButton").disabled = true;
-			document.getElementByID("alt4DisButton").disabled = true;
-			document.getElementByID("alt5DisButton").disabled = true;
+			document.getElementById("alt1DisButton").disabled = true;
+			document.getElementById("alt2DisButton").disabled = true;
+			document.getElementById("alt3DisButton").disabled = true;
+			document.getElementById("alt4DisButton").disabled = true;
+			document.getElementById("alt5DisButton").disabled = true;
 			
-			document.getElementByID("submitFeedbackButton").disabled = true;
+			document.getElementById("alt1CompleteButton").disabled = true;
+			document.getElementById("alt2CompleteButton").disabled = true;
+			document.getElementById("alt3CompleteButton").disabled = true;
+			document.getElementById("alt4CompleteButton").disabled = true;
+			document.getElementById("alt5CompleteButton").disabled = true;
+			
+			document.getElementById("submitFeedbackButton").disabled = true;
+			
+			document.getElementById("finalAlternativeLabel").innerHTML = alternatives[currentChoice["finalAlternative"]]["description"] + " was chosen as the final alternative.";
+			document.getElementById("finalAlternativeLabel").style.display="block";
 		}
 	}	
 }
