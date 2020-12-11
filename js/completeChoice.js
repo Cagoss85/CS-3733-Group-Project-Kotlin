@@ -15,6 +15,7 @@ function completeChoice(altNum){
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", completeChoice_url, true);
 	
+	console.log("js: " + js);
 	xhr.send(js);
 	
 	document.getElementById("loading").style.visibility='visible';
