@@ -105,13 +105,22 @@ function handleDeleteClick(e){
 				xhr.open("POST", deleteStaleRequest_url, true);
 	
 				xhr.send(js);
-
-				getReport();
-
+				
+				xhr.onloadend = function(){
+					console.log(xhr);
+					if(xhr.readyState == XMLHttpRequest.DONE){
+						if(xhr.status == 200){
+								console.log ("XHR:" + xhr.responseText);
+								getReport();
+							} else{
+								console.log("actual:" + xhr.responseText);
+								alert("Failed to delete choices");
+							}
+					} else{
+						console.log("res:" + xhr.responseText);
+						alert("Failed to send request")
+					}
+				}
+		}		
 	}
-	}
-	
-}
-
-
-
+}	
