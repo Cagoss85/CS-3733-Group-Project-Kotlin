@@ -1,0 +1,1739 @@
+commit fc31e31d1dd9b97735299fe8de37977579462125
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Dec 11 16:03:03 2020 -0500
+
+    get report table refresh fix
+
+commit 7aef6e109586ab168d404a7419ac625a2f18f824
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Dec 11 15:44:18 2020 -0500
+
+    fix alert for signing in to deleted choice
+
+commit 55f57b3ebaecca833b676ce484db9d2ee621fde3
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Dec 11 15:16:20 2020 -0500
+
+    final UI changes for completed choice
+
+commit 7bb71777300f61ea0656fcb277b7f4fe0a46400f
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Dec 11 14:37:47 2020 -0500
+
+    fix for get choice response when getting completed choice
+
+commit 0589447808f17d7da8a373a2cd078b20423db0ed
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Dec 11 12:59:11 2020 -0500
+
+    add log statement to completeChoice.js
+
+commit c3df42bfdb52f75a2b21d914f8f0c3ea86b009fe
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 10 19:17:29 2020 -0500
+
+    fixing select final alternative handler request/response
+
+commit 13d3f60dab5332afa81a4f291c22feb65789ce99
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 19:03:14 2020 -0500
+
+    pushing fixed versions of code
+
+commit b67923bc5619dc0f63093dd4f7fe59588002d91a
+Merge: fc91b22 6e38446
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 18:42:14 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 6e38446d34dc7fcce6eb22812b548a8ed1b8c38b
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 10 18:40:54 2020 -0500
+
+    completing choice UI done (maybe?)
+
+commit 8274ac15753fd63950902f995d80315937b34bb5
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 10 18:11:35 2020 -0500
+
+    Complete choice request
+
+commit fc91b225d60743a51e5a0032bd9ffe8a1cb2133f
+Merge: 1df71e5 697dabd
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 18:00:33 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 1df71e58636e2416564a7313fcf57426f992c230
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 18:00:23 2020 -0500
+
+    implemented blocking of adding feedback to closed. misc testing
+
+commit 697dabd37e76379b7e1b24a0cd1a4c5227c1bc47
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 10 17:54:29 2020 -0500
+
+    final feedback UI tweaks
+
+commit a75ca56377021d312c7ab14f485fc574a73e6f10
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 17:20:07 2020 -0500
+
+    Select Final Alternative fixes
+
+commit c941b4556e342e55f49e29fe7e0453bf1586edc1
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Dec 10 17:07:50 2020 -0500
+
+    Added functions to return timestamp timestamp as a string
+
+commit b0b753a447aa178888bfb19644486e74b6940eb9
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 17:01:17 2020 -0500
+
+    updating Select final alternative to no longer use alternative class
+
+commit 01ccc6028f470285488538af028f4fc3b9fa865e
+Merge: 3cc103a 148be27
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Dec 10 16:53:45 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 3cc103a85be8edbacc19c670ab23d6cf8ec7b77c
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Dec 10 16:53:30 2020 -0500
+
+    Fixed error where timestamp went into text field
+
+commit 148be2787b80f0ebf3ca96db559555a8766aa16f
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 16:52:25 2020 -0500
+
+    updates to Final alternative handler to refelect DB struct
+
+commit 48254e332b19c07fc6f57dca8daa9741885c468f
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 16:49:55 2020 -0500
+
+    update choices DAO to reflect actual state of the DB
+
+commit 8db00f26411843c0f7a6785f792529e1478cbefd
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Dec 10 16:46:42 2020 -0500
+
+    Added functions for adding feedback to alts when getChoice is called
+
+commit e3c990911df1f960f2d4ad55c464b025b645fd57
+Merge: 4068a12 b33c70f
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 10 16:37:06 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 4068a124256c71956dbd6bfefd82c2c163a9c773
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 10 16:36:53 2020 -0500
+
+    Minor tweaks to Feedback UI
+
+commit b33c70faadf6632c30ef6c0e322da59ad8ff3b0a
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Dec 10 16:30:50 2020 -0500
+
+    Deleted some branches
+
+commit b173be0839d7adb48d765446444a403387c5bb61
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Thu Dec 10 16:23:08 2020 -0500
+
+    Fixed weird refresh error for when there are no choices in the database.
+
+commit 143108d6fbef3f4e83d8dad6a79d1bc74bca276a
+Merge: d2e21cc 831fcd7
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Thu Dec 10 16:22:36 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 831fcd744063c4c475eb1f81796ab0cf24aec501
+Merge: 933cf7a c074e4f
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 16:21:05 2020 -0500
+
+    Merge remote-tracking branch 'origin/Refusing_changes_to_closed_choices'
+    
+    Conflicts:
+            src/main/java/edu/wpi/cs3733/b20/kotlin/demo/db/ChoicesDAO.java
+            src/main/java/edu/wpi/cs3733/b20/kotlin/demo/http/GetChoiceResponse.java
+
+commit d2e21cc997c45d8c96d46e1f05caa03622655f5e
+Merge: 5bffb41 933cf7a
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Thu Dec 10 16:03:12 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit c074e4f7b880c116c5e83e0ec742f75d238a84d1
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Thu Dec 10 15:55:06 2020 -0500
+
+    added gating to dis/approval so closed choice=closed choice
+
+commit 933cf7ab07eaedf7eeb7379d2695fa370d5aed5e
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Wed Dec 9 21:53:36 2020 -0500
+
+    JUnit test cases delete cases made 5 seconds prior
+
+commit d30e06309a94ca751833fcd108a4a813a4e7c108
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Wed Dec 9 21:50:07 2020 -0500
+
+    Added response for deleting choices and did some other stuff
+
+commit ba4308abc2da9fcd98d60324705914c8aae2b423
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Wed Dec 9 21:48:49 2020 -0500
+
+    test case for final alternative
+
+commit 5bffb41ee1ecf76a1946e4fee9db1e513a904ebb
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 9 21:45:30 2020 -0500
+
+    Trying to fix not refreshing
+
+commit 2f7dbd05a5bff443da1e1c13f9f57dd6da9dd2a7
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Wed Dec 9 21:02:01 2020 -0500
+
+    response for request to set final alternatives
+
+commit 0945ff6729310dd81b895fea0d3610ee3719bc76
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Wed Dec 9 21:01:21 2020 -0500
+
+    request to set final alternative values file
+
+commit dfa1355e52f0af284546b7417e2f35927d2038b6
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Wed Dec 9 21:00:52 2020 -0500
+
+    handler to allow for the setting of final alternative variables
+
+commit 4a309a07b51933f3cf512c4e72b712ed5c755846
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Wed Dec 9 20:59:53 2020 -0500
+
+    adds isClosed bool to get choice response
+
+commit d24fccd3fed45814a47cb3ae970fa93a42bd8d8a
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Wed Dec 9 20:59:02 2020 -0500
+
+    adds function to add Final alternative to the choice data base
+
+commit 1b122606ad7bc00ba3f049b861fede95e33f9937
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Wed Dec 9 20:57:57 2020 -0500
+
+    cleaned up file a bit
+
+commit 77eab136268d797d2817625a47bb60df2dd41ff3
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 9 20:32:29 2020 -0500
+
+    Made it so the report refreshes correctly
+
+commit 9ea4d6d4d7281570ff29155b26d76606e02b5992
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 9 20:11:22 2020 -0500
+
+    toggleUI fix
+
+commit 51ab689d97162da30a3f853da4f2ced332dfa2e8
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 9 20:10:42 2020 -0500
+
+    trying to fix
+
+commit cbd1f8f4da44d8f2eba4b05c1753bff76520aaf9
+Merge: 32a8ca2 5af7944
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 9 20:10:29 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 32a8ca251cdb423bb1829e8a08b27f4ad6cfc561
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 9 20:10:13 2020 -0500
+
+    trying to fix
+
+commit 5af7944eff0b92bbc5a0abbe99aa54fd5d386636
+Merge: a114b59 349b4eb
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 9 19:50:52 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit a114b5980af7f0f701eb012426298486ec4b870a
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 9 19:50:35 2020 -0500
+
+    Trying to fix create feedback
+
+commit 349b4ebc91d599ff38e84e8661e0f66ea2248f2b
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 9 19:50:03 2020 -0500
+
+    Change word syntax
+
+commit a56adf55fce4f225977df32b8290aa2f7b28883a
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 9 19:29:36 2020 -0500
+
+    pushing to try to fix create feedback
+
+commit 81cb527c838bc7684ed44e03c5b8254a8ef26fe3
+Merge: 0eb4e6d 2c5f8bc
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 9 14:21:02 2020 -0500
+
+    Merge remote-tracking branch 'origin/Addding_Feedback_Client'
+
+commit 2c5f8bc8f477d115e895ab0d7934cbc1d0bf50ad
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 9 14:19:51 2020 -0500
+
+    API update for deleting stale choices
+
+commit 4986cf301f256c641abe917587a3b7e2e0d532eb
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 9 14:17:00 2020 -0500
+
+    Viewing feedback functionality in place
+
+commit 0eb4e6d3666f9a9c608675eca83d386e0dd58106
+Merge: d284a0b cb22f21
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 9 13:46:48 2020 -0500
+
+    Merge remote-tracking branch 'origin/Admin_Console'
+
+commit cb22f21ad5aa1188688176ed19e5d42c55fb012e
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 9 13:45:26 2020 -0500
+
+    Admin Console and handleDeleteClick Work
+
+commit 6ec6ecb9fce4c6035ac61a663ad901811c8622eb
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 9 11:08:08 2020 -0500
+
+    try to simplify handleDeleteClick
+
+commit 667ec57d290694c636d5d3e7cb2e79def5362396
+Author: Josh <Josh@130.215.123.32>
+Date:   Tue Dec 8 20:18:41 2020 -0500
+
+    code for sending add feedback request
+
+commit d284a0b2d47a885cb662d9685c2eaad0d268ff60
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Dec 8 20:16:52 2020 -0500
+
+    Added functionality for deleting choices over n days old
+
+commit 8a24eab4c06ba0a3f9f52f9091b56538cee0c08d
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 20:07:51 2020 -0500
+
+    Maybe handle delete works maybe
+
+commit 9d5729b24c0197b07356fc7c80472e2bd366cf41
+Author: Josh <Josh@130.215.123.32>
+Date:   Tue Dec 8 20:01:42 2020 -0500
+
+    Feedback UI mostly functional
+
+commit f086498e8942265f3def4eb0d45e9cfc4a1d869e
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 19:57:09 2020 -0500
+
+    more work with error codes
+
+commit e2f240f1253fcb30fbde2cf595c68f3d59552490
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 19:48:04 2020 -0500
+
+    working on handledeleteclick
+
+commit 96ceab9c8d53553031ab97ab288829c45fb985e2
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 19:33:42 2020 -0500
+
+    trying to handle click
+
+commit f51464d53fd6c1886297464174e765bda92a4e8e
+Author: Josh <Josh@130.215.123.32>
+Date:   Tue Dec 8 19:15:45 2020 -0500
+
+    realized I made loads of changes without committing anything so I should
+    probably commit now.
+
+commit adaff7ae24fb910a57dd41d015e839774716aaf0
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 19:01:03 2020 -0500
+
+    trying to add handle click function for the delete
+
+commit 4448f0e3ac80e388f55e912de31d93b39ad415b6
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Dec 8 18:36:07 2020 -0500
+
+    Added test for duplicate feedback (results in false)
+
+commit 2943a9d3838ea62bf3cf026be4cd9fd74de01518
+Author: Arnold-Muralt <awmuralt@wpi.edu>
+Date:   Tue Dec 8 18:30:19 2020 -0500
+
+    added isChoiceopen and correlating changes to handlerequest
+
+commit 0053d5746a35b2d8e72c729c0a7beb67e408be1d
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 18:29:22 2020 -0500
+
+    Table Works
+
+commit aadc12f4e9037fddf3b9912a723386908d59bce5
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 18:25:17 2020 -0500
+
+    Working on fixing table
+
+commit 971cc793cc65fae8d4a833f2f7c4835c91239c3d
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Dec 8 18:23:32 2020 -0500
+
+    Added a choice description field for admin reports
+
+commit 33453cc55740755a4c155eef58e0ae453046c431
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 17:18:51 2020 -0500
+
+    Change adminConsole Back to original to try and fix 403
+
+commit a9195b37bd0edd1f78c9ff05d8b263d0dfe58b1d
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 16:57:25 2020 -0500
+
+    Change getReport to get rid of extra lists
+
+commit 39dd85e228a9a7a4dd88784dd41ccc6120faf4cd
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Dec 8 14:19:47 2020 -0500
+
+    trying to fix admin error
+
+commit 822cdf77a5e96ac6ce7254a48d31a28bb934b56b
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Dec 7 21:19:20 2020 -0500
+
+    Merged Feedback with master branch
+
+commit 92fecf3ffc893075c42c3c0d4317b18eb772aaa9
+Merge: 2e52abf fe7cffe
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Dec 7 21:19:04 2020 -0500
+
+    Merge remote-tracking branch 'origin/feedback'
+
+commit fe7cffebcc34cd897dfd5b7cece76ab533f19172
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Dec 7 21:14:29 2020 -0500
+
+    No time buffer required, SQL param needed to be a PK to allow duplicates
+
+commit 35fa8eac5e2a4c5c3f26e4bbaf6bf37bcdba1f5c
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Dec 7 21:00:42 2020 -0500
+
+    Feedback can be created. Needs time buffer for duplicate SQL entries.
+
+commit 95a9373edf44a293db9e441e366f994509f0cd9d
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Dec 7 19:59:45 2020 -0500
+
+    FeedbackDAO and Handler function created, ready for testing
+
+commit 897c238ddcf80cfbb1c5207319f37acd020da4fe
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Dec 7 19:19:59 2020 -0500
+
+    Created Feedback Class
+
+commit 2e52abf08deb11d18fd96b667f34fa78d587a6a4
+Merge: e05ef59 a9584bb
+Author: Josh <Josh@130.215.123.32>
+Date:   Sat Dec 5 13:25:49 2020 -0500
+
+    Merge remote-tracking branch 'origin/master' into approvals_front_end
+
+commit a9584bb48b98711228cc21b2b8d5ba3967b1e843
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Sat Dec 5 13:16:51 2020 -0500
+
+    Added case in approvals and disapprovals to remove other
+
+commit e05ef5995b8c0c3c7556aa75d60d0241a22c4547
+Author: Josh <Josh@130.215.123.32>
+Date:   Sat Dec 5 13:00:39 2020 -0500
+
+    minor fix for disapproval controls
+
+commit a31ff38158d788fb78b799873ae30fac98059a13
+Author: Josh <Josh@130.215.123.32>
+Date:   Sat Dec 5 01:26:57 2020 -0500
+
+    minor tweaks, added refresh choice button
+
+commit 0eaba447c6d4f764624f9f571f618de35eec00c7
+Author: Josh <Josh@130.215.123.32>
+Date:   Sat Dec 5 01:20:09 2020 -0500
+
+    Initial effort to add disapproval. Also some UI tweaks and loading msg.
+
+commit 07b652e1ce27c72e855924281f4419ca7e0acf91
+Merge: de0be60 f90496e
+Author: Josh <Josh@130.215.123.32>
+Date:   Sat Dec 5 00:18:42 2020 -0500
+
+    Merge remote-tracking branch 'origin/master' into approvals_front_end
+
+commit de0be603c04a1a7283f004065ad490eaa162a6ef
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Dec 4 20:59:31 2020 -0500
+
+    approvals functional
+
+commit f90496e60d40f5630fdfeec0d6c4c583bd085606
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Fri Dec 4 19:09:51 2020 -0500
+
+    added approvals to the alternatives
+
+commit ace6de4c4fc0d486e3b03eba740d436aaf32da51
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Fri Dec 4 19:00:10 2020 -0500
+
+    added overload for alternative constructor to take app disapp
+
+commit 6047e92b3c64c00a03e53c9611ce929ff08a64d7
+Merge: 53e5eaf a640c5d
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Dec 4 18:59:06 2020 -0500
+
+    Merge remote-tracking branch 'origin/master' into approvals_front_end
+
+commit 53e5eaf2d1729a8dea22efba5594d9a181a2fb9f
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Dec 4 18:58:01 2020 -0500
+
+    continued addApproval work
+
+commit a640c5d2aea9066c922e1f238db57e438d21f52e
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Dec 4 17:55:15 2020 -0500
+
+    Fixed the DisapprovalHandlerTest
+
+commit c3b330b06a34a2dde9db20f1958c0ee738249483
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Dec 4 17:46:08 2020 -0500
+
+    Switched order of create proval function attributes
+
+commit f914fc5dc7864f8ce2c27c847e1c26c6dd16d63a
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Dec 4 17:43:39 2020 -0500
+
+    Fixed JUnit tests
+
+commit 8733550f0cefba945992e473908f788dbd18172f
+Merge: 53e075d 648bed9
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Dec 4 17:41:59 2020 -0500
+
+    Merge remote-tracking branch 'origin/Adding_App-DisApproval_DAO'
+    
+    Conflicts:
+            target/classes/META-INF/maven/edu.wpi.cs3733.b20.kotlin/demo/pom.properties
+
+commit 53e075db11418c63a2b9d7def8720943752acf7b
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Dec 4 17:41:10 2020 -0500
+
+    trying to fix problem
+
+commit 648bed9b1d7b71ebeb74507a237eed6e3d59c17f
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Dec 4 17:40:31 2020 -0500
+
+    trying to fix merge problem
+
+commit 709e22c610178df10a08d319dd34e7ed80aeb965
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Dec 4 17:34:10 2020 -0500
+
+    Finishing Disapproval test cases
+
+commit 2081c71f44a4afa2d6fcc16fe95c5713ad45d775
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Dec 4 17:22:53 2020 -0500
+
+    Fix Comments in Disapprovals DAO
+
+commit 87e92f6ec43d4a485955c83a6b5cd8c3818a54a0
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Dec 4 17:21:03 2020 -0500
+
+    Create Disapproval
+
+commit 5e59c738b752d5ab8a222e4d832bb9c5f7a1a7a2
+Merge: 04fdab1 f7e461e
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 3 18:22:28 2020 -0500
+
+    Merge branch 'Adding_App-DisApproval_DAO' of
+    https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git into
+    Adding_App-DisApproval_DAO
+    
+    Conflicts:
+            src/main/java/edu/wpi/cs3733/b20/kotlin/demo/db/ApprovalsDAO.java
+            src/test/java/edu/wpi/cs3733/b20/kotlin/demo/TestApprovalHandler.java
+
+commit 04fdab1343b616cadde4ddcf4616cac988189f09
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 3 18:20:23 2020 -0500
+
+    Adding approval removal to JUnit test
+
+commit f7e461e28a92a32d400bf103719c53d2eb717a21
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Dec 3 17:51:25 2020 -0500
+
+    Re-structured Approval Constructor
+
+commit c23a979b8a14b1439a66d03eba4f443a97ef9b34
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Thu Dec 3 17:43:56 2020 -0500
+
+    testcase fix, fields were being set in wrong order
+
+commit b35ea14a39273300cc958db50700e1df3ad1aaae
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Thu Dec 3 17:38:07 2020 -0500
+
+    push of null pointer error fix in ApprovalsDAO
+
+commit 35b183ae1012826e164a4b4d1c2e8a415b378d95
+Merge: b169a0f 3ff8848
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 3 17:30:17 2020 -0500
+
+    Merge remote-tracking branch 'origin/master' into approvals_front_end
+
+commit b169a0fc5545b260a7f41ca177057182632c2a9f
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 3 17:28:20 2020 -0500
+
+    Wrapping up initial create/get approval work
+
+commit 3ff8848d97f377c6b35f44f15825843acaa6c746
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Thu Dec 3 17:22:57 2020 -0500
+
+    added more test cases for authenticating user
+
+commit e5cff227dc6786a8cb192b2fec0b2dcc1fcf8ef9
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Thu Dec 3 17:02:55 2020 -0500
+
+    More Coverage for the User Class
+
+commit 467f4fc342745decabd769f0659074e0b26b7b03
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Thu Dec 3 16:55:33 2020 -0500
+
+    slight name changes
+
+commit 79db39e5a07ab504c4266a0b86653583ab5f08a0
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Thu Dec 3 16:53:01 2020 -0500
+
+    Push for others to look at my shitty code
+
+commit 37ece1cc5d807a9b5cde554ede5525628c2dcdbc
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Thu Dec 3 16:50:33 2020 -0500
+
+    Test cases
+
+commit 2b6b7d2e3c552b596b72a2ce1f0109068f56cb60
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Thu Dec 3 16:46:19 2020 -0500
+
+    Added User to String test case for code coverage.
+
+commit 8605bf739faa7d34a1a117e16bad2df7de7f7edb
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Thu Dec 3 15:52:39 2020 -0500
+
+    Approvals should now delete on a duplicate call of addApproval
+
+commit 2063b3f82156b61230d36debc897eb360bc4e281
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Thu Dec 3 14:47:39 2020 -0500
+
+    added .equals function to approval, and added approval checking in DAO
+
+commit 88f88e7309d3f1454cc1836ed175521002d37a19
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Dec 3 13:33:34 2020 -0500
+
+    setup for showing approvals
+
+commit e61d148413d5951914b2bd95f012e9294a4d7d98
+Merge: 0921ca0 2be6fc6
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 20:20:49 2020 -0500
+
+    Merge remote-tracking branch 'origin/get_report'
+
+commit 0921ca02751d2f9e4cfd936c98f31e98c23a3a85
+Merge: 3cea7ce 20987f6
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 20:20:35 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 2be6fc6ce03b60e9f04c3ab2c774ffd8ef30d7e2
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 20:16:10 2020 -0500
+
+    Get Report works
+
+commit 42467d8fd9e695a726574b523cfff1742e7beb19
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Wed Dec 2 19:47:05 2020 -0500
+
+    End of day Commit. Do not merge into Master, code is incomplete
+
+commit 4b98486d18a22df45c15e0bff14f256a981b8938
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 19:42:26 2020 -0500
+
+    Fixed loop and adding ID
+
+commit ffca23c1bf0ff7156c6bfb3ae5dd6119f9a2d6af
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 19:02:50 2020 -0500
+
+    few comments
+
+commit 147bfef7d77ae244b4cc8963b3f9270fa477e7c2
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 2 14:36:42 2020 -0500
+
+    update to 2 col layout, fixes
+
+commit 643387e5c39d0c2a44fc2a643ccfad1b1f74245c
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 2 14:30:33 2020 -0500
+
+    establishing column structure
+
+commit a8a27e30c4a31678321c3c9f0c24c19327113a30
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 14:28:54 2020 -0500
+
+    more typo
+
+commit 221f983e810331d2c2ba1d28a1ef5d0d555e5bab
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 14:26:41 2020 -0500
+
+    Fixed Typos
+
+commit 16814566c271470b2d95cbc4d4355a7166443a3e
+Author: Josh <Josh@130.215.123.32>
+Date:   Wed Dec 2 13:59:45 2020 -0500
+
+    Single button handling approval
+
+commit 1ac042a48fc8eda778cd3839aa9f37bf1d476d25
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 13:51:54 2020 -0500
+
+    Fixed for loop
+
+commit 8ee6df00e167504276e2b8a8d2d68afaae502816
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 13:26:41 2020 -0500
+
+    Create for loop foor the choice
+
+commit 37d6aa1de681393d34174f778c244b3bf6b3ffcb
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Wed Dec 2 13:21:53 2020 -0500
+
+    Add some Variables for report
+
+commit 20987f67c361d8e5f61bbcce2431d7c2ce0622af
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 23:41:39 2020 -0500
+
+    Revert "Revert "Removed print statements from code to clean it up""
+    
+    This reverts commit af0a81ae52dab34bee6ca2244381b4d1473d9c8f.
+
+commit af0a81ae52dab34bee6ca2244381b4d1473d9c8f
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 23:41:33 2020 -0500
+
+    Revert "Removed print statements from code to clean it up"
+    
+    This reverts commit f2b609c308879b7e8057db0dd96a543e52bb478e.
+
+commit f2b609c308879b7e8057db0dd96a543e52bb478e
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 23:40:32 2020 -0500
+
+    Removed print statements from code to clean it up
+
+commit d28fcdb1d4f4f92d1a1f83a9059587bcbcf521d3
+Merge: 2655a94 fe0d33c
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 23:30:34 2020 -0500
+
+    Merge branch 'adminReport'
+
+commit 2655a947f23838c76f54098cc391f3a9408a473a
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 23:29:07 2020 -0500
+
+    trying to fix merging
+
+commit fe0d33c1493ac774422b833a9f9cd46de6c64a04
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 23:27:22 2020 -0500
+
+    trying to fix merging
+
+commit 25853d12ac197f336064fb63c9441b935b1f0d80
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 23:24:32 2020 -0500
+
+    Revert "minor changes"
+    
+    This reverts commit e1758feb845bbcd0420f05d209c7fa405e375b03.
+
+commit e1758feb845bbcd0420f05d209c7fa405e375b03
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 23:20:27 2020 -0500
+
+    minor changes
+
+commit 7d868e540af411ea2bf5ed70f38ce3105febd6b5
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 23:15:24 2020 -0500
+
+    Added test cases for getChoiceHandler
+
+commit 718ec8fc42686e9ce41f073f13aef957994209bb
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 20:35:09 2020 -0500
+
+    fixing some stuff
+
+commit c5cb8a54467e435c7ad9fac91389dad2b83ee450
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 20:34:17 2020 -0500
+
+    updating some tests
+
+commit 6f3c28716250572fc742a30caddffdfda93b7bbb
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 20:06:09 2020 -0500
+
+    Fixed isChosen() boolean parsing, and cleaned up create user functions
+    
+    Removed braces for single line if statements
+
+commit 6a38d3f764a4dfaac18b998eac9ee38e92a050fc
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 19:42:25 2020 -0500
+
+    Admin report timeCreated fixed
+    
+    had to reference a different attribute
+
+commit 2e477e1cfc9745a8fafc082fca7cff917c2e3c0a
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Mon Nov 30 15:42:27 2020 -0500
+
+    Creating/mapping out processReportResponse
+
+commit 76202547214436b2234bb1c758bbd52cc253bf5e
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Mon Nov 30 15:39:08 2020 -0500
+
+    Fix Body of AdminConsole and added xhr function to getReport
+
+commit f40aacd624a318b8aea31950e436db093ec2b93a
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 13:55:00 2020 -0500
+
+    getReport function returns number of choices, their UUID, and status.
+    
+    timeCreated only returns 0.
+
+commit 06f8e5fa6d0b1d54d8bc27ee2be7a6356931c61f
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 30 13:47:44 2020 -0500
+
+    Choice Report choice list size test
+    
+    Reports successfully track the number of reports in the system.
+
+commit 251b975319367e640c5c544af23ac0dec0cafa23
+Author: Josh <Josh@130.215.123.32>
+Date:   Mon Nov 30 13:39:11 2020 -0500
+
+    Initial createApproval JS
+
+commit 74ccda8e46124a48f1c296a686483ef86bf636a3
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 29 23:46:20 2020 -0500
+
+    Added a couple comments
+
+commit b67d31b80a9ffc5d34034e0f9ca6eb5fcd034ec5
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 29 23:46:20 2020 -0500
+
+    Added a couple comments
+
+commit 9a304973067f79aaffe84cff582d25ac6afb3694
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 29 23:26:59 2020 -0500
+
+    Finished writing code, database updated
+    
+    Ready for testing tomorrow
+
+commit d3d82d7280b3758688bed0da1dcf410c00d650d1
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 29 23:16:07 2020 -0500
+
+    Created Function for creating choice based on json data
+    
+    Added String attributes to choice class for admin display
+
+commit 470df2ed02bfb99a3c14c3f5e252797c5639725a
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 29 16:47:29 2020 -0500
+
+    Working on getReport Function
+
+commit a2ca842fc3e7550be3e0679495bb89ec87de1c9c
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 29 16:42:39 2020 -0500
+
+    Working on body of Admin Console
+
+commit 2fc4ee82c1d47797a0cc8f1966896408ba0422f5
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 29 16:40:01 2020 -0500
+
+    Working on Head of AdminConsole.html
+
+commit 406f1e402aa5366386d59ad4643ab6874c1e161b
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 29 16:23:36 2020 -0500
+
+    starting get report
+
+commit 3e3ab8a1108726aca60707c7cd19b7aef32f14f7
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 29 16:15:35 2020 -0500
+
+    Created handler class and function for getting all choices
+
+commit 7276ef7aa6d25116f75fa8dec7d41d62a3195dbb
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Sun Nov 29 15:46:35 2020 -0500
+
+    Create all base files for lambdas and DAOs
+
+commit 5c3b9c8a9e2a2998d70f4e04c69f53cbd67b237f
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 29 15:40:02 2020 -0500
+
+    Created GetReportResponse class
+
+commit 3cea7ce20c0fd7998a88d8ff28a8a2275c1385d9
+Merge: 3d0b874 115730d
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 29 15:04:30 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 115730daaea7cd2fd2a64ea1f018d3a9349b736d
+Author: Josh <Josh@130.215.123.32>
+Date:   Tue Nov 24 19:16:04 2020 -0500
+
+    last couple changes before submission of Iteration #1
+
+commit 3d0b8748dd2452bac38aff69e58a911f9791359f
+Merge: c737e0d fc601ff
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Nov 24 19:05:24 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit fc601ff0f90503ab7d9bcb1ebba41ab171f0d1ec
+Author: Josh <Josh@130.215.123.32>
+Date:   Tue Nov 24 18:48:38 2020 -0500
+
+    minor bug fixes
+
+commit c737e0dc9869c26719db36bb6f289f38b16fb474
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Tue Nov 24 18:02:06 2020 -0500
+
+    User test case
+
+commit 6d2bb7065fe2e712deb4f7f94e6870b4639e3b9a
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 17:59:50 2020 -0500
+
+    Admin html template
+
+commit dd0fdecd1a2e7bd861db04652bd9b0b050970d2d
+Merge: 5e248c0 0362b6f
+Author: Josh <Josh@130.215.123.32>
+Date:   Tue Nov 24 17:18:59 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 5e248c0845ac855e84a2f876dd02bd3d03997741
+Author: Josh <Josh@130.215.123.32>
+Date:   Tue Nov 24 17:18:12 2020 -0500
+
+    various updates and bugfixes, mostly client-side JS
+
+commit 0362b6f6514b172ada4202f245a2ba4fc9ea8125
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 14:53:01 2020 -0500
+
+    Created Admin Console HTML file
+
+commit b7a220c649e3f160d6c3d011c877a461b8ce96f8
+Merge: 4f11cf5 d937e8d
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 13:09:44 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit 4f11cf5ba222ce8182fcf30118eddef14764e8bf
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 13:09:13 2020 -0500
+
+    Added test cases for Alt, App, Disp, Choice, Feed, and User
+
+commit d937e8db1c54fe139e547e9c520e61b266cf5897
+Author: Josh <Josh@130.215.123.32>
+Date:   Tue Nov 24 12:56:03 2020 -0500
+
+    Fixing issue with GetChoiceHandler regarding "choice not found"
+
+commit 96a2cea2501b9c011653e4489da87f1efa7a7524
+Merge: b9d5c86 69b6537
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 11:49:17 2020 -0500
+
+    Merge remote-tracking branch 'origin/authenticating_user_conditions'
+    
+    Conflicts:
+            target/classes/META-INF/maven/edu.wpi.cs3733.b20.kotlin/demo/pom.properties
+
+commit 69b6537ca0ff87c60cc970a23d9e4677c50de2a9
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 11:40:57 2020 -0500
+
+    Fixed user login issues.
+    
+    Replaced == with .equals() when comparing request and db password
+
+commit 6706905a7bc5712e95249bd77c78deb3d570d686
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 11:21:21 2020 -0500
+
+    Changes
+
+commit f8c061d8670ac9507d741bc3c9f346a034165f75
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 03:17:13 2020 -0500
+
+    Couple small edits, still didn't fix it
+
+commit 2ec98d9a1ee895f79ab959a7ee04e2192204894c
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 03:10:13 2020 -0500
+
+    Having trouble registering existing user with a password.
+
+commit 1c81579db7ad0d6a1b56f0b5228bcd4aa2f0819e
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Tue Nov 24 02:57:21 2020 -0500
+
+    Added More tests and restructured the handler function
+
+commit b9d5c8694c7947b914a9eeb4266c2f9be1df3e5b
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 23 23:04:02 2020 -0500
+
+    Merged Authenticating User With Master
+
+commit ffdbea21d4cadc4918cf8d49530b5085337b4f17
+Author: Josh <Josh@130.215.123.32>
+Date:   Mon Nov 23 22:58:51 2020 -0500
+
+    fixes for bugs in CreateUser to satisfy Junit tests
+
+commit bfab277f904613b3ab6486608d43146f89e7e7c6
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 23 22:03:35 2020 -0500
+
+    A Couple changes while debugging
+
+commit b8086c2fc1365be1e45305e1acf4729715bdee62
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 23 21:46:13 2020 -0500
+
+    Added responses in the handler
+
+commit 022df955b69fa38d218d0cef184030e9fefded88
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 23 21:39:03 2020 -0500
+
+    Finished Conditions for logging in and rejecting
+
+commit 3dd1cf11af2731f30265571c4f22ad01a730c62a
+Author: Josh <Josh@130.215.123.32>
+Date:   Mon Nov 23 21:38:20 2020 -0500
+
+    fixing minor issue
+
+commit dec5de40f3c3e37b5327071513abbe73c7b6d98b
+Author: Josh <Josh@130.215.123.32>
+Date:   Mon Nov 23 21:29:01 2020 -0500
+
+    fully working getChoice
+
+commit 09fc976b6fc73aafdb6a9c58cc807b2d39c236b7
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 23 20:53:26 2020 -0500
+
+    Created Get User Function
+
+commit 52dc17e37e3a926a97064c96f08012454d760720
+Author: Josh <Josh@130.215.123.32>
+Date:   Mon Nov 23 19:32:58 2020 -0500
+
+    fix small issue in getChoice
+
+commit e3897c416d6eeaa2e164e6befcaa4c1cb7a1a08f
+Merge: cbd29c7 6d511b2
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Mon Nov 23 19:29:14 2020 -0500
+
+    Merge remote-tracking branch 'origin/creating_get_choice'
+    
+    Conflicts:
+            src/main/java/edu/wpi/cs3733/b20/kotlin/demo/http/CreateChoiceResponse.java
+
+commit 6d511b2ddbf2d3ce471201e3dc6ce6e4ac1952fd
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Mon Nov 23 19:20:05 2020 -0500
+
+    added improved error handling to get choice
+
+commit 25189182c6fd6b8b85433ebe65b49dae4aa29ffa
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Mon Nov 23 19:06:18 2020 -0500
+
+    fix semicolon
+
+commit 6037258d13da8d5c9e0b5fff3b5712936f666bed
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Mon Nov 23 18:59:35 2020 -0500
+
+    updates to getchoice
+
+commit cbd29c73bec76a7bcee9a1e0c9330e59fd195b9f
+Merge: f3ff299 4eb1cfa
+Author: Josh <Josh@130.215.123.32>
+Date:   Mon Nov 23 18:03:47 2020 -0500
+
+    Merge branch 'master' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+
+commit f3ff299715286e23403f9d9d3438624cb2299a4d
+Author: Josh <Josh@130.215.123.32>
+Date:   Mon Nov 23 18:02:13 2020 -0500
+
+    Finalizing authenticateUser and getChoice for iteration #1 (not tested
+    yet)
+
+commit cae019da2039ba2cebb276facdd2588c96b9150c
+Author: Josh <Josh@130.215.123.32>
+Date:   Mon Nov 23 17:20:02 2020 -0500
+
+    additional updates to getChoice and authenticateUser
+
+commit 4eb1cfa23aa74da9dc6868c7062e26ec088c1d67
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Mon Nov 23 11:37:07 2020 -0500
+
+    Added getters and setters for the http classes. Added toString method
+    for authenticateUserResponse. Added blank constructors that were missing
+
+commit cb72b897347394ebc263e97e367860e2eb930836
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Mon Nov 23 10:33:46 2020 -0500
+
+    Updates to the get choices methods
+
+commit 9794ab9c7139bda2e6d81c6aadf3aa69adbabf88
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Mon Nov 23 03:24:08 2020 -0500
+
+    major additions to the getChoice function
+
+commit 12a51ab08fc6406c1c617c209723485f205cc2e9
+Author: Josh <Josh@130.215.123.32>
+Date:   Mon Nov 23 00:34:26 2020 -0500
+
+    more work on getChoice and authenticateUser.
+
+commit 6298813a7b22982ad2ad61268ca80d590090d8b3
+Merge: d392d12 83540ec
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 22 23:54:29 2020 -0500
+
+    Merge remote-tracking branch 'origin/master' into clientJSStart
+
+commit d392d12b88d850222aebe44eaa6d409a779c9b5d
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 22 23:43:14 2020 -0500
+
+    progress on getChoice
+
+commit 3b22a443ac7cf8efd42c45efda6ba6b574f65f48
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 22 20:27:18 2020 -0500
+
+    additional error catching modifications to createChoice
+
+commit 7a633e7af34593070daa2869383b080e948473f1
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 22 20:12:15 2020 -0500
+
+    Working on getChoice Function
+
+commit 70118965a59a010048c2d77a6c464847fa2c2ece
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 22 17:36:02 2020 -0500
+
+    CreateGetChoiceResponse done
+
+commit a2d4b6986834704e8e418e766736904dd42647ab
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 22 17:19:18 2020 -0500
+
+    renamed
+
+commit 0bea9554fa3b6efc1f31239b210f5dfab91dfcf7
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 22 17:17:35 2020 -0500
+
+    CreateChoiceHandler and Branch
+
+commit ea582af1c4a74cbc572cf3821e3d3a387376ae35
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 22 17:15:33 2020 -0500
+
+    fixing issue with specifying bad blank alternatives
+
+commit 83540ec4a6383c644a75180e95437812f65593fe
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 22 16:26:40 2020 -0500
+
+    add test case for userhandler
+
+commit 2c83c89e8d813d014426ffa2d127bf81b64bd224
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 22 16:26:14 2020 -0500
+
+    Set up test case for too many users
+
+commit 906f5237c31a9dcbe62ae6e37ff05e5cebea21c2
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 22 16:20:24 2020 -0500
+
+    can create choices from website now, still need to handle response
+
+commit 01c98280bf19623f5ad3d2755902488c4786c54b
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 22 15:44:22 2020 -0500
+
+    Choices can be added to database.
+    
+    Can add multiple users, recognizes and rejects duplicate users. No limit
+    control yet.
+
+commit e550a46a281b1568ec66797e2b62dec6273f12e6
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 22 15:25:09 2020 -0500
+
+    default Alternative constructor to make AWS happy hopefully
+
+commit f9153844f3a7e4c6119bb1f2827e6067824a8cbc
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 22 15:17:57 2020 -0500
+
+    fixing alternatives json object set. Add api url. Sent Lambda to S3
+    bucket.
+
+commit 7304e56b20bdd0d4de2cda3aee81071e34fa9360
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 22 15:02:01 2020 -0500
+
+    minor tweak
+
+commit fa8b1ae187458470670884a5689a1105a04d88b7
+Author: Josh <Josh@130.215.123.32>
+Date:   Sun Nov 22 14:48:42 2020 -0500
+
+    index and createChoice handleClick done
+
+commit 6900b9fc4316ed5ed6402b05bf547a152ce5d2f7
+Merge: 95b0ce2 8c38200
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 22 14:44:03 2020 -0500
+
+    Merge branch 'adding_user_to_database' of https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git into adding_user_to_database
+
+commit 95b0ce23e0147603a173b1b65e94b319d9d7d0dd
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 22 14:43:22 2020 -0500
+
+    Add user functions creaed, ready to start testing and debugging
+
+commit b098e00aafacfb8dde66e8a0413d6b64d29735bd
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 22 13:52:13 2020 -0500
+
+    CreateUserRequestClass
+
+commit 8d1d93d4319fce263ce59b78ba8a1306d9ed5f5d
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 22 13:40:12 2020 -0500
+
+    AuthenticateUserResponse Class
+
+commit 8c38200ee51245ef76ff5793b7fb62cff5142f03
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Sun Nov 22 13:25:23 2020 -0500
+
+    CreateUserHandlerTest class
+
+commit 033bc8a2074f414377eab97c0b9ea361d5b319d5
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 22 13:21:06 2020 -0500
+
+    Created Classes for this branch
+
+commit 5e3707cecfe9a535a26b1e5caef2166598b428ec
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sun Nov 22 01:33:46 2020 -0500
+
+    Cleaned up some of the code formatting. Still works fine
+
+commit 28e4ba5215e37688658ca73a5e1be43ac6f3223d
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sat Nov 21 22:51:47 2020 -0500
+
+    Added 400 error code test
+
+commit ec9f93ec17e5cd49e1efee6d601ab6282872b920
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sat Nov 21 22:43:46 2020 -0500
+
+    Choice description constructor fixed.
+    
+    Choices can be added to the DB
+
+commit e4a66d629d60173e32da5fe20d350638395141b0
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sat Nov 21 22:37:37 2020 -0500
+
+    Tracked Error Down to Choices DAO Clas
+
+commit a64a1700020d5a3d300f61d83d000db5b8318c2d
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sat Nov 21 22:14:13 2020 -0500
+
+    Fixed the connectivity issue
+
+commit 9076dee33872b18553675509ff86bfb2fcca2966
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Sat Nov 21 21:42:16 2020 -0500
+
+    Trying to fix problems
+
+commit 9a78c0175af10ac7035100e8309d78dbaf781418
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Sat Nov 21 20:51:02 2020 -0500
+
+    Changes from group coding session 11/21
+
+commit 69519ea645a4a6af7108f0a8cc47329d00ce2742
+Author: Josh <Josh@130.215.123.32>
+Date:   Sat Nov 21 20:02:24 2020 -0500
+
+    Initial work
+
+commit f2e234da48f4fd8d873fe861797bfee1f4cf1ddb
+Author: Josh <Josh@130.215.123.32>
+Date:   Sat Nov 21 15:29:33 2020 -0500
+
+    add choiceUUID to other model classes
+
+commit ad0a173fe01d9bc20c87514b5340ffbf256ed624
+Author: Josh <Josh@130.215.123.32>
+Date:   Sat Nov 21 00:42:07 2020 -0500
+
+    finalizing UsersDAO
+
+commit 1a50cc96da02f9c78ae7f5ecf82db5badfbcc81c
+Merge: 94c5760 fbf6716
+Author: Josh <Josh@130.215.123.32>
+Date:   Sat Nov 21 00:32:27 2020 -0500
+
+    Merge remote-tracking branch 'origin/master' into userdb
+
+commit fbf67160461640ecb95d4ac1176c65106e44fcb6
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Nov 20 19:15:06 2020 -0500
+
+    Renamed Approval and disapproval classes
+
+commit 6881c1614e3c2903603f1655f88b885939cf59aa
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Nov 20 18:14:27 2020 -0500
+
+    idk why it wants me to commit
+
+commit 9293bf0b05a5b5221783caa5fa28a5aa476e3148
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Nov 20 18:12:16 2020 -0500
+
+    Added Getters for the approval and disapproval classes
+
+commit 94c57608507d45ac0a6865dc8350fc2375d54f30
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Nov 20 18:01:55 2020 -0500
+
+    users DAO WIP
+
+commit 8981b0def2e348ebbe08a21fe3a6ba41d5240729
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Nov 20 17:18:15 2020 -0500
+
+    Added to approval and disapprovals
+
+commit 5cb05fef2ff5a79856a8972c63563ecc52012b51
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Nov 20 17:12:12 2020 -0500
+
+    Repushing didn't work
+
+commit e41f99b4e97edd98a7a7fe089c64cb9f5ba0a952
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Nov 20 17:11:44 2020 -0500
+
+    Fixing feedback?
+
+commit 2ea89b1db2d6b416e82d7b855cc656a1a9434ce6
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Nov 20 16:46:22 2020 -0500
+
+    Added Approval and Disapproval class
+
+commit 0dfae2188ddbdf874947cbf31b1c2169132ac293
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Nov 20 16:42:02 2020 -0500
+
+    Constructor of feedback
+
+commit c3495bef3ed4214d2a72605e06de5fe3ddac53bc
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Nov 20 16:37:15 2020 -0500
+
+    Added feedback atributes and constructor
+
+commit 7ad741fe4ecc6f0f87bb745bc127df4b2e4a37df
+Merge: fe6b19e bae52f4
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Nov 20 12:46:46 2020 -0500
+
+    Merge remote-tracking branch 'origin/master' into userdb
+
+commit fe6b19e13d0c5f2b0591adbef56a95658bbf8394
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Nov 20 12:42:31 2020 -0500
+
+    begin UsersDAO incl. addUser
+
+commit bae52f44605f89ead3a7a6f4d25eb5a173ce8804
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Fri Nov 20 11:53:23 2020 -0500
+
+    Adding Feedback class
+
+commit 25f89b3e3d4bb6ff029d2223653fc8376d3f70dd
+Merge: 3edf9df c379265
+Author: Arnold-Muralt <42650495+Arnold-Muralt@users.noreply.github.com>
+Date:   Fri Nov 20 01:49:15 2020 -0500
+
+    Merge pull request #1 from Cagoss85/Arnold
+    
+    Arnold
+
+commit c379265805de34f5dc9745d58a19d94f4cd9b7fa
+Merge: d159b67 3edf9df
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Fri Nov 20 01:42:08 2020 -0500
+
+    Merge remote-tracking branch 'origin/master'
+    
+    Conflicts:
+            src/main/java/edu/wpi/cs3733/b20/kotlin/demo/model/Alternative.java
+
+commit d159b67d5f05ff5de5acbc0e0b19c1ac504f5b19
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Fri Nov 20 01:30:42 2020 -0500
+
+    cleaned up Choice a bit
+
+commit 904e5dfeed5e2eb8b4c1ab62f09c23ce19ce9a04
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Fri Nov 20 01:29:17 2020 -0500
+
+    remove test class
+
+commit 3edf9dfd41cb2301e0ad0ab550c45554a2b0b09b
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Nov 20 01:24:53 2020 -0500
+
+    Added visibility to alternative attributes
+    
+    Forgot to add them
+
+commit 0a4891c2773f06dba8303e9056abf129611b76d9
+Merge: 1d0ba90 f7e48a3
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Fri Nov 20 01:23:02 2020 -0500
+
+    Merge branch 'master' of
+    https://github.com/Cagoss85/CS-3733-Group-Project-Kotlin.git
+    
+    Conflicts:
+            src/main/java/edu/wpi/cs3733/b20/kotlin/demo/model/User.java
+
+commit 33172e12b7bc32291e82bb75293e38b6eb65d28d
+Merge: f7e48a3 805051a
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Nov 20 01:12:39 2020 -0500
+
+    Merge branch 'alternative_class_creation'
+
+commit 805051ab691bdc5bf8a7a6067c4bfcbc9cd61aa1
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Nov 20 01:10:38 2020 -0500
+
+    Removed feedback iterator. I didn't think it was necessary
+
+commit 1d0ba90e810d462fcaee8e41e217e23e819add4a
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Fri Nov 20 01:03:10 2020 -0500
+
+    add user stub
+
+commit b514badf4d5336943dc7ecd8e38f3d655b778536
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Nov 20 01:02:57 2020 -0500
+
+    Deleted test class
+
+commit 00284cba0a2a165798ae13592440ad18ad01e0bf
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Fri Nov 20 00:59:35 2020 -0500
+
+    Adding Choice and alternantive class stub
+
+commit 04d77d8ce2171b69045f99bd2ee9fd187c464aa0
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Nov 20 00:55:42 2020 -0500
+
+    Added methods to alternative class
+
+commit 80d0efd2bfa237d879538c768bda48bb74a13733
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Fri Nov 20 00:50:30 2020 -0500
+
+    Created Alternative Class
+
+commit f7e48a33daf9f5b4f8979998e5a1dc093427c9b4
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Nov 20 00:44:59 2020 -0500
+
+    Adding DatabaseUtil class for db connections. Stolen straight from
+    Calculator example.
+
+commit bde5699b13011139b3892a9a6c0f4d4c4ba8bb89
+Author: Josh <Josh@130.215.123.32>
+Date:   Fri Nov 20 00:36:36 2020 -0500
+
+    new User class under model
+
+commit 485877a1fc944c14c7f705d95fc201417114984a
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Nov 19 23:31:46 2020 -0500
+
+    Added git visibility folder for the resources folder
+
+commit aee79b3b8b24ebbf5d9248ff59901a8bb89a21b0
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Nov 19 23:21:38 2020 -0500
+
+    Deleted Old Repo, wanted to make sure this was up to date
+
+commit 99797e195362716b00cd1251c05790253ce43636
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Nov 19 18:23:32 2020 -0500
+
+    delete testfile1
+
+commit b33d314888677102295339e4b6f8a4e2a15037b1
+Author: alindberg999 <alindberg999@gmail.com>
+Date:   Thu Nov 19 18:22:58 2020 -0500
+
+    delete testfile2
+
+commit c07d3fb9ec7e3260408059efe4d517a486f9ee8a
+Author: Arnold <Arnold@CLOUD-TOP-430>
+Date:   Thu Nov 19 18:21:35 2020 -0500
+
+    added test file2
+
+commit 1ff39139ae8eeb1261b459704f1567dedd3c07f7
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Nov 19 18:20:20 2020 -0500
+
+    test Commit/Push 1
+
+commit 8f26471847d3946806ca0aadf6f1bc99512b140e
+Author: Arnold-Muralt <42650495+Arnold-Muralt@users.noreply.github.com>
+Date:   Thu Nov 19 18:11:03 2020 -0500
+
+    Update .gitignore
+
+commit 123237147961b745c5a3b11878f402ac2f1408a9
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Nov 19 18:10:38 2020 -0500
+
+    Revert "pushing MANIFEST.MF -- BAD PUSH"
+    
+    This reverts commit 807d281a1961b99b062127c4a79eb3ed8fbccb06.
+
+commit 807d281a1961b99b062127c4a79eb3ed8fbccb06
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Nov 19 18:04:57 2020 -0500
+
+    pushing MANIFEST.MF -- BAD PUSH
+
+commit 0400f6ce12bdb2f1dea32d467e167f4168a5e8f3
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Nov 19 17:58:45 2020 -0500
+
+    Revert "test commit"
+    
+    This reverts commit cca61021dfb598fb0adba9edf223a89fa271d5b2.
+
+commit cca61021dfb598fb0adba9edf223a89fa271d5b2
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Nov 19 17:57:14 2020 -0500
+
+    test commit
+
+commit 6c27650aab0a15489efec7fdb9be8a8711a2cbb1
+Author: Arnold-Muralt <42650495+Arnold-Muralt@users.noreply.github.com>
+Date:   Thu Nov 19 17:49:44 2020 -0500
+
+    Update .gitignore
+
+commit 337f7e56ed539b7dbcd155c025481cb5cf4b1ae9
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Nov 19 17:44:56 2020 -0500
+
+    TestCommit
+
+commit 02222326c7b32dd47b5ddf7ac0a91cfa05a54b28
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Nov 19 17:43:48 2020 -0500
+
+    adding test files and classes
+
+commit 92ea060799eb0b675bb8e6dac28f980fd5f0a453
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Nov 19 17:33:37 2020 -0500
+
+    added folder/package structure try #2
+
+commit 2f3db9fc502908861be3b98c0dbe15eeba3f7d25
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Nov 19 17:29:15 2020 -0500
+
+    Revert "added folder/package structure"
+    
+    This reverts commit 2a4a7dd9eae5127b552ff5d7a1fcd888a68fd21f.
+
+commit 2a4a7dd9eae5127b552ff5d7a1fcd888a68fd21f
+Author: Josh <Josh@130.215.123.32>
+Date:   Thu Nov 19 17:21:32 2020 -0500
+
+    added folder/package structure
+
+commit a29a39f7e26100b23ff8e9d10e8f34ca5ca6d727
+Author: cagoss85 <cagoss85@gmail.com>
+Date:   Thu Nov 19 16:53:32 2020 -0500
+
+    Created Lambda project
