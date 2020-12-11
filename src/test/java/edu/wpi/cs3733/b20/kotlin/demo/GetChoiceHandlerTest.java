@@ -9,6 +9,8 @@ import org.junit.Test;
 import edu.wpi.cs3733.b20.kotlin.demo.http.CreateChoiceRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.GetChoiceRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.GetChoiceResponse;
+import edu.wpi.cs3733.b20.kotlin.demo.http.SelectFinalAlternativeRequest;
+import edu.wpi.cs3733.b20.kotlin.demo.http.SelectFinalAlternativeResponse;
 import edu.wpi.cs3733.b20.kotlin.demo.model.Alternative;
 
 public class GetChoiceHandlerTest extends LambdaTest{
@@ -33,6 +35,29 @@ public class GetChoiceHandlerTest extends LambdaTest{
 		GetChoiceResponse response2 = handler.handleRequest(request2, createContext("create"));
 		
 		assertEquals(400, response2.httpStatus);
+		
+		
+	}
+	@Test
+	public void testCompletedGetChoice() {
+		CreateChoiceRequest choiceReq = new CreateChoiceRequest(new ArrayList<Alternative>(), 5, "testGetChoice");
+		choiceReq.getAlternatives().add(new Alternative("t1"));
+		choiceReq.getAlternatives().add(new Alternative("t2"));
+		choiceReq.getAlternatives().add(new Alternative("t3"));
+		CreateChoiceHandler choiceHandler = new CreateChoiceHandler();
+		String sampleUUID = choiceHandler.handleRequest(choiceReq, createContext("Creating test choice 1")).uniqueID.toString();
+		
+		//choice is created and in database
+		SelectFinalAlternativeRequest completeReq = new SelectFinalAlternativeRequest(sampleUUID, 1);
+		SelectFinalAlternativeHandler commpleteHandler = new SelectFinalAlternativeHandler();
+		SelectFinalAlternativeResponse compelteResponse = commpleteHandler.handleRequest(completeReq, createContext("completing choice with altID 1"));
+		
+		GetChoiceRequest request1 = new GetChoiceRequest(sampleUUID);
+		GetChoiceHandler handler = new GetChoiceHandler();
+		GetChoiceResponse response1 = handler.handleRequest(request1, createContext("create"));
+		
+		assertEquals(400, response1.httpStatus);
+		assertEquals(true, response1.isClosed);
 		
 		
 	}

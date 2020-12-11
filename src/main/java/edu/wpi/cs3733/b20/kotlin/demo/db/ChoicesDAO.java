@@ -80,6 +80,8 @@ public class ChoicesDAO {
 				throw new Exception("UUID Mismatch");
 			String description = choiceSet.getString("description");
 			int maxUsers = choiceSet.getInt("maxUsers");
+			int finalAlternative = choiceSet.getInt("finalAlternative");
+			boolean isChosen = choiceSet.getBoolean("isChosen");
 
 			//Search database for alts with matching UUID
 			PreparedStatement ps2 = conn.prepareStatement("SELECT * FROM " + tblName2 + " WHERE choiceUUID=?;");
@@ -96,7 +98,7 @@ public class ChoicesDAO {
 				Alternative alt = new Alternative(alternativeSet.getString("description"), feedbackDAO.getFeedbackList(uuid, alternativeSet.getInt("altID")),appDAO.getApprovalList(uuid, alternativeSet.getInt("altID")), disDAO.getDisapprovalList(uuid, alternativeSet.getInt("altID")));
 				alternatives.add(alternativeSet.getInt("altID"), alt);
 			}
-			choice = new Choice(uuid, alternatives, maxUsers, description);
+			choice = new Choice(uuid, alternatives, maxUsers, description, finalAlternative, isChosen);
 
 			choiceSet.close();
 			alternativeSet.close();
@@ -166,7 +168,7 @@ public class ChoicesDAO {
 		try {
 			Choice choice = this.getChoice(uuid);
 			// if finalAlternative has been set to not null
-			if(choice.finalAlternative == null) {
+			if(!choice.getIsChosen()) {
 				return true;
 			}
 			return false;

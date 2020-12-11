@@ -8,20 +8,31 @@ public class Choice {
 	private ArrayList<User> users = new ArrayList<User>();
 	private int maxUsers;
 	private String description;
-	public Alternative finalAlternative;
+	private int finalAlternative;
+	private boolean isChosen;
 	private long timeCreated;
 	
 	//Administrator Console Attributes
-	public boolean isChosen;
 	public String timeCreatedString;
 	
-	//Default Choice Constructor
+	//default choice constructor for creating choice
 	public Choice(String uuid,ArrayList<Alternative> alternatives, int maxUsers, String description){
 		this.uuid= uuid;
 		this.alternatives = alternatives;
 		this.maxUsers = maxUsers;
 		this.timeCreated = System.currentTimeMillis();
 		this.description = description;
+	}
+	
+	//Choice constructor with final alternative and isclosed
+	public Choice(String uuid,ArrayList<Alternative> alternatives, int maxUsers, String description, int finalAlternative, boolean isChosen){
+		this.uuid= uuid;
+		this.alternatives = alternatives;
+		this.maxUsers = maxUsers;
+		this.timeCreated = System.currentTimeMillis();
+		this.description = description;
+		this.finalAlternative = finalAlternative;
+		this.isChosen = isChosen;
 	}
 	
 	//Admin Console Constructor
@@ -56,4 +67,6 @@ public class Choice {
 	
 	public String getTimeCreatedString() {return timeCreatedString;}
 	public boolean getIsChosen() {return isChosen;}
+	
+	public int getFinalAlternative() {return finalAlternative;}
 }
