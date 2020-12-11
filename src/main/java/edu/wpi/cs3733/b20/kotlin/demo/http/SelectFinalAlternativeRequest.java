@@ -3,11 +3,11 @@ package edu.wpi.cs3733.b20.kotlin.demo.http;
 
 // fix me?
 public class SelectFinalAlternativeRequest {
-	public String uuid;
+	public String choiceUUID;
 
 	public int altID;
-	public SelectFinalAlternativeRequest(String uuid,int altID ) {
-		this.uuid = uuid;
+	public SelectFinalAlternativeRequest(String choiceUUID,int altID ) {
+		this.choiceUUID = choiceUUID;
 		
 		this.altID = altID;
 	}
@@ -16,15 +16,15 @@ public class SelectFinalAlternativeRequest {
 		
 	}
 	
-	public String getUUID(){
-		return uuid;
+	public String getChoiceUUID(){
+		return choiceUUID;
 	}
 	public int getAltID() {
 		return altID;
 	}
 	
-	public void setUUID(String uuid) {
-		this.uuid = uuid;
+	public void setChoiceUUID(String choiceUUID) {
+		this.choiceUUID = choiceUUID;
 	}
 	public void setAlternative(int altID) {
 	
