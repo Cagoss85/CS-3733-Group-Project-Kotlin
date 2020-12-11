@@ -7,7 +7,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import edu.wpi.cs3733.b20.kotlin.demo.db.ChoicesDAO;
 import edu.wpi.cs3733.b20.kotlin.demo.http.SelectFinalAlternativeRequest;
 import edu.wpi.cs3733.b20.kotlin.demo.http.SelectFinalAlternativeResponse;
-
+//test 
 public class SelectFinalAlternativeHandler implements RequestHandler<SelectFinalAlternativeRequest,SelectFinalAlternativeResponse>{
 	LambdaLogger logger;
 	ChoicesDAO choiceDAO = new ChoicesDAO();

@@ -64,7 +64,9 @@ public class ApprovalsDAO {
 			}
 		}
 		else {
-			throw new Exception("Failed to insert approval: " + "choice is closed");
+		throw new Exception("Failed to insert approval: " + "choice is closed");
+		
+		
 		}
 	}
 	// get approval boolean, return true if this exists. 

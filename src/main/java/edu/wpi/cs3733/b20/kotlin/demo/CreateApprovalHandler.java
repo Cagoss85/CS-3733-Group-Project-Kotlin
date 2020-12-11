@@ -22,9 +22,10 @@ public class CreateApprovalHandler implements RequestHandler<CreateApprovalReque
 			if (logger != null) {logger.log("in create approval try block");}
 			return dao.addApproval(approval);
 		} catch (Exception e) {
-			e.printStackTrace();
+			
+			return false;
 		}
-		return false;
+		
 		
 	}
 	
